@@ -33,6 +33,16 @@ class User {
         $st->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
         return $st->fetchAll();
     }
+
+    public function isAdmin() {
+        return $this->props['isAdmin'];
+    }
+
+    public function toHTML() {
+        echo "<br>" . $this->name . ($this->isAdmin() ? "*" : "");
+    }
+    
+
 }
 
 $users = User::query("SELECT * FROM User");
@@ -49,9 +59,10 @@ $users = User::query("SELECT * FROM User");
     <h1>Liste des Utilisateurs</h1>
     <?php if (!empty($users)): ?>
         <ul>
-            <?php foreach ($users as $user): ?>
-                <li><?php echo $user->name; ?></li>
-            <?php endforeach; ?>
+            <?php 
+            foreach ($users as $user) 
+                $user->toHTML();
+            ?>
         </ul>
     <?php else: ?>
         <p>Aucun utilisateur trouvé.</p>
