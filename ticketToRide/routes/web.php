@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/profile', 'UserController@profile')->name('profile')->middleware('auth');
-Route::get('/rules', 'GameController@rules')->name('rules');
-Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/', function () {
+    return view('welcome');
+});
