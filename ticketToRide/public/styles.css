@@ -12,7 +12,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-    --test-color: rgb(190, 0, 0);
+    --test-color: #be0000;
     --bs-blue: #0d6efd;
     --bs-indigo: #6610f2;
     --bs-purple: #6f42c1;
@@ -75,7 +75,7 @@
     --bs-border-radius-xl: 1rem;
     --bs-border-radius-2xl: 2rem;
     --bs-border-radius-pill: 50rem;
-    --bs-link-color: #1abc9c;
+    --bs-link-color: #1100ff;
     --bs-link-hover-color: #15967d;
     --bs-code-color: #d63384;
     --bs-highlight-bg: #fff3cd;
@@ -717,6 +717,7 @@ progress {
     .container-sm,
     .container {
         max-width: 960px;
+        margin-bottom: 2em;
     }
 }
 
@@ -12617,7 +12618,7 @@ html {
 }
 
 .page-section {
-    padding: 6rem 0;
+    padding: 1rem 0;
 }
 
 .page-section .page-section-heading {
@@ -12632,6 +12633,7 @@ html {
         /*rajouté par moi pour décaler toute la page vers le bas sinon le bandeau cache un peu*/
 
         line-height: 2.5rem;
+        margin-top: 3.84em;
 
     }
 }
@@ -12642,6 +12644,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 4em;
 }
 
 .divider-custom .divider-custom-line {
@@ -12710,7 +12713,7 @@ html {
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-    color: #1abc9c;
+    color: #ffff9b;
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:active,
@@ -12866,10 +12869,19 @@ html {
 .footer {
     padding-top: 5rem;
     padding-bottom: 5rem;
-    background-color: #2c3e50;
+    background-color: #ff5815;
     color: #fff;
 }
 
 .copyright {
-    background-color: #1a252f;
+    background-color: #be0000;
+}
+
+#currentpage {
+    background-color: #f29b10;
+    /* Fond jaune pour le menu de la page actuelle */
+    color: #000;
+    /* Couleur du texte */
+    font-weight: bold;
+    /* Texte en gras */
 }
