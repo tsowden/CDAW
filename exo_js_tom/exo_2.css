@@ -1,0 +1,9 @@
+.descr, .img {
+  visibility: hidden; /* Masque les descriptions et images par défaut */
+}
+
+#focus {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0; /* Un fond différent pour la zone de focus */
+}

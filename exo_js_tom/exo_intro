@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercice d'Introduction - JavaScript</title>
+</head>
+<body>
+
+<button id="b1">Bouton 1</button>
+<button id="b2">Bouton 2</button>
+
+
+<script>
+"use strict";
+
+function addListenerToB1() {
+    document.getElementById('b1').addEventListener('click', handleB1Click);
+}
+
+function addListenerToB2() {
+    document.getElementById('b2').addEventListener('click', handleB2Click);
+}
+
+function handleB1Click() {
+    alert('Bouton 1 cliqué');
+    document.getElementById('b1').removeEventListener('click', handleB1Click);
+    addListenerToB2();
+}
+
+function handleB2Click() {
+    alert('Bouton 2 cliqué');
+    document.getElementById('b2').removeEventListener('click', handleB2Click);
+    addListenerToB1();
+}
+
+addListenerToB1();
+</script>
+
+</body>
+</html>
