@@ -8,6 +8,20 @@ class AccueilController extends Controller
 {
     public function index()
     {
-        return view('accueil');
+        $currentPageId = 'accueil';
+        // $currentLang = $request->query('lang');
+
+        $mymenu = [
+            'portfolio' => ['Portfolio'],
+            'about' => ['About'],
+            'cv' => ['Cv'],
+            'contact' => ['Contact']
+        ];
+
+        return view('accueil', [
+            'mymenu' => $mymenu,
+            'currentPageId' => $currentPageId,
+            // 'currentLang' => $currentLang
+        ]);
     }
 }
