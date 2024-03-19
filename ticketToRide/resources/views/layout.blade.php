@@ -6,15 +6,11 @@
     <title>@yield('title', 'Ticket To Ride - Explore & Conquer')</title>
     <meta name="description" content="@yield('meta_description', 'Ticket To Ride - Start your railway adventure!')">
     <meta name="keywords" content="@yield('meta_keywords', 'boardgame, strategy, railway, tickettoride')">
+    
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap-theme.css') }}" rel="stylesheet">
-
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/custom-medieval.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/style_custom.css') }}" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900" rel="stylesheet">
-    <!-- <link href="{{ asset('css/custom-medieval.css') }}" rel="stylesheet"> -->
 
     @yield('head')
 </head>
