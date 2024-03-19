@@ -1,4 +1,4 @@
-<!-- Navigation-->
+
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">Nizar Mhaya</a>
@@ -18,12 +18,3 @@
     </div>
 </nav>
 
-<!-- <nav>
-    <ul>
-        <li><a href="{{ route('accueil') }}">Accueil</a></li>
-        <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
-        <li><a href="{{ route('about') }}">About</a></li>
-        <li><a href="{{ route('cv') }}">CV</a></li>
-        <li><a href="{{ route('contact') }}">Contact</a></li>
-    </ul>
-</nav> -->

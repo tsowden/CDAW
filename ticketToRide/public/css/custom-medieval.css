@@ -1,0 +1,89 @@
+/* custom-medieval.css */
+body {
+    background: #000 url('/path-to-your-dragon-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Cinzel Decorative', serif;
+}
+
+header.text-center {
+    margin: 50px 0;
+    color: #fff;
+}
+
+.scoreboard {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.scoreboard h2 {
+    color: #ff0; /* Gold color for headers */
+    font-size: 2em;
+}
+
+.table-bordered {
+    border: 2px solid #955; /* A color that matches the theme */
+}
+
+.table-dark {
+    color: #ddd; /* Light text for readability */
+}
+
+.table-dark thead th {
+    background-color: #111; /* Dark background for the header */
+}
+
+.table-dark tbody td {
+    background-color: #222; /* Slightly lighter background for rows */
+}
+
+.table-hover tbody tr:hover {
+    background-color: #333; /* Highlight for hover effect */
+}
+
+/* custom.css */
+
+.navbar-custom {
+    background-color: #000; /* Use the same color as your header background */
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand-custom {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand-custom img {
+    height: 50px; /* Adjust the size to fit your logo */
+}
+
+.navbar-nav-custom {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Adjust the space between the items */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav-custom li a {
+    color: #fff; /* Set the text color */
+    text-decoration: none;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.navbar-nav-custom li a:hover, .navbar-nav-custom li a:active {
+    color: #aaa; /* Set hover color */
+    border-bottom: 1px solid #fff; /* Optional: Adds an underline effect on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+.navbar-nav-custom {
+flex-direction: column;
+}
+}
