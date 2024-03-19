@@ -1,20 +1,23 @@
+
+
 @extends('layout')
 
 @section('title', 'Welcome to our site - Home')
 
 @section('head-scripts')
-
-<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom-medieval.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
-    <div class="container mt-5">
+    <header>
+        <div class="hero-section">
+            <img src="{{ asset('images/home-image-2.png') }}" alt="Welcome to our game" class="img-responsive">
+        </div>
+        <p class="lead text-center mb-4">Embark on an epic journey and compete for the throne of the realm</p>
+    </header>
 
-    <header class="text-center mb-5">
-            <h1 class="text-uppercase mb-3">Welcome to our game</h1>
-            <p class="lead mb-4">Embark on an epic journey and compete for the throne of the realm</p>
-        </header>
+
 
 
         <section class="scoreboard">
@@ -31,8 +34,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Sample Data -->
-                        <tr>
+
+                    <tr>
                             <td>1</td>
                             <td>Sir Lancelot</td>
                             <td>95</td>
@@ -58,10 +61,9 @@
                 </table>
             </div>
         </section>
-    </div>
 @endsection
+</div>
 
 @section('scripts')
-
-<script src="{{ asset('js/custom.js') }}"></script>
+<!-- blabla -->
 @endsection

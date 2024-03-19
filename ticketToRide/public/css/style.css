@@ -2606,12 +2606,11 @@ body {
   float: right;
   margin: 4px 20px 0 0;
   position: relative;
-  width: 355px;
+  width: 755px;
 }
 .heroes-2 {
   float: left;
   color: #c4ae78;
-  font-size: 81.25%; /* 13px / 16px = 81.25% */
   letter-spacing: 0;
   text-align: center;
 }
@@ -2619,7 +2618,6 @@ body {
   float: left;
   margin: 0 0 0 50px;
   color: #c4ae78;
-  font-size: 81.25%; /* 13px / 16px = 81.25% */
   letter-spacing: 0;
   text-align: center;
 }
@@ -2627,7 +2625,6 @@ body {
   float: left;
   margin: 0 0 0 50px;
   color: #c4ae78;
-  font-size: 81.25%; /* 13px / 16px = 81.25% */
   letter-spacing: 0;
   text-align: center;
 }
@@ -2635,7 +2632,6 @@ body {
   float: left;
   margin: 0 0 0 61px;
   color: #c4ae78;
-  font-size: 81.25%; /* 13px / 16px = 81.25% */
   letter-spacing: 0;
   text-align: center;
 }
@@ -2737,4 +2733,28 @@ body {
 }
 .fw700 {
   font-weight: bold;
+}
+header {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Adjust this class according to the full-width image needs */
+.hero-section {
+  padding: 0;
+  margin: 0;
+  /* If your image still doesn't cover the full width, you may need to adjust its max-width property */
+}
+
+.hero-section img {
+  width: 100%;
+  height: auto;
+  display: block; /* Ensures the image does not have any extra space around it */
+  max-width: none; /* Overrides any max-width that might be set by Bootstrap */
+}
+
+/* This ensures the text is centered below the full-width image */
+.lead.text-center {
+  text-align: center;
 }
