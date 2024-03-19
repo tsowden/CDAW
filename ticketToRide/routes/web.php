@@ -19,21 +19,4 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
 
-// Route::get('/home', [AccueilController::class, 'index'])->name('home');
-// Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
-// Route::get('/about', [AboutController::class, 'index'])->name('about');
-// Route::get('/cv', [CvController::class, 'index'])->name('cv');
-// Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-// Route::get('/heroes', function () {
-//     // Your logic here
-// })->name('heroes');
-
-// Route::get('/gallery', function () {
-//     // Your logic here
-// })->name('gallery');
-
-// Route::get('/store', function () {
-//     // Your logic here
-// })->name('store');
-
 
