@@ -7,6 +7,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ChatController;
 
 
 /*
@@ -29,3 +30,8 @@ Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/cv', [CvController::class, 'index'])->name('cv');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+
+// Route::get('/chat', function () {
+//     return view('chat');
+// });

@@ -11,6 +11,8 @@ class AboutController extends Controller
         // $currentPageId = $request->query('page');
         $currentPageId = 'about';
         $currentLang = $request->query('lang');
+        $routeName = \Route::currentRouteName();
+
 
         $mymenu = [
             'portfolio' => ['Portfolio'],
@@ -22,7 +24,8 @@ class AboutController extends Controller
         return view('about', [
             'mymenu' => $mymenu,
             'currentPageId' => $currentPageId,
-            'currentLang' => $currentLang
+            'currentLang' => $currentLang,
+            'routeName' => $routeName,
         ]);
     }
 }
