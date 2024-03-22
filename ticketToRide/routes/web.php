@@ -7,6 +7,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 
 /*
@@ -27,9 +28,11 @@ Route::get('/', function () {
 Route::get('/', [AccueilController::class, 'index'])->name('accueil');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/cv', [CvController::class, 'index'])->name('cv');
+Route::get('/cv', [CvController::class, 'index'])->name('cv')->middleware('auth');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+
+Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
