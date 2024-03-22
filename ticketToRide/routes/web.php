@@ -7,7 +7,6 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CvController;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ChatController;
 
 
 /*
@@ -32,6 +31,10 @@ Route::get('/cv', [CvController::class, 'index'])->name('cv');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
 
-// Route::get('/chat', function () {
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__ . '/auth.php';// Route::get('/chat', function () {
 //     return view('chat');
 // });
