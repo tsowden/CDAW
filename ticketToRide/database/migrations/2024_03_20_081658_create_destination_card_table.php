@@ -17,10 +17,16 @@ class CreateDestinationCardTable extends Migration
             $table->id('dc_id');
             $table->unsignedInteger('dc_points');
             $table->boolean('dc_isCompleted')->default(false);
-            $table->foreignId('player_id_dc_hand')->nullable()->constrained('players')->onDelete('set null');
-            $table->foreignId('city_departure_id')->constrained('cities');
-            $table->foreignId('city_arrival_id')->constrained('cities');
+            
+            $table->foreignId('player_id_dc_hand')->nullable()->references('player_id')->on('player')->onDelete('set null');
+            
+            $table->foreignId('city_departure_id')->references('city_id')->on('city')->onDelete('restrict');
+            
+            $table->foreignId('city_arrival_id')->references('city_id')->on('city')->onDelete('restrict');
+            
+            $table->unique(['city_departure_id', 'city_arrival_id'], 'unique_city_pair');
         });
+        
     }
 
     /**

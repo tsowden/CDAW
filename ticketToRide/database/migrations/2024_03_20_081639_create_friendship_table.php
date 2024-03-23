@@ -15,8 +15,14 @@ class CreateFriendshipTable extends Migration
     {
         Schema::create('friendships', function (Blueprint $table) {
             $table->id('friendship_id');
-            $table->foreignId('player_id_1')->constrained('players')->onDelete('cascade');
-            $table->foreignId('player_id_2')->constrained('players')->onDelete('cascade');
+            $table->foreignId('player_id_1')
+                ->references('player_id')->on('player')
+                ->onDelete('cascade');
+
+            $table->foreignId('player_id_2')
+                ->references('player_id')->on('player')
+                ->onDelete('cascade');
+
             $table->boolean('is_accepted')->default(false);
             $table->unique(['player_id_1', 'player_id_2']);
 

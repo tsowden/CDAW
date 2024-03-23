@@ -17,10 +17,11 @@ class CreateWagonCardTable extends Migration
             $table->id('wc_id');
             $table->string('wc_color');
             $table->string('wc_image');
-            $table->foreignId('player_id_wc_hand')->nullable()->constrained('players')->onDelete('set null');
+            $table->foreignId('player_id_wc_hand')->nullable()->references('player_id')->on('player')->onDelete('set null');
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.

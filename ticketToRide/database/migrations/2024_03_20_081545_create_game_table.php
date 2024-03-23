@@ -18,9 +18,9 @@ class CreateGameTable extends Migration
             $table->string('game_state'); // 'waiting', 'in_progress', 'finished'
             $table->unsignedInteger('game_max_players');
             $table->unsignedInteger('game_turn_time');
-            $table->foreignId('player_id_creator') 
-                  ->constrained('players') 
-                  ->onDelete('cascade'); 
+            $table->foreignId('player_id_creator')
+                ->references('player_id')->on('player') 
+                ->onDelete('cascade');
         });
     }
 
