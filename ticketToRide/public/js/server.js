@@ -14,6 +14,7 @@ wss.on('connection', function connection(ws) {
             if (data.type === 'new-user') {
                 users[ws.id] = data.name; // Associer le nom de l'utilisateur à son identifiant de connexion
                 console.log(`${data.name} has joined the group`);
+                console.log(users);
             } else if (data.type === 'send-chat-message') {
                 console.log(`Message from ${users[ws.id]}: ${data.message}`);
                 // Broadcast the message to all clients
