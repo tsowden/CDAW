@@ -1,3 +1,14 @@
+<style>
+    /* Style pour le texte en blanc */
+    .navbar-nav li a {
+        color: white !important;
+        /* Couleur du texte en blanc */
+        padding: 0.5rem 1rem;
+        /* Espacement autour du texte */
+        margin-right: 10px;
+        /* Espacement entre les éléments du menu */
+    }
+</style>
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
