@@ -4,7 +4,7 @@ const messageForm = document.getElementById('send-container');
 const messageInput = document.getElementById('message-input');
 
 const name = prompt('Entrez votre pseudo');
-appendMessage('Vous avez rejoint le groupe');
+// appendMessage('Vous avez rejoint le groupe'); ceci fait doublons
 
 // Événement de connexion WebSocket
 socket.onopen = () => {
@@ -39,7 +39,7 @@ socket.onclose = () => {
 messageForm.addEventListener('submit', e => {
     e.preventDefault();
     const message = messageInput.value;
-    // appendMessage(`Vous : ${message}`);
+    // appendMessage(`Vous : ${message}`); ceci fait doublons
     // Envoyer le message au serveur
     socket.send(JSON.stringify({ type: 'send-chat-message', message: message }));
     messageInput.value = '';

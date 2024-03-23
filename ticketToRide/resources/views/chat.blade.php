@@ -14,6 +14,7 @@
     <!-- Bootstrap Font Icon CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('styles.css') }}" rel="stylesheet" />
 
     <style>
         body {
@@ -102,7 +103,7 @@
 
 <body>
     @extends('menu')
-    <div id="message-container"></div>
+    <div style="padding-top: 120px; padding-bottom: 120px" id="message-container"></div>
     <form id="send-container">
         <input type="text" id="message-input">
         <button type="submit" id="send-button"><i class="bi bi-arrow-up-circle-fill"></i></button>
