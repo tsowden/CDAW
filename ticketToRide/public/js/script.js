@@ -1,34 +1,26 @@
-const socket = io('http://localhost:3000')
-const messageContainer = document.getElementById('message-container')
-const messageForm = document.getElementById('send-container')
-const messageInput = document.getElementById('message-input')
+const socket = new WebSocket('ws://localhost:3000');
 
-const name = prompt('Entrez votre pseudo')
-appendMessage('Vous avez rejoint le groupe')
-socket.emit('new-user', name)
+// Écoute des événements de connexion, de réception de messages, etc.
+socket.addEventListener('open', function (event) {
+    console.log('Connected to WebSocket server');
+});
 
-socket.on('chat-message', data => {
-    appendMessage(`${data.name}: ${data.message}`)
-})
+socket.addEventListener('message', function (event) {
+    console.log('Message from server:', event.data);
+    // Traitez ici les messages reçus du serveur WebSocket
+});
 
-socket.on('user-connected', name => {
-    appendMessage(`${name} a rejoint le groupe`)
-})
+socket.addEventListener('close', function (event) {
+    console.log('Disconnected from WebSocket server');
+});
 
-socket.on('user-disconnected', name => {
-    appendMessage(`${name} a quitté le groupe`)
-})
-
-messageForm.addEventListener('submit', e => {
-    e.preventDefault()
-    const message = messageInput.value
-    appendMessage(`Vous : ${message}`)
-    socket.emit('send-chat-message', message)
-    messageInput.value = ''
-})
-
-function appendMessage(message) {
-    const messageElement = document.createElement('div')
-    messageElement.innerText = message
-    messageContainer.append(messageElement)
-}
+// Écoute des soumissions de formulaire pour envoyer des messages
+document.getElementById('send-container').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const messageInput = document.getElementById('message-input');
+    const message = messageInput.value.trim();
+    if (message) {
+        socket.send(message);
+        messageInput.value = '';
+    }
+});
