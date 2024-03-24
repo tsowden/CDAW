@@ -24,6 +24,7 @@
                 <li><a href="{{ route('about') }}">About</a></li>
                 <li><a href="{{ route('cv') }}">CV</a></li>
                 <li><a href="{{ route('contact') }}">Contact</a></li>
+                <li><a href="{{ route('jouer') }}">Jouer</a></li>
                 <li><a href="{{ route('chat') }}">Chat</a></li>
                 <li><a href="{{ route('dashboard') }}">Login</a></li>
                 <li><a href="{{ route('logout') }}">Logout</a></li>

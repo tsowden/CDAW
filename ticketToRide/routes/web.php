@@ -9,6 +9,7 @@ use App\Http\Controllers\CvController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\GameController;
 
 
 /*
@@ -32,6 +33,9 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/cv', [CvController::class, 'index'])->name('cv')->middleware('auth');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+Route::get('/game', [GameController::class, 'index'])->name('game');
+Route::post('/game', [GameController::class, 'store'])->name('game.store');
+
 
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
