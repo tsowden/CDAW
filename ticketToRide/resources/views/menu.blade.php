@@ -21,11 +21,11 @@
             <ul class="navbar-nav ms-auto">
                 <li><a href="{{ route('accueil') }}">Accueil</a></li>
                 <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
-                <li><a href="{{ route('about') }}">About</a></li>
                 <li><a href="{{ route('cv') }}">CV</a></li>
-                <li><a href="{{ route('contact') }}">Contact</a></li>
+                <li><a href="{{ route('games') }}">Games</a></li>
                 <li><a href="{{ route('game') }}">Game</a></li>
                 <li><a href="{{ route('chat') }}">Chat</a></li>
+                <li><a href="{{ route('register') }}">Register</a></li>
                 <li><a href="{{ route('dashboard') }}">Login</a></li>
                 <li><a href="{{ route('logout') }}">Logout</a></li>
             </ul>

@@ -37,7 +37,7 @@ Route::get('/game', [GameController::class, 'index'])->name('game');
 Route::post('/game', [GameController::class, 'store'])->name('game.store');
 
 
-Route::get('/games', [GameController::class, 'games'])->name('games.index');
+Route::get('/games', [GameController::class, 'games'])->name('games');
 
 
 
