@@ -19,9 +19,6 @@
 </head>
 
 <body>
-    <header class="bandeau_haut">
-        <h1 class="titre">Hector Durand</h1>
-    </header>
 
     <!-- Inclusion du menu -->
     @include('menu')

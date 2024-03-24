@@ -12,6 +12,7 @@ class GameController extends Controller
         return view('game');
     }
 
+    // permet de créer une nouvelle partie grâce au formulaire de la vue game
     public function store(Request $request)
     {
         // Validation des données du formulaire
@@ -30,5 +31,14 @@ class GameController extends Controller
 
         // Redirection vers une page de confirmation ou de jeu
         return redirect()->route('game', $game->id);
+    }
+
+
+    // permet de d'afficher toutes les partie dans la vue games
+    public function games()
+
+    {
+        $games = Game::all();
+        return view('games', compact('games'));
     }
 }
