@@ -177,9 +177,19 @@ header.text-center {
     /* Optional: Adds an underline effect on hover */
 }
 
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .navbar-nav-custom {
         flex-direction: column;
     }
+}
+
+textarea {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 110%;
+    vertical-align: baseline;
 }
