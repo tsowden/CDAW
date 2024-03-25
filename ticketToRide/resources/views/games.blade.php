@@ -1,30 +1,43 @@
 <!-- resources/views/games.blade.php -->
 
 @extends('layout')
+@section('title', 'Welcome to our site - Home')
+
+@section('head-scripts')
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('css/style_custom.css') }}" rel="stylesheet">
+@endsection
+
 
 @section('content')
-<h1 div style="padding-top: 130px">Liste des parties disponibles</h1>
-<br><br>
-<table>
-    <thead>
-        <tr>
-            <th>ID de la partie</th>
-            <th>État de la partie</th>
-            <th>Nombre maximum de joueurs</th>
-            <th>Durée du tour</th>
-            <th>ID du créateur de la partie</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($games as $game)
-        <tr>
-            <td>{{ $game->game_id }}</td>
-            <td>{{ $game->game_state }}</td>
-            <td>{{ $game->game_max_players }}</td>
-            <td>{{ $game->game_turn_time }}</td>
-            <td>{{ $game->player_id_creator }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-@endsection
+
+<section class="scoreboard">
+    <h2 class="text-center mb-3">Liste des parties créées</h2>
+    <div class="table-responsive">
+        <table class="table table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">ID de la partie</th>
+                    <th scope="col">Etat de la partie</th>
+                    <th scope="col">Nombre tours</th>
+                    <th scope="col">Durée tours</th>
+                    <th scope="col">Id créateur</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($games as $game)
+                <tr>
+                    <td>{{ $game->game_id }}</td>
+                    <td>{{ $game->game_state }}</td>
+                    <td>{{ $game->game_max_players }}</td>
+                    <td>{{ $game->game_turn_time }}</td>
+                    <td>{{ $game->player_id_creator }}</td>
+                    <form action="{{ route('games.join', $game->game_id) }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-primary">Rejoindre</button>
+                    </form>
+                </tr>
+                @endforeach
+            <tbody>
+
+                @endsection

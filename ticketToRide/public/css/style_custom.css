@@ -184,12 +184,3 @@ header.text-center {
         flex-direction: column;
     }
 }
-
-textarea {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font: inherit;
-    font-size: 110%;
-    vertical-align: baseline;
-}

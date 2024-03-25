@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Game;
+use App\Models\Participation;
 
 class GameController extends Controller
 {
@@ -40,5 +41,17 @@ class GameController extends Controller
     {
         $games = Game::all();
         return view('games', compact('games'));
+    }
+
+    public function join($game)
+    {
+        // Récupérer l'ID de l'utilisateur connecté
+        $userId = auth()->user()->id;
+
+        // Créer une nouvelle entrée dans la table participation
+        Participation::create([
+            'game_id' => $game,
+            'player_id' => $userId,
+        ]);
     }
 }
