@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccueilController;
+use App\Http\Controllers\PortfolioController;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GameController;
@@ -10,7 +13,7 @@ use App\Http\Controllers\CvController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ChatController;
-use App\Http\Controllers\GameController;
+
 
 
 /*
@@ -24,18 +27,11 @@ use App\Http\Controllers\GameController;
 |
 */
 
-Route::get('/', function () {
-    return view('accueil'); 
-})->name('home'); 
 
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/play', [GameController::class, 'index'])->name('play');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-    return view('welcome');
-});
 
-Route::get('/', [AccueilController::class, 'index'])->name('accueil');
+Route::get('/', [AccueilController::class, 'index'])->name('home');
 Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/cv', [CvController::class, 'index'])->name('cv')->middleware('auth');
@@ -45,7 +41,6 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
-Route::get('/game', [GameController::class, 'index'])->name('game');
 Route::post('/game', [GameController::class, 'store'])->name('game.store');
 
 

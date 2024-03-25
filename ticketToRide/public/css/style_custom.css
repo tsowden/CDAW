@@ -5,6 +5,89 @@ body {
     font-family: 'Cinzel Decorative', serif;
 }
 
+#message-body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #0a1318;
+    /* Couleur de fond pour le corps */
+}
+
+#message-container {
+    width: 80%;
+    max-width: 1200px;
+    margin-top: 20px;
+    /* Espacement par rapport au haut de la page */
+}
+
+#message-container div {
+    background-color: #222e35;
+    color: white;
+    /* Couleur de fond pour les messages */
+    padding: 10px;
+    margin-bottom: 10px;
+    /* Espacement entre les messages */
+    border-radius: 15px;
+    /* Bords arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Ombre pour un effet de profondeur */
+}
+
+#message-container div:nth-child(2n) {
+    background-color: #054740;
+    color: white;
+    /* Couleur de fond alternative pour les messages */
+}
+
+#send-container {
+    position: fixed;
+    padding: 15px;
+    bottom: 0;
+    background-color: #1c282f;
+    /* Couleur de fond pour la zone d'envoi de message */
+    max-width: 1200px;
+    width: 80%;
+    display: flex;
+    border-top-left-radius: 20px;
+    /* Bords arrondis en haut à gauche */
+    border-top-right-radius: 20px;
+    /* Bords arrondis en haut à droite */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    /* Ombre pour un effet de profondeur */
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    background-color: #101d24;
+    color: white;
+    border: none;
+    border-bottom-left-radius: 10px;
+    /* Bords arrondis en bas à gauche */
+    outline: none;
+    /* Suppression de la bordure de focus */
+}
+
+#send-button {
+    padding: 10px 20px;
+    background-color: #17ba86;
+    /* Couleur de fond pour le bouton d'envoi */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    /* Bords arrondis en bas à droite */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    /* Transition fluide pour l'effet de survol */
+}
+
+#send-button:hover {
+    background-color: #07e759;
+    /* Couleur de fond au survol */
+}
+
+
 header.text-center {
     margin: 50px 0;
     color: #fff;
@@ -17,34 +100,41 @@ header.text-center {
 }
 
 .scoreboard h2 {
-    color: #ff0; /* Gold color for headers */
+    color: #ff0;
+    /* Gold color for headers */
     font-size: 2em;
 }
 
 .table-bordered {
-    border: 2px solid #955; /* A color that matches the theme */
+    border: 2px solid #955;
+    /* A color that matches the theme */
 }
 
 .table-dark {
-    color: #ddd; /* Light text for readability */
+    color: #ddd;
+    /* Light text for readability */
 }
 
 .table-dark thead th {
-    background-color: #111; /* Dark background for the header */
+    background-color: #111;
+    /* Dark background for the header */
 }
 
 .table-dark tbody td {
-    background-color: #222; /* Slightly lighter background for rows */
+    background-color: #222;
+    /* Slightly lighter background for rows */
 }
 
 .table-hover tbody tr:hover {
-    background-color: #333; /* Highlight for hover effect */
+    background-color: #333;
+    /* Highlight for hover effect */
 }
 
 /* custom.css */
 
 .navbar-custom {
-    background-color: #000; /* Use the same color as your header background */
+    background-color: #000;
+    /* Use the same color as your header background */
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
@@ -57,33 +147,39 @@ header.text-center {
 }
 
 .navbar-brand-custom img {
-    height: 50px; /* Adjust the size to fit your logo */
+    height: 50px;
+    /* Adjust the size to fit your logo */
 }
 
 .navbar-nav-custom {
     list-style: none;
     display: flex;
-    gap: 20px; /* Adjust the space between the items */
+    gap: 20px;
+    /* Adjust the space between the items */
     margin: 0;
     padding: 0;
 }
 
 .navbar-nav-custom li a {
-    color: #fff; /* Set the text color */
+    color: #fff;
+    /* Set the text color */
     text-decoration: none;
     font-family: 'Cinzel Decorative', serif;
     font-size: 1.2rem;
     text-transform: uppercase;
 }
 
-.navbar-nav-custom li a:hover, .navbar-nav-custom li a:active {
-    color: #aaa; /* Set hover color */
-    border-bottom: 1px solid #fff; /* Optional: Adds an underline effect on hover */
+.navbar-nav-custom li a:hover,
+.navbar-nav-custom li a:active {
+    color: #aaa;
+    /* Set hover color */
+    border-bottom: 1px solid #fff;
+    /* Optional: Adds an underline effect on hover */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-.navbar-nav-custom {
-flex-direction: column;
-}
+    .navbar-nav-custom {
+        flex-direction: column;
+    }
 }

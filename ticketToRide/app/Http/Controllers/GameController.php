@@ -9,7 +9,7 @@ class GameController extends Controller
 {
     public function index(Request $request)
     {
-        return view('game');
+        return view('play');
     }
 
     // permet de créer une nouvelle partie grâce au formulaire de la vue game
@@ -30,7 +30,7 @@ class GameController extends Controller
         $game->save();
 
         // Redirection vers une page de confirmation ou de jeu
-        return redirect()->route('game', $game->id);
+        return redirect()->route('play', $game->id);
     }
 
 
