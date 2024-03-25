@@ -32,10 +32,12 @@
                     <td>{{ $game->game_max_players }}</td>
                     <td>{{ $game->game_turn_time }}</td>
                     <td>{{ $game->player_id_creator }}</td>
-                    <form action="{{ route('games.join', $game->game_id) }}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-primary">Rejoindre</button>
-                    </form>
+                    <td>
+                        <form action="{{ route('games.join', $game->game_id) }}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-primary">Rejoindre</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             <tbody>

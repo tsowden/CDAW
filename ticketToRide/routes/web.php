@@ -41,7 +41,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
-Route::post('/game', [GameController::class, 'store'])->name('game.store');
+Route::post('/play', [GameController::class, 'store'])->name('game.store');
 
 
 Route::get('/games', [GameController::class, 'games'])->name('games');
