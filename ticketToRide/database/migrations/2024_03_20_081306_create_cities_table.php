@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlayerTable extends Migration
+class CreateCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreatePlayerTable extends Migration
      */
     public function up()
     {
-        Schema::create('player', function (Blueprint $table) {
-            $table->id('player_id'); 
-            $table->string('player_name');
-            $table->string('player_mail')->unique(); 
-            $table->string('player_password');
-            $table->string('player_role');
+        Schema::create('cities', function (Blueprint $table) {
+            $table->id('city_id'); 
+            $table->string('city_name');
+            $table->decimal('city_position_x', 9, 6);
+            $table->decimal('city_position_y', 9, 6);
+
         });
     }
 
@@ -29,6 +29,6 @@ class CreatePlayerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('player');
+        Schema::dropIfExists('cities');
     }
 }

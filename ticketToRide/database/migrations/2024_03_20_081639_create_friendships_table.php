@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFriendshipTable extends Migration
+class CreateFriendshipsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,11 +16,11 @@ class CreateFriendshipTable extends Migration
         Schema::create('friendships', function (Blueprint $table) {
             $table->id('friendship_id');
             $table->foreignId('player_id_1')
-                ->references('player_id')->on('player')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
 
             $table->foreignId('player_id_2')
-                ->references('player_id')->on('player')
+                ->references('id')->on('users')
                 ->onDelete('cascade');
 
             $table->boolean('is_accepted')->default(false);
