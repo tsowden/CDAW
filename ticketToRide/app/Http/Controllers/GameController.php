@@ -39,7 +39,7 @@ class GameController extends Controller
     public function games()
 
     {
-        $games = Game::all();
+        $games = Game::where('game_state', 'En attente')->get();
         return view('games', compact('games'));
     }
 
