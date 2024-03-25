@@ -5,8 +5,23 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('contact');
+        // $currentPageId = $request->query('page');
+        $currentPageId = 'contact';
+        $currentLang = $request->query('lang');
+
+        $mymenu = [
+            'portfolio' => ['Portfolio'],
+            'about' => ['About'],
+            'cv' => ['Cv'],
+            'contact' => ['Contact']
+        ];
+
+        return view('contact', [
+            'mymenu' => $mymenu,
+            'currentPageId' => $currentPageId,
+            'currentLang' => $currentLang
+        ]);
     }
 }
