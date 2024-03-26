@@ -4,6 +4,27 @@ body {
     /* background-size: cover; */
     font-family: 'Cinzel Decorative', serif;
 }
+
+html {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Utilisez viewport height pour garantir que le body prenne au moins toute la hauteur de l'écran */
+    margin: 0; /* Retire les marges par défaut */
+  }
+  
+  .site-content {
+    flex: 1; /* Le contenu du site utilise tout l'espace disponible, poussant le footer vers le bas */
+  }
+  
+  .medieval-footer {
+    color: #f8e7d2; /* Couleur du texte */
+    padding:1%;
+  }
+  
 .row-rules {
     margin-right: 0; /* Assurez-vous qu'il n'y a pas de marge sur la droite */
     margin-left: auto; /* Alignez le bloc à droite */
