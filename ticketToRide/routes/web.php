@@ -29,6 +29,7 @@ use App\Http\Controllers\ChatController;
 
 
 Route::get('/play', [GameController::class, 'index'])->name('play');
+
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::get('/', [AccueilController::class, 'index'])->name('home');

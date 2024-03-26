@@ -17,9 +17,25 @@
     </div>
 @else
     <div class="alert alert-info" role="alert">
-        Vous n'avez aucune partie en cours ! Créez-en une nouvelle ou rejoignez-en une dans l'onglet "Parties".
-        
+        Vous n'avez aucune partie en cours ! Créez-en une nouvelle ci-dessous ou rejoignez en une via l'onglet "Parties".
     </div>
+    
+    {{-- Formulaire pour créer une nouvelle partie --}}
+    <div id="map-container">
+        <img src="{{ asset('assets/img/map240324.png') }}" alt="Carte des Aventuriers du Rail" id="map-image">
+    </div>
+    
+    <form method="POST" action="{{ route('game.store') }}">
+        @csrf
+        <label for="num_players">Nombre de joueurs :</label>
+        <input type="number" id="num_players" name="num_players" min="2" max="6" required>
+        <br>
+        <label for="turn_duration">Durée des tours (en minutes) :</label>
+        <input type="number" id="turn_duration" name="turn_duration" min="1" required>
+        <br>
+        <input type="submit" value="Créer la partie">
+    </form>
+
 @endif
 
 @endsection
