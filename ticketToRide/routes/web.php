@@ -46,7 +46,7 @@ Route::post('/play', [GameController::class, 'store'])->name('game.store');
 
 Route::get('/games', [GameController::class, 'games'])->name('games');
 
-Route::post('/games/{game}/join', [GameController::class, 'join'])->name('games.join');
+Route::post('/games/{gameidentifiant}/join', [GameController::class, 'join'])->name('games.join');
 
 
 

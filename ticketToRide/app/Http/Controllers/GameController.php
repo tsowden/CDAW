@@ -43,14 +43,14 @@ class GameController extends Controller
         return view('games', compact('games'));
     }
 
-    public function join($game)
+    public function join($gameidentifiant)
     {
         // Récupérer l'ID de l'utilisateur connecté
         $userId = auth()->user()->id;
 
         // Créer une nouvelle entrée dans la table participation
         Participation::create([
-            'game_id' => $game,
+            'game_id' => $gameidentifiant,
             'player_id' => $userId,
         ]);
 
