@@ -1,7 +1,12 @@
-
 @extends('layout')
 
 @section('content')
+
+@if(session('success_message'))
+<div class="alert alert-success" role="alert">
+    {{ session('success_message') }}
+</div>
+@endif
 
 <div class="content-wrapper">
     <div class="form-container">

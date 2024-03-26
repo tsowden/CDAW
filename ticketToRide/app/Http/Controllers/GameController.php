@@ -31,7 +31,7 @@ class GameController extends Controller
         $game->save();
 
         // Redirection vers une page de confirmation ou de jeu
-        return redirect()->route('play', $game->id);
+        return redirect()->route('play', $game->id)->with('success_message', 'La partie a été créée avec succès!');
     }
 
 
