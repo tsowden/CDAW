@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory;
-    protected $table = 'game'; // nom de la table dans la base de données
+    protected $table = 'games'; // nom de la table dans la base de données
     public $timestamps = false;
 
     protected $primaryKey = 'game_id'; // nom de la clé primaire
