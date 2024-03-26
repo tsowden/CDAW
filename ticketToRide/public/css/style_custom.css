@@ -1,21 +1,79 @@
 /* custom-medieval.css */
-body {
-    background: #000;
-    /* background-size: cover; */
-    font-family: 'Cinzel Decorative', serif;
-}
 
 html {
     height: 100%;
   }
   
-  body {
+body {
+background: #000;
+font-family: 'Cinzel Decorative', serif;
+display: flex;
+flex-direction: column;
+min-height: 100vh; /* Utilisez viewport height pour garantir que le body prenne au moins toute la hauteur de l'écran */
+margin: 0; /* Retire les marges par défaut */
+}
+/* custom.css */
+
+.content-wrapper {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Utilisez viewport height pour garantir que le body prenne au moins toute la hauteur de l'écran */
-    margin: 0; /* Retire les marges par défaut */
-  }
-  
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+
+#map-image {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 400px; /* ou la largeur que vous préférez pour le formulaire */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+}
+
+.form-group input[type="number"],
+.form-group input[type="submit"] {
+    width: 100%;
+}
+
+#map-container {
+    width: 1420px;
+    /* Largeur de la carte */
+    height: 800px;
+    /* Hauteur de la carte */
+    border: 1px solid #000;
+    /* Bordure de la carte */
+    position: relative;
+    /* Position relative pour positionner l'image absolument */
+    overflow: hidden;
+    /* Masquer tout contenu dépassant du conteneur */
+}
+
+#map-image {
+    position: absolute;
+    /* Position absolue pour que l'image remplisse le conteneur */
+    width: auto;
+    /* Largeur automatique pour conserver les proportions */
+    height: 100%;
+    /* Hauteur de l'image à 100% du conteneur */
+    top: 0;
+    /* Aligner en haut du conteneur */
+    left: 0;
+    /* Aligner à gauche du conteneur */
+}
+
   .site-content {
     flex: 1; /* Le contenu du site utilise tout l'espace disponible, poussant le footer vers le bas */
   }
