@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDestinationCardTable extends Migration
+class CreateDestinationCardsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,11 +18,11 @@ class CreateDestinationCardTable extends Migration
             $table->unsignedInteger('dc_points');
             $table->boolean('dc_isCompleted')->default(false);
             
-            $table->foreignId('player_id_dc_hand')->nullable()->references('player_id')->on('player')->onDelete('set null');
+            $table->foreignId('player_id_dc_hand')->nullable()->references('id')->on('users')->onDelete('set null');
             
-            $table->foreignId('city_departure_id')->references('city_id')->on('city')->onDelete('restrict');
+            $table->foreignId('city_departure_id')->references('city_id')->on('cities')->onDelete('restrict');
             
-            $table->foreignId('city_arrival_id')->references('city_id')->on('city')->onDelete('restrict');
+            $table->foreignId('city_arrival_id')->references('city_id')->on('cities')->onDelete('restrict');
             
             $table->unique(['city_departure_id', 'city_arrival_id'], 'unique_city_pair');
         });
