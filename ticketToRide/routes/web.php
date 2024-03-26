@@ -32,9 +32,9 @@ Route::get('/play', [GameController::class, 'index'])->name('play');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::get('/', [AccueilController::class, 'index'])->name('home');
-Route::get('/portfolio', [PortfolioController::class, 'index'])->name('portfolio');
-Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/cv', [CvController::class, 'index'])->name('cv')->middleware('auth');
+
+
+
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 
@@ -47,6 +47,8 @@ Route::post('/play', [GameController::class, 'store'])->name('game.store');
 Route::get('/games', [GameController::class, 'games'])->name('games');
 
 Route::post('/games/{game}/join', [GameController::class, 'join'])->name('games.join');
+
+
 
 
 
