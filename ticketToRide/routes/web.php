@@ -9,7 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\ContactController;
 
-use App\Http\Controllers\CvController;
+use App\Http\Controllers\LobbyController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ChatController;
@@ -47,6 +47,10 @@ Route::post('/play', [GameController::class, 'store'])->name('game.store');
 Route::get('/games', [GameController::class, 'games'])->name('games');
 
 Route::post('/games/{gameidentifiant}/join', [GameController::class, 'join'])->name('games.join');
+
+Route::get('/lobby/{gameId}', [LobbyController::class, 'show'])->name('lobby.show');
+
+
 
 
 

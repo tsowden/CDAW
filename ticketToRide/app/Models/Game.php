@@ -19,4 +19,10 @@ class Game extends Model
         'game_turn_time',
         'player_id_creator',
     ];
+
+    // gère les jointures naturelles entre game et participation
+    public function participations()
+    {
+        return $this->hasMany(Participation::class, 'game_id', 'game_id');
+    }
 }

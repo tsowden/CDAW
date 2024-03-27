@@ -31,7 +31,7 @@ class GameController extends Controller
         $game->save();
 
         // Redirection vers une page de confirmation ou de jeu
-        return redirect()->route('play', $game->id)->with('success_message', 'La partie a été créée avec succès!');
+        return redirect()->route('lobby.show', $game->game_id)->with('success_message', 'La partie a été créée avec succès!');
     }
 
 
@@ -54,6 +54,6 @@ class GameController extends Controller
             'player_id' => $userId,
         ]);
 
-        return redirect()->route('games'); // il faudra dans le futur redirect vers lobby
+        return redirect()->route('lobby.show', $gameidentifiant); // il faudra dans le futur redirect vers lobby
     }
 }
