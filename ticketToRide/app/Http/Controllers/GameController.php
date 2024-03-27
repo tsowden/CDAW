@@ -30,6 +30,9 @@ class GameController extends Controller
         $game->player_id_creator = auth()->user()->id; // ou remplacez par l'ID du joueur créateur
         $game->save();
 
+        // Appel de la méthode join pour ajouter automatiquement l'utilisateur à la partie
+        $this->join($game->game_id);
+
         // Redirection vers une page de confirmation ou de jeu
         return redirect()->route('lobby.show', $game->game_id)->with('success_message', 'La partie a été créée avec succès!');
     }
@@ -37,7 +40,6 @@ class GameController extends Controller
 
     // permet de d'afficher toutes les partie dans la vue games
     public function games()
-
     {
         $games = Game::where('game_state', 'En attente')->get();
         return view('games', compact('games'));
