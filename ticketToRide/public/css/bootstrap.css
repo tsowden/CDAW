@@ -10326,10 +10326,10 @@ body {
 }
 
 .links-2 {
-  float: right;
-  margin: 4px 20px 0 0;
+  float:right;
+  margin: 4px 10px 0 0;
   position: relative;
-  width: 755px;
+  width: 80%;
 }
 
 .heroes-2 {
@@ -10341,7 +10341,7 @@ body {
 
 .gallery-2 {
   float: left;
-  margin: 0 0 0 50px;
+  margin: 0 0 0 30px;
   color: #c4ae78;
   letter-spacing: 0;
   text-align: center;
@@ -10357,7 +10357,7 @@ body {
 
 .contact-2 {
   float: left;
-  margin: 0 0 0 61px;
+  margin: 0 0 0 20px;
   color: #c4ae78;
   letter-spacing: 0;
   text-align: center;
@@ -10493,6 +10493,7 @@ header {
 .hero-section {
   padding: 0;
   margin: 0;
+  
   /* If your image still doesn't cover the full width, you may need to adjust its max-width property */
 }
 
