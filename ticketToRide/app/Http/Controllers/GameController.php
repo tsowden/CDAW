@@ -54,6 +54,6 @@ class GameController extends Controller
             'player_id' => $userId,
         ]);
 
-        return redirect()->route('lobby.show', $gameidentifiant); // il faudra dans le futur redirect vers lobby
+        return redirect()->route('lobby.show', $gameidentifiant); // redirige vers le bon lobby
     }
 }
