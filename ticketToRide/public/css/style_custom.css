@@ -1,9 +1,5 @@
 /* custom-medieval.css */
 
-html {
-    height: 100%;
-  }
-  
 body {
 background: #000;
 font-family: 'Cinzel Decorative', serif;
@@ -13,6 +9,98 @@ min-height: 100vh; /* Utilisez viewport height pour garantir que le body prenne 
 margin: 0; /* Retire les marges par défaut */
 }
 /* custom.css */
+/* Dans votre fichier .css */
+
+.lobby-title {
+    /* styles pour le titre du lobby */
+}
+
+.game-status, .max-players, .turn-duration {
+    /* styles pour les détails du jeu */
+}
+
+.lobby-image-container .lobby-image {
+    /* styles pour l'image du lobby */
+}
+
+.player-list {
+    /* styles pour la liste des joueurs */
+}
+
+.player-item {
+    /* styles de base pour un joueur */
+}
+
+/* Vous pouvez ajouter des classes supplémentaires pour la couleur si nécessaire, comme ceci : */
+.player-color-red {
+    color: #ff0000; /* Exemple pour la couleur rouge */
+}
+
+.player-color-blue {
+    color: #0000ff; /* Exemple pour la couleur bleue */
+}
+
+/* Et ainsi de suite pour les autres couleurs */
+
+.content-wrapper {
+    color: #fff;
+    text-align: center;
+}
+
+.creation-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #c4ae78; /* Or utilisé pour les titres dans le thème médiéval */
+}
+
+.form-container {
+    background: #333; /* Un fond plus sombre pour le formulaire */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    color: #DAA520; /* Or utilisé pour les étiquettes dans le thème médiéval */
+}
+
+.form-input {
+    /* ... autres propriétés ... */
+    background-color: #2a2a2a; /* Un arrière-plan plus sombre pour le champ de saisie */
+    color: #DAA520; /* Une couleur or pour le texte à saisir */
+}
+
+.form-input::placeholder {
+    color: #DAA520; /* Une couleur or pour le placeholder */
+}
+
+.form-button {
+    /* ... autres propriétés ... */ 
+    background-color: #DAA520; /* Or pour le bouton de soumission */
+    color: #000; /* Texte en noir pour une visibilité accrue */
+    font-weight: bold; /* Rendre le texte du bouton plus audacieux */
+    border: 1px solid #DAA520; /* Une bordure dorée pour le bouton */
+    padding:4px;
+}
+
+.form-button:hover {
+    background-color: #b38d20; /* Un or plus sombre lors du survol */
+    border-color: #b38d20; /* Bordure de couleur assortie lors du survol */
+}
+
+    
+    /* Responsivité pour les petits écrans */
+    @media (max-width: 768px) {
+
+    .form-container {
+    width: 90%;
+    margin: auto;
+    }
+    .form-input, .form-button {
+        width: 90%;
+    }
+}    
 
 .content-wrapper {
     display: flex;
@@ -120,6 +208,7 @@ margin: 0; /* Retire les marges par défaut */
 
 .logo-text {
     font-size: 20px; /* Taille du texte */
+    font-style: italic;
     margin-left: 10px; 
     color: #c4ae78;
 
