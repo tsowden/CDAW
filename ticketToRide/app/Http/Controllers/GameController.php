@@ -54,10 +54,13 @@ class GameController extends Controller
     // permet de d'afficher toutes les partie dans la vue games
     public function games()
     {
-        $games = Game::where('game_state', 'En attente')->get();
+        // Récupérer toutes les parties avec l'état 'En attente' et charger les informations du créateur et des participations
+        $games = Game::with(['participations', 'creator'])->where('game_state', 'En attente')->get();
+    
+        // Passer les jeux récupérés à la vue
         return view('games', compact('games'));
     }
-
+    
     public function join($gameidentifiant)
     {
         // Récupérer l'ID de l'utilisateur connecté

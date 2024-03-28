@@ -35,6 +35,15 @@
     <a href="{{ route('game.play', $game->game_id) }}" class="btn btn-primary">Lancer la partie !</a>
 </div>
 
+    <div class="quit-button">
+        <form action="{{ route('lobby.leave', $game->game_id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-warning">Quitter le lobby</button>
+        </form>
+    </div>
+
+
 </div>
 
 @endsection

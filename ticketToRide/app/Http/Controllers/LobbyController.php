@@ -18,4 +18,16 @@ class LobbyController extends Controller
         // Passer les données à la vue du lobby
         return view('lobby', ['game' => $game, 'participants' => $participants]);
     }
+
+    public function leave($gameId)
+{
+    $userId = auth()->user()->id;
+
+    \App\Models\Participation::where('game_id', $gameId)
+                              ->where('player_id', $userId)
+                              ->delete();
+
+    return redirect()->route('games')->with('success_message', 'Vous avez quitté le lobby.');
+}
+
 }

@@ -37,7 +37,10 @@ Route::get('/create_game', [GameController::class, 'create_game'])->name('create
 Route::post('/create_game', [GameController::class, 'store'])->name('game.store');
 Route::post('/games/{gameId}/join', [GameController::class, 'join'])->name('games.join');
 Route::get('/lobby/{gameId}', [LobbyController::class, 'show'])->name('lobby.show');
+Route::delete('/lobby/{gameId}/leave', [LobbyController::class, 'leave'])->name('lobby.leave');
+
 Route::get('/play/{gameId}', 'App\Http\Controllers\GameController@play')->name('game.play');
+
 
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 Route::get('/dashboard', function () {
