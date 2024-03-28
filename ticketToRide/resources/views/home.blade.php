@@ -7,8 +7,14 @@
 <link href="{{ asset('css/style_custom.css') }}" rel="stylesheet">
 @endsection
 
+
 @section('content')
 <header class="hero-section">
+    @if(session('error_message'))
+        <div class="alert alert-danger">
+            {{ session('error_message') }}
+        </div>
+    @endif
     <img src="{{ asset('images/home-image-2.png') }}" alt="Bienvenue sur Rail Quest" class="img-fluid">
     <div class="overlay"></div>
     <div class="hero-section-content">

@@ -25,24 +25,34 @@ class AppServiceProvider extends ServiceProvider
      */
 
     
-    public function boot()
-    {
-        View::composer('partials.header', function ($view) {
-            $isAuthenticated = Auth::check();
-            $isInGame = false;
-    
-            if ($isAuthenticated) {
-                $userId = Auth::id();
-                $isInGame = DB::table('participation')
-                    ->join('games', 'participation.game_id', '=', 'games.game_id')
-                    ->where('participation.player_id', $userId)
-                    ->whereIn('games.game_state', ['En cours', 'En attente'])
-                    ->exists();
-            }
-    
-            $view->with('isAuthenticated', $isAuthenticated)
-                 ->with('isInGame', $isInGame);
-        });
-    }
+     public function boot()
+     {
+         View::composer('partials.header', function ($view) {
+             $isAuthenticated = Auth::check();
+             $isInGame = false;
+             $currentGameId = null; // Ajoutez cette ligne
+     
+             if ($isAuthenticated) {
+                 $userId = Auth::id();
+                 $participation = DB::table('participation')
+                     ->join('games', 'participation.game_id', '=', 'games.game_id')
+                     ->where('participation.player_id', $userId)
+                     ->whereIn('games.game_state', ['En cours', 'En attente'])
+                     ->select('participation.game_id') // Assurez-vous de sélectionner l'ID du jeu
+                     ->latest('participation.id') // Prenez la participation la plus récente
+                     ->first();
+     
+                 if ($participation) {
+                     $isInGame = true;
+                     $currentGameId = $participation->game_id; // Récupérez l'ID du jeu
+                 }
+             }
+     
+             $view->with('isAuthenticated', $isAuthenticated)
+                  ->with('isInGame', $isInGame)
+                  ->with('currentGameId', $currentGameId); // Passez l'ID du jeu à la vue
+         });
+     }
+     
     
 }

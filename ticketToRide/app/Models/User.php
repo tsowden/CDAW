@@ -41,4 +41,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    // App\Models\User.php
+
+    public function currentGameId()
+    {
+        // Assume que l'utilisateur ne peut être que dans un jeu à la fois
+        $participation = $this->participations()->latest('id')->first();
+        return $participation ? $participation->game_id : null;
+    }
+
 }

@@ -11,8 +11,9 @@
                     <a href="{{ url('/games') }}" class="nav-link contact-2">Rejoindre une partie</a>
                     <a href="{{ url('/create_game') }}" class="nav-link contact-2">Créer une partie</a>
                 @else
-                    <!-- Lien pour jouer si l'utilisateur est dans une partie -->
-                    <a href="{{ url('/play') }}" class="nav-link contact-2">Jouer</a>
+                    @if($isInGame && $currentGameId)
+                        <a href="{{ route('game.play', ['gameId' => $currentGameId]) }}" class="nav-link contact-2">Jouer</a>
+                    @endif
                 @endif
 
                 <a href="{{ url('/contact') }}" class="nav-link contact-2">Contact</a>

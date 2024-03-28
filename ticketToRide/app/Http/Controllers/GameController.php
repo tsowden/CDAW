@@ -16,10 +16,26 @@ class GameController extends Controller
 
     public function play($gameId)
     {
+        $user = auth()->user();
+        if (!$user) {
+            return redirect()->route('login')->with('error_message', 'Vous devez être connecté pour accéder à cette page.');
+        }
+    
+        // Vérifiez si l'utilisateur fait partie de la partie
+        $participationExists = Participation::where('game_id', $gameId)
+                                            ->where('player_id', $user->id)
+                                            ->exists();
+    
+        if (!$participationExists) {
+            // Si l'utilisateur n'est pas un participant de la partie, redirigez avec un message d'erreur
+            return redirect()->route('home')->with('error_message', 'Vous n\'avez pas accès à cette partie !');
+        }
+    
+        // Si l'utilisateur est un participant, continuez à charger la page du jeu
         $game = Game::with('participations.user')->findOrFail($gameId);
-
         return view('play', ['game' => $game]);
     }
+    
 
     public function create_game(Request $request)
     {
