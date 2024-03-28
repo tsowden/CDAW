@@ -8,9 +8,20 @@ use App\Models\Participation;
 
 class GameController extends Controller
 {
+    public function play($gameId)
+    {
+        $game = Game::findOrFail($gameId);
+        return view('play', compact('game'));
+    }
+
     public function index(Request $request)
     {
         return view('play');
+    }
+
+    public function create_game(Request $request)
+    {
+        return view('create_game');
     }
 
     // permet de créer une nouvelle partie grâce au formulaire de la vue game

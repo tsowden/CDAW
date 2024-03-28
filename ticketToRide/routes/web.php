@@ -28,43 +28,19 @@ use App\Http\Controllers\ChatController;
 */
 
 
-Route::get('/play', [GameController::class, 'index'])->name('play');
-Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-
 Route::get('/', [AccueilController::class, 'index'])->name('home');
-
-
-
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-
-
-
-
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
-Route::post('/play', [GameController::class, 'store'])->name('game.store');
-
-
 Route::get('/games', [GameController::class, 'games'])->name('games');
-
-Route::post('/games/{gameidentifiant}/join', [GameController::class, 'join'])->name('games.join');
-
+Route::get('/create_game', [GameController::class, 'create_game'])->name('create_game');
+Route::post('/create_game', [GameController::class, 'store'])->name('game.store');
+Route::post('/games/{gameId}/join', [GameController::class, 'join'])->name('games.join');
 Route::get('/lobby/{gameId}', [LobbyController::class, 'show'])->name('lobby.show');
-
-
-
-
-
-
-
-
-
+Route::get('/play/{gameId}', [GameController::class, 'play'])->name('play');
 
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
-require __DIR__ . '/auth.php';// Route::get('/chat', function () {
-//     return view('chat');
-// });
+require __DIR__ . '/auth.php';

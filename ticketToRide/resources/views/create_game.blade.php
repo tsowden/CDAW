@@ -5,7 +5,8 @@
 <div class="content-wrapper">
     <h1 class="creation-title">Création de partie</h1>
     <div class="form-container">
-        <form method="POST" action="{{ route('lobby') }}">
+        <!-- Modification ici : action utilise maintenant route('game.store') -->
+        <form method="POST" action="{{ route('game.store') }}">
             @csrf
             <div class="form-group">
                 <label for="num_players" class="form-label">Nombre de joueurs :</label>
