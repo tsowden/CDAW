@@ -10330,6 +10330,8 @@ body {
   margin: 4px 10px 0 0;
   position: relative;
   width: 80%;
+  text-align: center;
+  justify-content: center; 
 }
 
 .heroes-2 {

@@ -8,11 +8,6 @@ use App\Models\Participation;
 
 class GameController extends Controller
 {
-    public function play($gameId)
-    {
-        $game = Game::findOrFail($gameId);
-        return view('play', compact('game'));
-    }
 
     public function index(Request $request)
     {

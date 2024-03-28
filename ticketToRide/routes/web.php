@@ -37,7 +37,7 @@ Route::get('/create_game', [GameController::class, 'create_game'])->name('create
 Route::post('/create_game', [GameController::class, 'store'])->name('game.store');
 Route::post('/games/{gameId}/join', [GameController::class, 'join'])->name('games.join');
 Route::get('/lobby/{gameId}', [LobbyController::class, 'show'])->name('lobby.show');
-Route::get('/play/{gameId}', [GameController::class, 'play'])->name('play');
+Route::get('/play', [GameController::class, 'index'])->name('play');
 
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 Route::get('/dashboard', function () {
