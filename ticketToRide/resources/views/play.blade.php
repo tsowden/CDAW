@@ -28,7 +28,7 @@
     .side-panel.left-panel {
         flex-basis: 20%;
         /* Largeur fixe de la bande à gauche */
-        background-color: lightgreen;
+        background-color: lightgray;
     }
 
     .left-panel {
@@ -42,7 +42,7 @@
         flex-basis: 20%;
         order: 2;
         /* Largeur fixe de la bande à droite */
-        background-color: lightcoral;
+        background-color: grey;
     }
 
     /* Style de la bande en bas pour afficher les cartes à piocher */
