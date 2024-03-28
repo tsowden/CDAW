@@ -281,6 +281,7 @@ body {
     overflow-y: auto;
     /* Activation du défilement vertical si nécessaire */
     max-width: 100%;
+    font-family: "Times New Roman";
 }
 
 #message-container div {
@@ -304,7 +305,7 @@ body {
 }
 
 #message-container div:nth-child(2n) {
-    background-color: #054740;
+    background-color: #472905;
     color: white;
     /* Couleur de fond alternative pour les messages */
 
@@ -336,6 +337,7 @@ body {
     overflow-y: auto;
     /* Activation du défilement vertical si nécessaire */
     max-width: 90%;
+    font-family: "Times New Roman";
 }
 
 
@@ -353,7 +355,7 @@ body {
 
 #send-button {
     padding: 10px 20px;
-    background-color: #17ba86;
+    background-color: #bc6100;
     /* Couleur de fond pour le bouton d'envoi */
     color: white;
     border: none;
@@ -365,7 +367,7 @@ body {
 }
 
 #send-button:hover {
-    background-color: #07e759;
+    background-color: #fa8a00;
     /* Couleur de fond au survol */
 }
 
