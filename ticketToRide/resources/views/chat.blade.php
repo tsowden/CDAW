@@ -3,6 +3,7 @@
 
 <script defer src="{{ asset('js/script.js') }}"></script>
 
+
 <body id="message_body">
     <div id="message-container"></div>
     <form id="send-container">
