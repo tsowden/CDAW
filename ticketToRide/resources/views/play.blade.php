@@ -75,6 +75,7 @@
         <!-- Bande à droite pour afficher le nom des autres joueurs et le chat -->
         <div id="message_body">
             <script defer src="{{ asset('js/script.js') }}"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
             <div id="message-container"></div>
             <form id="send-container">
                 <input type="text" id="message-input">

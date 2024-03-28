@@ -9,6 +9,12 @@
         <input type="text" id="message-input">
         <button type="submit" id="send-button"><i class="bi bi-arrow-up-circle-fill"></i></button>
     </form>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+
+
 </body>
 
 @endsection

@@ -264,13 +264,23 @@ body {
     justify-content: center;
     background-color: #0a1318;
     /* Couleur de fond pour le corps */
+    max-height: 80%;
+    /* Maximum de 80% de la hauteur de son conteneur parent */
+    overflow-y: auto;
+    /* Activation du défilement vertical si nécessaire */
+    max-width: 100%;
 }
 
 #message-container {
-    width: 80%;
+    width: 90%;
     max-width: 1200px;
     margin-top: 20px;
     /* Espacement par rapport au haut de la page */
+    max-height: 80%;
+    /* Maximum de 80% de la hauteur de son conteneur parent */
+    overflow-y: auto;
+    /* Activation du défilement vertical si nécessaire */
+    max-width: 100%;
 }
 
 #message-container div {
@@ -280,22 +290,30 @@ body {
     padding: 10px;
     margin-bottom: 10px;
     /* Espacement entre les messages */
-    border-radius: 15px;
+    border-radius: 5px;
     /* Bords arrondis */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* Ombre pour un effet de profondeur */
+    word-wrap: break-word;
+    max-height: 80%;
+    /* Maximum de 80% de la hauteur de son conteneur parent */
+    overflow-y: auto;
+    /* Activation du défilement vertical si nécessaire */
+    max-width: 100%;
+
 }
 
 #message-container div:nth-child(2n) {
     background-color: #054740;
     color: white;
     /* Couleur de fond alternative pour les messages */
+
 }
 
 #send-container {
     position: relative;
     /* Utiliser une position relative pour respecter le flux de la page */
-    padding: 15px;
+    padding: 5px;
     background-color: #1c282f;
     /* Couleur de fond pour la zone d'envoi de message */
     max-width: 100%;
@@ -305,14 +323,19 @@ body {
     display: flex;
     flex-direction: column;
     /* Aligner les éléments en colonne */
-    border-top-left-radius: 20px;
+    border-top-left-radius: 5px;
     /* Bords arrondis en haut à gauche */
-    border-top-right-radius: 20px;
+    border-top-right-radius: 5px;
     /* Bords arrondis en haut à droite */
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     /* Ombre pour un effet de profondeur */
     margin-top: auto;
     /* Aligner le haut du conteneur au bas du parent */
+    max-height: 80%;
+    /* Maximum de 80% de la hauteur de son conteneur parent */
+    overflow-y: auto;
+    /* Activation du défilement vertical si nécessaire */
+    max-width: 90%;
 }
 
 
