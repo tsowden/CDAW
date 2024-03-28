@@ -71,15 +71,17 @@
         Cartes du joueur
     </div>
     <div class="side-panel right-panel">
+        Autres joueurs & Chat
         <!-- Bande à droite pour afficher le nom des autres joueurs et le chat -->
         <div id="message_body">
+            <script defer src="{{ asset('js/script.js') }}"></script>
             <div id="message-container"></div>
             <form id="send-container">
                 <input type="text" id="message-input">
                 <button type="submit" id="send-button"><i class="bi bi-arrow-up-circle-fill"></i></button>
             </form>
         </div>
-        Autres joueurs & Chat
+
     </div>
     <div class="card-draw">
         <!-- Bande en bas pour afficher les cartes à piocher -->
