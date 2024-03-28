@@ -11,25 +11,51 @@ margin: 0; /* Retire les marges par défaut */
 /* custom.css */
 /* Dans votre fichier .css */
 
-.lobby-title {
-    /* styles pour le titre du lobby */
+
+
+.image-container img {
+    max-width: 50%;
+    height: auto;
+    display: block; /* Pour centrer l'image dans .image-container */
+    margin: 0 auto; /* Cela aussi aide à centrer l'image */
+    padding: 2%;
 }
 
-.game-status, .max-players, .turn-duration {
-    /* styles pour les détails du jeu */
+.info-partie {
+    margin-bottom: 20px;
 }
 
-.lobby-image-container .lobby-image {
-    /* styles pour l'image du lobby */
+.info-partie p {
+    margin-bottom: 10px;
 }
 
-.player-list {
-    /* styles pour la liste des joueurs */
+.form-container {
+    margin-bottom: 20px;
 }
 
-.player-item {
-    /* styles de base pour un joueur */
+.form-container h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
 }
+
+.form-container ul {
+    margin-bottom: 20px;
+}
+
+.form-container ul li {
+    margin-bottom: 5px;
+}
+
+.launch-button {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.launch-button a {
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
 
 /* Vous pouvez ajouter des classes supplémentaires pour la couleur si nécessaire, comme ceci : */
 .player-color-red {

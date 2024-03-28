@@ -14,6 +14,13 @@ class GameController extends Controller
         return view('play');
     }
 
+    public function play($gameId)
+    {
+        $game = Game::with('participations.user')->findOrFail($gameId);
+
+        return view('play', ['game' => $game]);
+    }
+
     public function create_game(Request $request)
     {
         return view('create_game');
@@ -55,13 +62,26 @@ class GameController extends Controller
     {
         // Récupérer l'ID de l'utilisateur connecté
         $userId = auth()->user()->id;
-
-        // Créer une nouvelle entrée dans la table participation
+    
+        // Récupérer le jeu concerné
+        $game = Game::findOrFail($gameidentifiant);
+    
+        // Compter le nombre actuel de participants
+        $nbParticipants = $game->participations()->count();
+    
+        if ($nbParticipants >= $game->game_max_players) {
+            return redirect()->route('lobby.show', $gameidentifiant)
+                ->with('error_message', 'Le lobby est déjà complet.');
+        }
+    
+        // Si le lobby n'est pas complet, ajoute le joueur au jeu
         Participation::create([
             'game_id' => $gameidentifiant,
             'player_id' => $userId,
         ]);
-
-        return redirect()->route('lobby.show', $gameidentifiant); // redirige vers le bon lobby
+    
+        // Redirige vers le bon lobby
+        return redirect()->route('lobby.show', $gameidentifiant);
     }
+    
 }
