@@ -44,6 +44,10 @@
         /* Curseur pointeur */
     }
 
+    .map-button:hover {
+        background-color: red;
+    }
+
 
 
     /* Style de la bande à gauche pour afficher les cartes du joueur */
