@@ -48,6 +48,17 @@
         background-color: red;
     }
 
+    .line {
+        position: absolute;
+        background-color: #523814;
+        /* Couleur de fond de la ligne */
+        width: 10px;
+        /* Largeur de la ligne */
+        height: 100px;
+        /* Hauteur de la ligne */
+        transform-origin: top left;
+        /* Point d'origine de la transformation */
+    }
 
 
     /* Style de la bande à gauche pour afficher les cartes du joueur */
@@ -128,6 +139,18 @@
             <button class="map-button" style="top: 345PX; left: 125PX;" id="button-Python"></button>
             <button class="map-button" style="top: 551PX; left: 175PX;" id="button-Crystal"></button>
 
+            <div class="line" id="trajet-Foulestaque-Apex" style="position: absolute; left: 85px; top: 150px; width: 137px; height: 4px; transform: rotate(15deg); background-color: #523814; opacity: 0.65;"></div>
+            <div class="line" id="trajet-Kotlin-Rust" style="position: absolute; left: 30px; top: 510px; width: 180px; height: 4px; transform: rotate(36deg); background-color: #523814; opacity: 0.65;"></div>
+            <div class="line" id="trajet-Rust-Scala" style="position: absolute; left: 177px; top: 611px; width: 193px; height: 4px; transform: rotate(3.22deg); background-color: #523814; opacity: 0.65;"></div>
+            <div class="line" id="trajet-Kotlin-Python" style="position: absolute; left: 30px; top: 510px; width: 190px; height: 4px; transform: rotate(-55deg); background-color: #523814; opacity: 0.65;"></div>
+            <div class="line" id="trajet-Kotlin-Crystal" style="position: absolute; left: 30px; top: 510px; width: 170px; height: 4px; transform: rotate(18deg); background-color: #523814; opacity: 0.65;"></div>
+            <div class="line" id="trajet-Crystal-Scala" style="position: absolute; left: 175px; top: 557px; width: 210px; height: 4px; transform: rotate(18deg); background-color: #523814; opacity: 0.65;"></div>
+            <div class="line" id="trajet-Python-Swift" style="position: absolute; left: 140px; top: 351px; width: 210px; height: 4px; transform: rotate(25deg); background-color: #523814; opacity: 0.65;"></div>
+
+
+
+
+
         </div>
 
     </div>
@@ -155,5 +178,15 @@
         Cartes à piocher
     </div>
 </div>
+
+<script>
+    const segment = document.querySelector('.map-segment');
+
+    // Ajouter un gestionnaire d'événements de clic
+    segment.addEventListener('click', function() {
+        // Actions à effectuer lors du clic sur le segment
+        console.log('Segment cliqué !');
+    });
+</script>
 
 @endsection
