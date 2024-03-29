@@ -34,7 +34,7 @@
         /* Hauteur du bouton */
         background-color: darkred;
 
-        opacity: 0.5;
+        opacity: 1;
         /* Couleur de fond du bouton */
         border: none;
         /* Supprimer la bordure */
@@ -42,6 +42,7 @@
         /* Rendre le bouton circulaire */
         cursor: pointer;
         /* Curseur pointeur */
+        z-index: 1;
     }
 
     .map-button:hover {
@@ -58,6 +59,8 @@
         /* Hauteur de la ligne */
         transform-origin: top left;
         /* Point d'origine de la transformation */
+        z-index: 0;
+
     }
 
 
