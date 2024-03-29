@@ -3,7 +3,9 @@ const messageContainer = document.getElementById('message-container');
 const messageForm = document.getElementById('send-container');
 const messageInput = document.getElementById('message-input');
 
-const name = prompt('Entrez votre pseudo');
+// const name = prompt('Entrez votre pseudo');
+const name = document.getElementById('utilisateur').getAttribute('data-nom');
+console.log(name); // Le nom de l'utilisateur connecté
 // appendMessage('Vous avez rejoint le groupe'); ceci fait doublons
 
 // Événement de connexion WebSocket
