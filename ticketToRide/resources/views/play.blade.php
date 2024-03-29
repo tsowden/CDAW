@@ -20,7 +20,7 @@
     .map-container {
         display: flex;
         /* Prend tout l'espace disponible restant */
-        background-color: lightblue;
+        background-color: black;
         width: 33.5cm;
         align-items: flex-start;
     }
@@ -32,6 +32,7 @@
         flex-basis: 20%;
         /* Largeur fixe de la bande à gauche */
         background-color: lightgray;
+        background-image: radial-gradient(#523814, black);
     }
 
     .left-panel {
@@ -46,6 +47,8 @@
         order: 2;
         /* Largeur fixe de la bande à droite */
         background-color: grey;
+        background-image: url("images/fond_parchemin.png");
+
     }
 
     /* Style de la bande en bas pour afficher les cartes à piocher */
@@ -55,6 +58,7 @@
 
         /* Prend toute la largeur disponible */
         background-color: lightyellow;
+        background-image: radial-gradient(#523814, black);
     }
 </style>
 
