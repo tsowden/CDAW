@@ -295,12 +295,12 @@ body {
     /* Bords arrondis */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* Ombre pour un effet de profondeur */
-    word-wrap: break-word;
+    overflow-wrap: break-word;
     max-height: 80%;
     /* Maximum de 80% de la hauteur de son conteneur parent */
     overflow-y: auto;
     /* Activation du défilement vertical si nécessaire */
-    max-width: 100%;
+    max-width: 5.7cm;
 
 }
 
