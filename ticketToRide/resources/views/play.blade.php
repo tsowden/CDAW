@@ -2,16 +2,6 @@
 
 @section('content')
 
-<style>
-    .map-container {
-        position: relative;
-        display: flex;
-        width: 33.5cm;
-    }
-</style>
-
-
-
 
 <div class="play-container">
     <div class="map-container">

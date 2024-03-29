@@ -261,11 +261,13 @@ body {
 }
 
 #map-container {
+    position: relative;
     width: 33.5cm;
 
     /* il faut vraiment laisser les deux width sinon ça pete
         /* Largeur de la carte */
     height: 800px;
+    display: flex;
     /* Hauteur de la carte */
     border: 1px solid #000000;
     /* Bordure de la carte */
