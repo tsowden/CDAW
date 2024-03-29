@@ -18,10 +18,13 @@
 
     /* Style du bloc central pour afficher la carte */
     .map-container {
-        flex: 1;
+        display: flex;
         /* Prend tout l'espace disponible restant */
         background-color: lightblue;
+        width: 33.5cm;
+        align-items: flex-start;
     }
+
 
 
     /* Style de la bande à gauche pour afficher les cartes du joueur */

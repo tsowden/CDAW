@@ -176,7 +176,7 @@ body {
     /* Position absolue pour que l'image remplisse le conteneur */
     width: auto;
     /* Largeur automatique pour conserver les proportions */
-    height: 100%;
+    height: auto;
     /* Hauteur de l'image à 100% du conteneur */
     top: 0;
     /* Aligner en haut du conteneur */
