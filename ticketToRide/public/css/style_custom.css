@@ -1,3 +1,105 @@
+.map-button {
+    position: absolute;
+    width: 20px;
+    /* Largeur du bouton */
+    height: 20px;
+    /* Hauteur du bouton */
+    background-color: darkred;
+
+    opacity: 1;
+    /* Couleur de fond du bouton */
+    border: none;
+    /* Supprimer la bordure */
+    border-radius: 50%;
+    /* Rendre le bouton circulaire */
+    cursor: pointer;
+    /* Curseur pointeur */
+    z-index: 1;
+}
+
+.map-button:hover {
+    background-color: red;
+}
+
+/* Style du conteneur principal */
+.play-container {
+    display: flex;
+    flex-direction: row;
+    /* Disposition horizontale des éléments */
+    justify-content: space-between;
+    /* Espacement égal entre les éléments */
+    align-items: stretch;
+    /* Alignement des éléments sur la hauteur */
+    height: 100vh;
+    /* Hauteur de la page en plein écran */
+}
+
+.line {
+    position: absolute;
+
+    transform-origin: top left;
+    /* Point d'origine de la transformation */
+    z-index: 0;
+    animation: fade 2s infinite;
+
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0.65;
+
+        /* Opacité initiale */
+    }
+
+    50% {
+        opacity: 0.35;
+        /* Opacité réduite */
+    }
+
+    100% {
+        opacity: 0.65;
+
+        /* Opacité de retour à la normale */
+    }
+}
+
+
+
+/* Style de la bande à gauche pour afficher les cartes du joueur */
+.side-panel.left-panel {
+    flex-basis: 20%;
+    /* Largeur fixe de la bande à gauche */
+    background-color: lightgray;
+    background-image: radial-gradient(#523814, black);
+}
+
+.left-panel {
+    /* Style spécifique pour le panneau gauche */
+    order: -1;
+    /* Met le panneau gauche en premier dans l'ordre visuel */
+}
+
+/* Style de la bande à droite pour afficher le nom des autres joueurs et le chat */
+.side-panel.right-panel {
+    flex-basis: 20%;
+    order: 2;
+    /* Largeur fixe de la bande à droite */
+    background-color: grey;
+    background-image: url("images/fond_parchemin.png");
+
+}
+
+/* Style de la bande en bas pour afficher les cartes à piocher */
+.card-draw {
+    /* flex-basis: 100%; */
+    flex-basis: 20%;
+
+    /* Prend toute la largeur disponible */
+    background-color: lightyellow;
+    background-image: radial-gradient(#523814, black);
+}
+
+
 /* custom-medieval.css */
 
 body {
@@ -183,11 +285,15 @@ body {
 }
 
 #map-container {
-    width: 1420px;
-    /* Largeur de la carte */
+    position: relative;
+    width: 33.5cm;
+
+    /* il faut vraiment laisser les deux width sinon ça pete
+        /* Largeur de la carte */
     height: 800px;
+    display: flex;
     /* Hauteur de la carte */
-    border: 1px solid #000;
+    border: 1px solid #000000;
     /* Bordure de la carte */
     position: relative;
     /* Position relative pour positionner l'image absolument */
