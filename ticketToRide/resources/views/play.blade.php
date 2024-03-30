@@ -94,10 +94,66 @@
             <div class="line" id="trajet-Cobol-Julia" style="position: absolute; left: 1150px; top: 150px; width: 80px; height: 8px; transform: rotate(79deg); background-color: #523814; animation-delay: 1.5s;"></div>
             <div class="line" id="trajet-Julia-Cobol" style="position: absolute; left: 1168px; top: 230px; width: 333px; height: 8px; transform: rotate(98.5deg); background-color: #523814; animation-delay: 0.5s;"></div>
             <div class="line" id="trajet-Elm-Erlang" style="position: absolute; left: 920px; top: 588px; width: 202px; height: 8px; transform: rotate(-10deg); background-color: #523814;"></div>
+
+            <!-- Bouton au milieu des segments -->
+            <button class="line-button" id="milieu-Foulestaque-Apex" style="top: calc((150px + 185px) / 2); left: calc((85px + 218px) / 2);"></button>
+            <button class="line-button" id="milieu-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2);"></button>
+            <button class="line-button" id="milieu-Rust-Scala" style="top: calc((611px + 622px) / 2); left: calc((177px + 370px) / 2);"></button>
+            <button class="line-button" id="milieu-Kotlin-Python" style="top: calc((510px + 345px) / 2); left: calc((30px + 125px) / 2);"></button>
+            <button class="line-button" id="milieu-Kotlin-Crystal" style="top: calc((510px + 551px) / 2); left: calc((30px + 175px) / 2);"></button>
+            <button class="line-button" id="milieu-Crystal-Scala" style="top: calc((551px + 622px) / 2); left: calc((175px + 370px) / 2);"></button>
+            <button class="line-button" id="milieu-Python-Swift" style="top: calc((345px + 437px) / 2); left: calc((125px + 318px) / 2);"></button>
+            <button class="line-button" id="milieu-Swift-Toniz" style="top: calc((439px + 500px) / 2); left: calc((320px + 515px) / 2);"></button>
+            <button class="line-button" id="milieu-Swift-Falcon" style="top: calc((439px + 421px) / 2); left: calc((320px + 519px) / 2);"></button>
+            <button class="line-button" id="milieu-Falcon-Ariana" style="top: calc((421px + 357px) / 2); left: calc((519px + 655px) / 2);"></button>
+            <button class="line-button" id="milieu-Ariana-Elixir" style="top: calc((357px + 330px) / 2); left: calc((655px + 822px) / 2);"></button>
+            <button class="line-button" id="milieu-Scala-Perl" style="top: calc((622px + 590px) / 2); left: calc((370px + 510px) / 2);"></button>
+            <button class="line-button" id="milieu-Toniz-Perl" style="top: calc((500px + 590px) / 2); left: calc((515px + 510px) / 2);"></button>
+            <button class="line-button" id="milieu-Perl-Lua" style="top: calc((590px + 625px) / 2); left: calc((510px + 587px) / 2);"></button>
+            <button class="line-button" id="milieu-Falcon-Prolog" style="top: calc((421px + 275px) / 2); left: calc((519px + 552px) / 2);"></button>
+            <button class="line-button" id="milieu-Python-Apex" style="top: calc((345px + 185px) / 2); left: calc((125px + 218px) / 2);"></button>
+            <button class="line-button" id="milieu-Python-Ruby" style="top: calc((345px + 275px) / 2); left: calc((125px + 62px) / 2);"></button>
+            <button class="line-button" id="milieu-Foulestaque-Ruby" style="top: calc((150px + 275px) / 2); left: calc((85px + 62px) / 2);"></button>
+            <button class="line-button" id="milieu-Foulestaque-Java" style="top: calc((150px + 50px) / 2); left: calc((85px + 240px) / 2);"></button>
+            <button class="line-button" id="milieu-Kotlin-Ruby" style="top: calc((510px + 275px) / 2); left: calc((30px + 62px) / 2);"></button>
+            <button class="line-button" id="milieu-Java-Pascal" style="top: calc((50px + 207px) / 2); left: calc((240px + 382px) / 2);"></button>
+            <button class="line-button" id="milieu-Apex-Pascal" style="top: calc((185px + 207px) / 2); left: calc((218px + 382px) / 2);"></button>
+            <button class="line-button" id="milieu-Pascal-Prolog" style="top: calc((207px + 275px) / 2); left: calc((382px + 552px) / 2 );"></button>
+
+
+            <button class="line-button" id="milieu-Lua-Lisp" style="top: calc((631px + 578px) / 2); left: calc((595px + 720px) / 2);"></button>
+            <button class="line-button" id="milieu-Lisp-Dart" style="top: calc((578px + 350px) / 2); left: calc((720px + 908px) / 2);"></button>
+            <button class="line-button" id="milieu-Lisp-Elm" style="top: calc((578px + 580px) / 2); left: calc((715px + 932px) / 2);"></button>
+            <button class="line-button" id="milieu-Dart-Elixir" style="top: calc((350px + 330px) / 2); left: calc((908px + 822px) / 2);"></button>
+            <button class="line-button" id="milieu-Dart-Groovy" style="top: calc((350px + 282px) / 2); left: calc((908px + 912px) / 2);"></button>
+            <button class="line-button" id="milieu-Dart-Elm" style="top: calc((350px + 588px) / 2); left: calc((908px + 920px) / 2);"></button>
+            <button class="line-button" id="milieu-Groovy-Templake" style="top: calc((282px + 240px) / 2); left: calc((912px + 778px) / 2);"></button>
+            <button class="line-button" id="milieu-Groovy-Julia" style="top: calc((282px + 230px) / 2); left: calc((912px + 1153px) / 2);"></button>
+            <button class="line-button" id="milieu-Templake-Elixir" style="top: calc((240px + 330px) / 2); left: calc((778px + 822px) / 2);"></button>
+            <button class="line-button" id="milieu-Templake-Fortran" style="top: calc((210px + 145px) / 2); left: calc((770px + 877px) / 2);"></button>
+            <button class="line-button" id="milieu-Templake-Laraville" style="top: calc((145px + 163px) / 2); left: calc((877px + 620px) / 2);"></button>
+            <button class="line-button" id="milieu-Fortran-Groovy" style="top: calc((145px + 282px) / 2); left: calc((877px + 912px) / 2);"></button>
+
+            <button class="line-button" id="milieu-Assembly-Pascal" style="top: calc((41px + 207px) / 2); left: calc((413px + 382px) / 2);"></button>
+            <button class="line-button" id="milieu-Pascal-Delphi" style="top: calc((207px + 143px) / 2); left: calc((382px + 460px) / 2);"></button>
+            <button class="line-button" id="milieu-Delphi-Haskell" style="top: calc((133px + 158px) / 2); left: calc((460px + 608px) / 2);"></button>
+            <button class="line-button" id="milieu-Haskell-Prolog" style="top: calc((158px + 283px) / 2); left: calc((608px + 530px) / 2);"></button>
+            <button class="line-button" id="milieu-Prolog-Ariana" style="top: calc((275px + 357px) / 2); left: calc((552px + 655px) / 2);"></button>
+            <button class="line-button" id="milieu-Prolog-Laraville" style="top: calc((285px + 76px) / 2); left: calc((542px + 745px) / 2);"></button>
+
+            <<button class="line-button" id="milieu-Laraville-Fortran" style="top: calc((76px + 135px) / 2); left: calc((745px + 865px) / 2);"></button>
+                <button class="line-button" id="milieu-Fortran-Ada" style="top: calc((135px + 69px) / 2); left: calc((865px + 1100px) / 2);"></button>
+                <button class="line-button" id="milieu-Ada-Groovy" style="top: calc((69px + 270px) / 2); left: calc((1100px + 912px) / 2);"></button>
+                <button class="line-button" id="milieu-Ada-Cobol" style="top: calc((69px + 150px) / 2); left: calc((1100px + 1140px) / 2);"></button>
+                <button class="line-button" id="milieu-Cobol-Julia" style="top: calc((150px + 227px) / 2); left: calc((1140px + 1153px) / 2);"></button>
+                <button class="line-button" id="milieu-Julia-Erlang" style="top: calc((227px + 545px) / 2); left: calc((1153px + 1105px) / 2);"></button>
+                <button class="line-button" id="milieu-Erlang-Elm" style="top: calc((545px + 580px) / 2); left: calc((1105px + 932px) / 2);"></button>
+
+
         </div>
 
     </div>
-    <div class="side-panel left-panel">
+    <div class=" side-panel left-panel">
         <!-- Bande à gauche pour afficher les cartes du joueur -->
         Cartes du joueur
     </div>
