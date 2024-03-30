@@ -1,11 +1,33 @@
 .line-button {
     position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: rgb(30, 0, 255);
+    width: 35px;
+    height: 35px;
+    transform: translate(-25%, -25%);
+    /* background-color: rgb(30, 0, 255); */
+    opacity: 0.5;
     border-radius: 50%;
     cursor: pointer;
+    filter: blur(3px);
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
 }
+
+
+:root {
+    --color-chemin-gris: #7d7d7d;
+    --color-chemin-noir: #000000;
+    --color-chemin-rouge: #bb0000;
+    --color-chemin-bleu: #0e00cf;
+    --color-chemin-vert: #008922;
+    --color-chemin-jaune: #d0a300;
+    --color-chemin-orange: #eb6a00;
+    --color-chemin-rose: #ff00ea;
+    --color-chemin-cyan: #00dddd;
+}
+
 
 .map-button {
     position: absolute;
@@ -19,7 +41,7 @@
     /* Couleur de fond du bouton */
     border: none;
     /* Supprimer la bordure */
-    border-radius: 50%;
+    border-radius: 0%;
     /* Rendre le bouton circulaire */
     cursor: pointer;
     /* Curseur pointeur */
