@@ -94,16 +94,6 @@
             <div class="line" id="trajet-Cobol-Julia" style="position: absolute; left: 1150px; top: 150px; width: 80px; height: 8px; transform: rotate(79deg); background-color: #523814; animation-delay: 1.5s;"></div>
             <div class="line" id="trajet-Julia-Cobol" style="position: absolute; left: 1168px; top: 230px; width: 333px; height: 8px; transform: rotate(98.5deg); background-color: #523814; animation-delay: 0.5s;"></div>
             <div class="line" id="trajet-Elm-Erlang" style="position: absolute; left: 920px; top: 588px; width: 202px; height: 8px; transform: rotate(-10deg); background-color: #523814;"></div>
-
-
-
-
-
-
-
-
-
-
         </div>
 
     </div>
