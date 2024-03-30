@@ -1,11 +1,15 @@
 .line-text {
     position: absolute;
+    transform: translate(30%, 5%);
     z-index: 4;
-    /* Assurez-vous que la div du texte est au-dessus du bouton */
+    font-size: large;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    /* Définir le contour avec un décalage horizontal de 2px, un décalage vertical de 2px et un flou de 2px */
+
 }
 
 .line-button {
