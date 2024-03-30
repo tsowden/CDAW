@@ -1,3 +1,13 @@
+.line-text {
+    position: absolute;
+    z-index: 4;
+    /* Assurez-vous que la div du texte est au-dessus du bouton */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
 .line-button {
     position: absolute;
     width: 35px;
