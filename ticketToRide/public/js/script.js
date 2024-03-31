@@ -30,7 +30,7 @@ socket.onmessage = event => {
         case 'user-click':
             // Répondre au clic utilisateur, par exemple, changer la couleur du trajet
             onClickButton(data.buttonId, data.userName);
-            const routeName = data.buttonId.split("-").slice(1).join("-");
+            const routeName = data.buttonId.split("-").slice(1).join("-"); //utilise pour afficher le nom du trajet sans "milieu"
             appendMessage(`${data.userName} a pris la route ${routeName}`);
             break;
         default:
