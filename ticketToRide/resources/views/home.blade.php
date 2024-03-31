@@ -11,9 +11,9 @@
 @section('content')
 <header class="hero-section">
     @if(session('error_message'))
-        <div class="alert alert-danger">
-            {{ session('error_message') }}
-        </div>
+    <div class="alert alert-danger">
+        {{ session('error_message') }}
+    </div>
     @endif
     <img src="{{ asset('images/home-image-2.png') }}" alt="Bienvenue sur Rail Quest" class="img-fluid">
     <div class="overlay"></div>
@@ -36,6 +36,7 @@
                     <h3>1. Construction de Routes</h3>
                     <p class="rules-text">La construction de routes fait gagner des points en fonction de leur longueur :</p>
                     <ul class="rules-text">
+                        <li><strong>1 wagon</strong> : 1 point</li>
                         <li><strong>2 wagons</strong> : 2 points</li>
                         <li><strong>3 wagons</strong> : 4 points</li>
                         <li><strong>4 wagons</strong> : 7 points</li>
