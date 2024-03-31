@@ -1,3 +1,44 @@
+.side-panel.left-panel {
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.card-column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Espacement entre les lignes de cartes */
+}
+
+.card-row {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espacement entre l'image de la carte et le chiffre */
+}
+
+.wagon-card {
+    width: 120px; /* Ajustez selon la taille souhaitée */
+    height: auto;
+}
+
+.card-quantity {
+    font-size: 1.5em; /* Taille plus grande pour les chiffres */
+    font-weight: bold; /* Rendre le chiffre en gras */
+}
+
+/* Couleurs pour les quantités */
+.card-quantity.orange { color: #DB8539; }
+.card-quantity.red { color: #B50E12; }
+.card-quantity.violet { color: #D1718E; }
+.card-quantity.yellow { color: #F7C413; }
+.card-quantity.black { color: #000000; }
+.card-quantity.blue { color: #435994; }
+.card-quantity.cyan { color: #5CD5E0; }
+.card-quantity.green { color: #7FA659; }
+.card-quantity.loco { color: #808080; } 
+
+
 .map-button {
     position: absolute;
     width: 20px;
@@ -23,6 +64,7 @@
 
 /* Style du conteneur principal */
 .play-container {
+    margin-top: 2%;
     display: flex;
     flex-direction: row;
     /* Disposition horizontale des éléments */
