@@ -30,7 +30,8 @@ socket.onmessage = event => {
         case 'user-click':
             // Répondre au clic utilisateur, par exemple, changer la couleur du trajet
             onClickButton(data.buttonId);
-            appendMessage(`${data.userName} a pris la route ${data.buttonId}`);
+            const routeName = data.buttonId.split("-").slice(1).join("-");
+            appendMessage(`${data.userName} a pris la route ${routeName}`);
             break;
         default:
             console.log("Unknown message type");
