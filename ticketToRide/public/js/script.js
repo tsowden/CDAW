@@ -57,6 +57,12 @@ function appendMessage(message) {
     const messageElement = document.createElement('div');
     messageElement.innerText = message;
     messageContainer.append(messageElement);
+    scrollToBottom();
+}
+
+function scrollToBottom() {
+    var messageContainer = document.getElementById("message-container");
+    messageContainer.scrollTop = messageContainer.scrollHeight;
 }
 
 // Fonction pour envoyer un message WebSocket lorsque le bouton est cliqué
