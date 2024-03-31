@@ -251,46 +251,26 @@
         </div>
 
     </div>
-    <div class=" side-panel left-panel">
-        <div class="card-column">
+    <div class="side-panel left-panel">
+    <div class="card-column">
+        @foreach ($colors as $color)
+            @php
+                $quantity = isset($cardsCountByColor[$color]) ? $cardsCountByColor[$color]['count'] : 0;
+                $disabledClass = $quantity == 0 ? 'disabled-card' : '';
+            @endphp
             <div class="card-row">
-                <img src="{{ asset('images/wc_orange.png') }}" alt="Carte Wagon Orange" class="wagon-card">
-                <span class="card-quantity orange">3</span>
+                <img src="{{ asset('images/wc_' . $color . '.png') }}" 
+                     alt="Carte Wagon {{ ucfirst($color) }}" 
+                     class="wagon-card {{ $color }} {{ $disabledClass }}">
+                <span class="card-quantity {{ $color }}">{{ $quantity }}</span>
             </div>
-            <div class="card-row">
-                <img src="{{ asset('images/wc_red.png') }}" alt="Carte Wagon Rouge" class="wagon-card">
-                <span class="card-quantity red">2</span>
-            </div>
-            <div class="card-row">
-                <img src="{{ asset('images/wc_violet.png') }}" alt="Carte Wagon Violet" class="wagon-card">
-                <span class="card-quantity violet">5</span>
-            </div>
-            <div class="card-row">
-                <img src="{{ asset('images/wc_yellow.png') }}" alt="Carte Wagon Jaune" class="wagon-card">
-                <span class="card-quantity yellow">4</span>
-            </div>
-            <div class="card-row">
-                <img src="{{ asset('images/wc_black.png') }}" alt="Carte Wagon Noir" class="wagon-card">
-                <span class="card-quantity black">1</span>
-            </div>
-            <div class="card-row">
-                <img src="{{ asset('images/wc_blue.png') }}" alt="Carte Wagon Bleu" class="wagon-card">
-                <span class="card-quantity blue">6</span>
-            </div>
-            <div class="card-row">
-                <img src="{{ asset('images/wc_cyan.png') }}" alt="Carte Wagon Cyan" class="wagon-card">
-                <span class="card-quantity cyan">2</span>
-            </div>
-            <div class="card-row">
-                <img src="{{ asset('images/wc_green.png') }}" alt="Carte Wagon Vert" class="wagon-card">
-                <span class="card-quantity green">3</span>
-            </div>
-            <div class="card-row">
-                <img src="{{ asset('images/wc_loco.png') }}" alt="Carte Locomotive" class="wagon-card">
-                <span class="card-quantity loco">1</span>
-            </div>
-        </div>
+        @endforeach
     </div>
+</div>
+
+
+
+
 
 
 
@@ -310,9 +290,14 @@
 
     </div>
     <div class="card-draw">
-        <!-- Bande en bas pour afficher les cartes à piocher -->
-        Cartes à piocher
+    <div class="card-row">
+        <img src="{{ asset('images/dos_dc.png') }}" alt="Dos de carte destination" class="card-draw">
     </div>
+    <div class="card-row">
+        <img src="{{ asset('images/dos_wc.png') }}" alt="Dos de carte wagon" class="card-draw">
+    </div>
+</div>
+
 </div>
 
 <script>

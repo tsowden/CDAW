@@ -1,3 +1,19 @@
+
+
+
+.card-draw {
+    transition: box-shadow 0.3s ease-in-out;
+    width: 180px; /* Ajustez selon la taille souhaitée */
+    height: auto;
+    margin:1%;
+}
+
+.card-draw:hover {
+    cursor: pointer;
+    box-shadow: 0 0 8px 2px rgba(0,0,0,0.5);
+}
+
+
 .line-text {
     position: absolute;
     transform: translate(30%, 5%);
@@ -62,6 +78,10 @@
     gap: 5px; /* Espacement entre l'image de la carte et le chiffre */
 }
 
+.disabled-card {
+    filter: grayscale(100%) opacity(60%);
+}
+
 .wagon-card {
     width: 120px; /* Ajustez selon la taille souhaitée */
     height: auto;
@@ -77,11 +97,11 @@
 .card-quantity.red { color: #B50E12; }
 .card-quantity.violet { color: #D1718E; }
 .card-quantity.yellow { color: #F7C413; }
-.card-quantity.black { color: #000000; }
+.card-quantity.black {color: #ffffff; }
 .card-quantity.blue { color: #435994; }
 .card-quantity.cyan { color: #5CD5E0; }
 .card-quantity.green { color: #7FA659; }
-.card-quantity.loco { color: #808080; } 
+.card-quantity.locomotive { color: #808080; } 
 
 
 .map-button {
