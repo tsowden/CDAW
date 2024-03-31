@@ -1,11 +1,18 @@
-function onClickButton(buttonId) {
-    // Actions à effectuer lorsqu'un bouton est cliqué
-    // Par exemple, changer l'aspect des trajets correspondants
+function getColorForUser(username) {
+    // Logique pour attribuer une couleur en fonction du nom de l'utilisateur
+    // Vous pouvez utiliser une fonction de hachage ou une logique personnalisée pour cela
+    // Voici un exemple simple qui utilise une fonction de hachage
+    const colors = ['#ff5733', '#33ff57', '#3366ff', '#ff33f7']; // Liste de couleurs possibles
+    const hash = username.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const colorIndex = hash % colors.length;
+    return colors[colorIndex];
+}
+
+function onClickButton(buttonId, username) {
     let trajetId = "trajet-" + buttonId.split("-")[1] + "-" + buttonId.split("-")[2];
-    // Modifier l'aspect du trajet correspondant
-    document.getElementById(trajetId).style.backgroundColor = "red";
+    let color = getColorForUser(username); // Obtenir la couleur en fonction du nom de l'utilisateur
+    document.getElementById(trajetId).style.backgroundColor = color;
     document.getElementById(trajetId).style.height = "15px";
-    // Autres actions à effectuer...
 }
 
 // Récupérer tous les boutons par leur classe CSS
