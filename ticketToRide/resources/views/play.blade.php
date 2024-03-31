@@ -4,6 +4,7 @@
 
 
 <div class="play-container">
+    <script defer src="{{ asset('js/actions_chemins.js') }}"></script>
     <div class="map-container">
 
 
@@ -58,7 +59,7 @@
             <div class="line" id="trajet-Toniz-Perl" style="position: absolute; left: 515PX; top: 500PX; width: 105px; height: 8px; transform: rotate(85deg); background-color: #523814;"></div>
             <div class="line" id="trajet-Perl-Lua" style="position: absolute; left: 515PX; top: 590PX; width: 95px; height: 8px; transform: rotate(25deg); background-color: #523814; animation-delay: 1.5s;"></div>
             <div class="line" id="trajet-Falcon-Prolog" style="position: absolute; left: 521px; top: 421px; width: 150px; height: 8px; transform: rotate(-75deg); background-color: #523814; animation-delay: 0.5s;"></div>
-            <div class="line" id="trajet-Falcon-Prolog" style="position: absolute; left: 529px; top: 421px; width: 100px; height: 8px; transform: rotate(99deg); background-color: #523814; animation-delay: 1s;"></div>
+            <div class="line" id="trajet-Falcon-Toniz" style="position: absolute; left: 529px; top: 421px; width: 100px; height: 8px; transform: rotate(99deg); background-color: #523814; animation-delay: 1s;"></div>
             <div class="line" id="trajet-Python-Apex" style="position: absolute; left: 140px; top: 351px; width: 180px; height: 8px; transform: rotate(-61deg); background-color: #523814; animation-delay: 1.5s;"></div>
             <div class="line" id="trajet-Python-Ruby" style="position: absolute; left: 131px; top: 351px; width: 90px; height: 8px; transform: rotate(-136deg); background-color: #523814; animation-delay: 0.5s;"></div>
             <div class="line" id="trajet-Foulestaque-Ruby" style="position: absolute; left: 97px; top: 155px; width: 137px; height: 8px; transform: rotate(100deg); background-color: #523814;"></div>
@@ -68,13 +69,13 @@
             <div class="line" id="trajet-Apex-Pascal" style="position: absolute; left: 225px; top: 191px; width: 177px; height: 8px; transform: rotate(8deg); background-color: #523814; animation-delay: 0.5s;"></div>
             <div class="line" id="trajet-Pascal-Prolog" style="position: absolute; left: 395px; top: 213px; width: 187px; height: 8px; transform: rotate(22deg); background-color: #523814; animation-delay: 1s;"></div>
             <div class="line" id="trajet-Pascal-Delphi" style="position: absolute; left: 395px; top: 213px; width: 107px; height: 8px; transform: rotate(-46deg); background-color: #523814;"></div>
-            <div class="line" id="trajet-Pascal-Assembly" style="position: absolute; left: 388px; top: 213px; width: 157px; height: 8px; transform: rotate(-79deg); background-color: #523814;"></div>
+            <div class="line" id="trajet-Assembly-Pascal" style="position: absolute; left: 388px; top: 213px; width: 157px; height: 8px; transform: rotate(-79deg); background-color: #523814;"></div>
             <div class="line" id="trajet-Assembly-Delphi" style="position: absolute; left: 430px; top: 53px; width: 107px; height: 8px; transform: rotate(65deg); background-color: #523814; animation-delay: 0.5s;"></div>
-            <div class="line" id="trajet-Delphi-Haskel" style="position: absolute; left: 475px; top: 143px; width: 147px; height: 8px; transform: rotate(10deg); background-color: #523814; animation-delay: 1.5s;"></div>
+            <div class="line" id="trajet-Delphi-Haskell" style="position: absolute; left: 475px; top: 143px; width: 147px; height: 8px; transform: rotate(10deg); background-color: #523814; animation-delay: 1.5s;"></div>
             <div class="line" id="trajet-Prolog-Ariana" style="position: absolute; left: 565px; top: 283px; width: 137px; height: 8px; transform: rotate(38deg); background-color: #523814; animation-delay: 1s;"></div>
-            <div class="line" id="trajet-Prolog-Haskel" style="position: absolute; left: 560px; top: 283px; width: 137px; height: 8px; transform: rotate(-65deg); background-color: #523814;"></div>
+            <div class="line" id="trajet-Haskell-Prolog" style="position: absolute; left: 560px; top: 283px; width: 137px; height: 8px; transform: rotate(-65deg); background-color: #523814;"></div>
             <div class="line" id="trajet-Prolog-Laraville" style="position: absolute; left: 560px; top: 283px; width: 277px; height: 8px; transform: rotate(-46deg); background-color: #523814;"></div>
-            <div class="line" id="trajet-Haskel-Laraville" style="position: absolute; left: 620px; top: 163px; width: 157px; height: 8px; transform: rotate(-32deg); background-color: #523814; animation-delay: 0.5s;"></div>
+            <div class="line" id="trajet-Haskell-Laraville" style="position: absolute; left: 620px; top: 163px; width: 157px; height: 8px; transform: rotate(-32deg); background-color: #523814; animation-delay: 0.5s;"></div>
             <div class="line" id="trajet-Lua-Lisp" style="position: absolute; left: 595px; top: 631px; width: 143px; height: 8px; transform: rotate(-18deg); background-color: #523814;"></div>
             <div class="line" id="trajet-Lisp-Dart" style="position: absolute; left: 720px; top: 590px; width: 298px; height: 8px; transform: rotate(-50deg); background-color: #523814; animation-delay: 1.5s;"></div>
             <div class="line" id="trajet-Lisp-Elm" style="position: absolute; left: 720px; top: 588px; width: 230px; height: 8px; transform: rotate(0deg); background-color: #523814; animation-delay: 1s;"></div>
@@ -86,18 +87,19 @@
             <div class="line" id="trajet-Templake-Elixir" style="position: absolute; left: 778px; top: 240px; width: 120px; height: 8px; transform: rotate(59deg); background-color: #523814; animation-delay: 0.5s;"></div>
             <div class="line" id="trajet-Templake-Fortran" style="position: absolute; left: 777px; top: 239px; width: 130px; height: 8px; transform: rotate(-45deg); background-color: #523814;"></div>
             <div class="line" id="trajet-Templake-Laraville" style="position: absolute; left: 773px; top: 239px; width: 149px; height: 8px; transform: rotate(-99deg); background-color: #523814; animation-delay: 0.5s;"></div>
-            <div class="line" id="trajet-Fortran-Laraville" style="position: absolute; left: 877px; top: 145px; width: 130px; height: 8px; transform: rotate(-155deg); background-color: #523814; animation-delay: 1.5s;"></div>
+            <div class="line" id="trajet-Laraville-Fortran" style="position: absolute; left: 877px; top: 145px; width: 130px; height: 8px; transform: rotate(-155deg); background-color: #523814; animation-delay: 1.5s;"></div>
             <div class="line" id="trajet-Fortran-Groovy" style="position: absolute; left: 879px; top: 145px; width: 140px; height: 8px; transform: rotate(70deg); background-color: #523814; animation-delay: 1s;"></div>
             <div class="line" id="trajet-Fortran-Ada" style="position: absolute; left: 879px; top: 140px; width: 230px; height: 8px; transform: rotate(-16deg); background-color: #523814; animation-delay: 1.5s;"></div>
             <div class="line" id="trajet-Ada-Groovy" style="position: absolute; left: 1120px; top: 80px; width: 280px; height: 8px; transform: rotate(133.5deg); background-color: #523814; animation-delay: 0.5s;"></div>
             <div class="line" id="trajet-Ada-Cobol" style="position: absolute; left: 1120px; top: 80px; width: 80px; height: 8px; transform: rotate(67deg); background-color: #523814;"></div>
             <div class="line" id="trajet-Cobol-Julia" style="position: absolute; left: 1150px; top: 150px; width: 80px; height: 8px; transform: rotate(79deg); background-color: #523814; animation-delay: 1.5s;"></div>
-            <div class="line" id="trajet-Julia-Cobol" style="position: absolute; left: 1168px; top: 230px; width: 333px; height: 8px; transform: rotate(98.5deg); background-color: #523814; animation-delay: 0.5s;"></div>
-            <div class="line" id="trajet-Elm-Erlang" style="position: absolute; left: 920px; top: 588px; width: 202px; height: 8px; transform: rotate(-10deg); background-color: #523814;"></div>
+            <div class="line" id="trajet-Julia-Erlang" style="position: absolute; left: 1168px; top: 230px; width: 333px; height: 8px; transform: rotate(98.5deg); background-color: #523814; animation-delay: 0.5s;"></div>
+            <div class="line" id="trajet-Erlang-Elm" style="position: absolute; left: 920px; top: 588px; width: 202px; height: 8px; transform: rotate(-10deg); background-color: #523814;"></div>
 
             <!-- Bouton au milieu des segments -->
             <button class="line-button" id="milieu-Foulestaque-Apex" style="top: calc((150px + 185px) / 2); left: calc((85px + 218px) / 2); background-color: var(--color-chemin-rose);"></button>
             <div class="line-text" id="chiffre-Foulestaque-Apex" style="top: calc((150px + 185px) / 2); left: calc((85px + 218px) / 2);">2</div>
+
             <button class="line-button" id="milieu-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2); background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2);">4</div>
 
@@ -247,6 +249,9 @@
             <button class="line-button" id="milieu-Assembly-Delphi" style="top: calc((41px + 133px) / 2); left: calc((413px + 460px) / 2); background-color: var(--color-chemin-bleu);"></button>
             <div class="line-text" id="chiffre-Assembly-Delphi" style="top: calc((41px + 133px) / 2); left: calc((413px + 460px) / 2);">&nbsp;1</div>
 
+            <button class="line-button" id="milieu-Falcon-Toniz" style="top: calc((419px + 500px) / 2); left: calc((517px + 500px) / 2); background-color: var(--color-chemin-rouge);"></button>
+            <div class="line-text" id="chiffre-Falcon-Toniz" style="top: calc((419px + 500px) / 2); left: calc((517px + 500px) / 2);">&nbsp;1</div>
+
 
         </div>
 
@@ -315,7 +320,7 @@
     </div>
 </div>
 
-<script>
+<!-- <script>
     const segment = document.querySelector('.map-segment');
 
     // Ajouter un gestionnaire d'événements de clic
@@ -323,6 +328,6 @@
         // Actions à effectuer lors du clic sur le segment
         console.log('Segment cliqué !');
     });
-</script>
+</script> -->
 
 @endsection
