@@ -14,7 +14,8 @@ let buttons = document.querySelectorAll(".line-button");
 buttons.forEach(button => {
     button.addEventListener("click", function () {
         // Appeler la fonction onClickButton avec l'identifiant du bouton cliqué
-        onClickButton(button.id);
+        // onClickButton(button.id); // ceci est la fonction qui fait un changment de couleur mais on a plus besoin de l'appeler
+        // ici puisque handleButtonClick dans le server va broadacter à tout le monde user qui dans script.js déclenche onClickButton
         handleButtonClick(button.id);
     });
 });
