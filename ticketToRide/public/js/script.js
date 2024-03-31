@@ -27,6 +27,10 @@ socket.onmessage = event => {
         case 'user-disconnected':
             appendMessage(`${data.name} a quitté le groupe`);
             break;
+        case 'user-click':
+            // Répondre au clic utilisateur, par exemple, changer la couleur du trajet
+            onClickButton(data.buttonId);
+            break;
         default:
             console.log("Unknown message type");
     }

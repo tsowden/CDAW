@@ -78,5 +78,8 @@ function generateUniqueId() {
 function handleButtonClick(ws, data) {
     // Logique pour gérer le clic sur un bouton
     console.log(`Button clicked: ${data.buttonId}`);
-    // Vous pouvez ajouter ici toute autre logique nécessaire en réponse au clic sur le bouton
+    broadcast({
+        type: 'user-click',
+        buttonId: data.buttonId
+    });
 }
