@@ -15,6 +15,7 @@ buttons.forEach(button => {
     button.addEventListener("click", function () {
         // Appeler la fonction onClickButton avec l'identifiant du bouton cliqué
         onClickButton(button.id);
+        handleButtonClick(button.id);
     });
 });
 

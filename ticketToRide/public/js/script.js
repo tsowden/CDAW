@@ -52,3 +52,9 @@ function appendMessage(message) {
     messageElement.innerText = message;
     messageContainer.append(messageElement);
 }
+
+// Fonction pour envoyer un message WebSocket lorsque le bouton est cliqué
+function handleButtonClick(buttonId) {
+    // Envoyer un message WebSocket au serveur avec l'identifiant du bouton
+    socket.send(JSON.stringify({ type: 'button-clicked', buttonId: buttonId }));
+}

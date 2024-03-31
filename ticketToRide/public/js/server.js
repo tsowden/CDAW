@@ -35,6 +35,10 @@ wss.on('connection', ws => {
                 // Supprimer l'utilisateur de la liste des utilisateurs
                 delete users[ws.connectionId];
                 break;
+            case 'button-clicked':
+                // Gérer le clic sur un bouton
+                handleButtonClick(ws, data);
+                break;
             default:
                 console.log("Unknown message type");
         }
@@ -68,4 +72,11 @@ function broadcast(message) {
 // Fonction pour générer un identifiant unique
 function generateUniqueId() {
     return Math.random().toString(36).substring(2) + Date.now().toString(36);
+}
+
+// Fonction pour gérer le clic sur un bouton
+function handleButtonClick(ws, data) {
+    // Logique pour gérer le clic sur un bouton
+    console.log(`Button clicked: ${data.buttonId}`);
+    // Vous pouvez ajouter ici toute autre logique nécessaire en réponse au clic sur le bouton
 }
