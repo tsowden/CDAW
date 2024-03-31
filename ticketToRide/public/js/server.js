@@ -36,10 +36,11 @@ wss.on('connection', ws => {
                 delete users[ws.connectionId];
                 break;
             case 'button-clicked':
-                console.log(`Button clicked: ${data.buttonId}`);
+                console.log(`Button clicked: ${data.buttonId} by ${data.userName}`);
                 broadcast({
                     type: 'user-click',
-                    buttonId: data.buttonId
+                    buttonId: data.buttonId,
+                    userName: data.userName
                 });
                 break;
             default:

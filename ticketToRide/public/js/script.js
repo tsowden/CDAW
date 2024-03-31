@@ -30,6 +30,7 @@ socket.onmessage = event => {
         case 'user-click':
             // Répondre au clic utilisateur, par exemple, changer la couleur du trajet
             onClickButton(data.buttonId);
+            appendMessage(`${data.userName} a pris la route ${data.buttonId}`);
             break;
         default:
             console.log("Unknown message type");
@@ -59,6 +60,10 @@ function appendMessage(message) {
 
 // Fonction pour envoyer un message WebSocket lorsque le bouton est cliqué
 function handleButtonClick(buttonId) {
-    // Envoyer un message WebSocket au serveur avec l'identifiant du bouton
-    socket.send(JSON.stringify({ type: 'button-clicked', buttonId: buttonId }));
+    // Récupérer le nom de l'utilisateur
+    const userName = document.getElementById('utilisateur').getAttribute('data-nom');
+
+    // Envoyer un message WebSocket au serveur avec l'identifiant du bouton et le nom de l'utilisateur
+    socket.send(JSON.stringify({ type: 'button-clicked', buttonId: buttonId, userName: userName }));
 }
+
