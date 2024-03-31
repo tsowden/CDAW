@@ -4,6 +4,7 @@ function onClickButton(buttonId) {
     let trajetId = "trajet-" + buttonId.split("-")[1] + "-" + buttonId.split("-")[2];
     // Modifier l'aspect du trajet correspondant
     document.getElementById(trajetId).style.backgroundColor = "red";
+    document.getElementById(trajetId).style.height = "15px";
     // Autres actions à effectuer...
 }
 
