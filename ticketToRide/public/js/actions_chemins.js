@@ -9,6 +9,7 @@ function getColorForUser(username) {
 }
 
 const tableHeader = document.querySelector('#table-stats th');
+const tableHeaderAdversaire = document.querySelector('#table-stats-adversaire th');
 const userName = document.getElementById('utilisateur').getAttribute('data-nom');
 const userColor = getColorForUser(userName);
 tableHeader.style.backgroundColor = userColor;
@@ -23,11 +24,12 @@ function onClickButton(buttonId, username) {
     let longueurChemin = parseInt(chiffreElement.innerText);
     // let pointsCell = document.getElementById('points-cell');
     let pointsCell, wagonsCell;
-    if (username === userName) {
+    if (username === userName) { //attention cette logique ne fonctionne que en 1v1. En réalité il faudrait un hachage qui les répartit dans un des tableaux en fonctionde leur nom
         pointsCell = document.getElementById('points-cell');
         wagonsCell = document.getElementById('wagons-cell');
     } else {
         const tableAdversaire = document.getElementById('table-stats-adversaire');
+        tableHeaderAdversaire.style.backgroundColor = color; // la couleur du tableau de l'adversaire ne changera que l'orsqu'il jouera un coup mais je pense que c'est nécéssaire car il est nécessaire qu'il nous envoie via websocket ses infos
         pointsCell = tableAdversaire.querySelector('#points-cell');
         wagonsCell = tableAdversaire.querySelector('#wagons-cell');
     }
