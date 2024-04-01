@@ -67,7 +67,7 @@ function scrollToBottom() {
 
 // Fonction pour envoyer un message WebSocket lorsque le bouton est cliqué
 function handleButtonClick(buttonId) {
-    // Récupérer le nom de l'utilisateur
+    // Récupérer le nom de l'utilisateur pour pouvoir écrire dans le chat qui a cliqué
     const userName = document.getElementById('utilisateur').getAttribute('data-nom');
 
     // Envoyer un message WebSocket au serveur avec l'identifiant du bouton et le nom de l'utilisateur
