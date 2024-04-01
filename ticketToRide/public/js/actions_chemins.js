@@ -45,6 +45,9 @@ function retireWagons(longueurChemin, wagonsCell) {
     let currentWagons = parseInt(wagonsCell.innerText); // Convertir en entier
     currentWagons -= longueurChemin; // Diminuer le nombre de wagons de la longueur du chemin
     wagonsCell.innerText = currentWagons;
+    if (currentWagons <= 0) {
+        socket.send(JSON.stringify({ type: 'send-chat-message', message: `J'ai a terminé mes wagons !` })); // il faudrait ici mettre fin à la partie
+    }
 }
 
 function ajoutePoints(longueurChemin, pointsCell, currentPoints) {
