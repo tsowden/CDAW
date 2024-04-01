@@ -22,10 +22,10 @@ socket.onmessage = event => {
             appendMessage(`${data.name}: ${data.message}`);
             break;
         case 'user-connected':
-            appendMessage(`${data.name} a rejoint le groupe`);
+            appendMessage(`${data.name} a rejoint la partie`);
             break;
         case 'user-disconnected':
-            appendMessage(`${data.name} a quitté le groupe`);
+            appendMessage(`${data.name} a quitté la partie`);
             break;
         case 'user-click':
             // Répondre au clic utilisateur, par exemple, changer la couleur du trajet
