@@ -10,7 +10,7 @@
 
         <div id="map-container">
             <img src="{{ asset('assets/img/map240324.png') }}" alt="Carte des Aventuriers du Rail" id="map-image">
-            <!-- Boutons sur la carte -->
+            <!-- Boutons des villes sur la carte -->
             <button class="map-button" style="top: 150px; left: 85px;" id="button-Foulestaque"></button>
             <button class="map-button" style="top: 185px; left: 218px;" id="button-Apex"></button>
             <button class="map-button" style="top: 50px; left: 240px;" id="button-Java"></button>
@@ -300,7 +300,21 @@
 
 
     <div class="side-panel right-panel">
-        Autres joueurs & Chat
+        <table id=table-stats>
+            <tr class="top-row">
+                <th colspan="2">Vous : {{ auth()->user()->name }}</th>
+            </tr>
+            <tr>
+                <td>Points</td>
+                <td>Wagons</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>33</td>
+            </tr>
+        </table>
+
+
         <!-- Bande à droite pour afficher le nom des autres joueurs et le chat -->
         <div id="message_body">
             <script defer src="{{ asset('js/script.js') }}"></script>

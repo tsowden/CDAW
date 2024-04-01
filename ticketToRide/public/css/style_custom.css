@@ -1,3 +1,25 @@
+#table-stats {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: "Times New Roman";
+    color: white;
+}
+
+th,
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: rgb(11, 105, 0);
+}
+
+.top-row {
+    background-color: lightblue;
+}
+
 .line-text {
     position: absolute;
     transform: translate(30%, 5%);
@@ -513,7 +535,7 @@ body {
     max-width: 1200px;
     margin-top: 20px;
     /* Espacement par rapport au haut de la page */
-    max-height: 650px;
+    max-height: 450px;
     /* Définissez la hauteur maximale que vous souhaitez */
     overflow-y: auto;
     /* Activation du défilement vertical si nécessaire */
