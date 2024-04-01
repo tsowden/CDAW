@@ -8,6 +8,11 @@ function getColorForUser(username) {
     return colors[colorIndex];
 }
 
+const tableHeader = document.querySelector('#table-stats th');
+const username = document.getElementById('utilisateur').getAttribute('data-nom');
+const userColor = getColorForUser(username);
+tableHeader.style.backgroundColor = userColor;
+
 function onClickButton(buttonId, username) {
     let trajetId = "trajet-" + buttonId.split("-")[1] + "-" + buttonId.split("-")[2];
     let color = getColorForUser(username); // Obtenir la couleur en fonction du nom de l'utilisateur
@@ -31,32 +36,32 @@ function retireWagons(longueurChemin) {
 
 function ajoutePoints(longueurChemin, pointsCell, currentPoints) {
     if (longueurChemin == 1) {
-        currentPoints += 1; // Ajouter des points (par exemple)
+        currentPoints += 1;
         pointsCell.innerText = currentPoints;
 
     }
     if (longueurChemin == 2) {
-        currentPoints += 2; // Ajouter des points (par exemple)
+        currentPoints += 2;
         pointsCell.innerText = currentPoints;
 
     }
     if (longueurChemin == 3) {
-        currentPoints += 4; // Ajouter des points (par exemple)
+        currentPoints += 4;
         pointsCell.innerText = currentPoints;
 
     }
     if (longueurChemin == 4) {
-        currentPoints += 7; // Ajouter des points (par exemple)
+        currentPoints += 7;
         pointsCell.innerText = currentPoints;
 
     }
     if (longueurChemin == 5) {
-        currentPoints += 10; // Ajouter des points (par exemple)
+        currentPoints += 10;
         pointsCell.innerText = currentPoints;
 
     }
     if (longueurChemin == 6) {
-        currentPoints += 15; // Ajouter des points (par exemple)
+        currentPoints += 15;
         pointsCell.innerText = currentPoints;
 
     }
