@@ -30,6 +30,8 @@ function onClickButton(buttonId, username) {
     } else {
         const tableAdversaire = document.getElementById('table-stats-adversaire');
         tableHeaderAdversaire.style.backgroundColor = color; // la couleur du tableau de l'adversaire ne changera que l'orsqu'il jouera un coup mais je pense que c'est nécéssaire car il est nécessaire qu'il nous envoie via websocket ses infos
+        const thAdversaire = tableAdversaire.querySelector('th');
+        thAdversaire.textContent = username;
         pointsCell = tableAdversaire.querySelector('#points-cell');
         wagonsCell = tableAdversaire.querySelector('#wagons-cell');
     }
