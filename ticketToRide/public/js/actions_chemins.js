@@ -16,94 +16,48 @@ function onClickButton(buttonId, username) {
     let chiffreId = "chiffre-" + buttonId.split("-")[1] + "-" + buttonId.split("-")[2];
     let chiffreElement = document.getElementById(chiffreId);
     let longueurChemin = parseInt(chiffreElement.innerText);
+    let pointsCell = document.getElementById('points-cell');
+    let currentPoints = parseInt(pointsCell.innerText);
+    ajoutePoints(longueurChemin, pointsCell, currentPoints);
+    retireWagons(longueurChemin);
+}
+function retireWagons(longueurChemin) {
+    let wagonsCell = document.getElementById('wagons-cell');
+    let currentWagons = parseInt(wagonsCell.innerText); // Convertir en entier
+    currentWagons -= longueurChemin; // Diminuer le nombre de wagons de la longueur du chemin
+    wagonsCell.innerText = currentWagons;
+
+}
+
+function ajoutePoints(longueurChemin, pointsCell, currentPoints) {
     if (longueurChemin == 1) {
-        // Modifier les Points
-        let pointsCell = document.getElementById('points-cell');
-        let currentPoints = parseInt(pointsCell.innerText); // Convertir en entier
-
         currentPoints += 1; // Ajouter des points (par exemple)
-        pointsCell.innerText = currentPoints; // Mettre à jour le contenu de la cellule Points
-
-        // Modifier les Wagons
-        let wagonsCell = document.getElementById('wagons-cell');
-        let currentWagons = parseInt(wagonsCell.innerText); // Convertir en entier
-        currentWagons -= 1; // Diminuer le nombre de wagons (par exemple)
-        wagonsCell.innerText = currentWagons; // Mettre à jour le contenu de la cellule Wagons
+        pointsCell.innerText = currentPoints;
 
     }
     if (longueurChemin == 2) {
-        // Modifier les Points
-        let pointsCell = document.getElementById('points-cell');
-        let currentPoints = parseInt(pointsCell.innerText); // Convertir en entier
-
         currentPoints += 2; // Ajouter des points (par exemple)
-        pointsCell.innerText = currentPoints; // Mettre à jour le contenu de la cellule Points
-
-        // Modifier les Wagons
-        let wagonsCell = document.getElementById('wagons-cell');
-        let currentWagons = parseInt(wagonsCell.innerText); // Convertir en entier
-        currentWagons -= 2; // Diminuer le nombre de wagons (par exemple)
-        wagonsCell.innerText = currentWagons; // Mettre à jour le contenu de la cellule Wagons
+        pointsCell.innerText = currentPoints;
 
     }
     if (longueurChemin == 3) {
-        // Modifier les Points
-        let pointsCell = document.getElementById('points-cell');
-        let currentPoints = parseInt(pointsCell.innerText); // Convertir en entier
-
         currentPoints += 4; // Ajouter des points (par exemple)
-        pointsCell.innerText = currentPoints; // Mettre à jour le contenu de la cellule Points
-
-        // Modifier les Wagons
-        let wagonsCell = document.getElementById('wagons-cell');
-        let currentWagons = parseInt(wagonsCell.innerText); // Convertir en entier
-        currentWagons -= 3; // Diminuer le nombre de wagons (par exemple)
-        wagonsCell.innerText = currentWagons; // Mettre à jour le contenu de la cellule Wagons
+        pointsCell.innerText = currentPoints;
 
     }
     if (longueurChemin == 4) {
-        // Modifier les Points
-        let pointsCell = document.getElementById('points-cell');
-        let currentPoints = parseInt(pointsCell.innerText); // Convertir en entier
-
         currentPoints += 7; // Ajouter des points (par exemple)
-        pointsCell.innerText = currentPoints; // Mettre à jour le contenu de la cellule Points
-
-        // Modifier les Wagons
-        let wagonsCell = document.getElementById('wagons-cell');
-        let currentWagons = parseInt(wagonsCell.innerText); // Convertir en entier
-        currentWagons -= 4; // Diminuer le nombre de wagons (par exemple)
-        wagonsCell.innerText = currentWagons; // Mettre à jour le contenu de la cellule Wagons
+        pointsCell.innerText = currentPoints;
 
     }
     if (longueurChemin == 5) {
-        // Modifier les Points
-        let pointsCell = document.getElementById('points-cell');
-        let currentPoints = parseInt(pointsCell.innerText); // Convertir en entier
-
         currentPoints += 10; // Ajouter des points (par exemple)
-        pointsCell.innerText = currentPoints; // Mettre à jour le contenu de la cellule Points
-
-        // Modifier les Wagons
-        let wagonsCell = document.getElementById('wagons-cell');
-        let currentWagons = parseInt(wagonsCell.innerText); // Convertir en entier
-        currentWagons -= 5; // Diminuer le nombre de wagons (par exemple)
-        wagonsCell.innerText = currentWagons; // Mettre à jour le contenu de la cellule Wagons
+        pointsCell.innerText = currentPoints;
 
     }
     if (longueurChemin == 6) {
-        // Modifier les Points
-        let pointsCell = document.getElementById('points-cell');
-        let currentPoints = parseInt(pointsCell.innerText); // Convertir en entier
-
         currentPoints += 15; // Ajouter des points (par exemple)
-        pointsCell.innerText = currentPoints; // Mettre à jour le contenu de la cellule Points
-
-        // Modifier les Wagons
-        let wagonsCell = document.getElementById('wagons-cell');
-        let currentWagons = parseInt(wagonsCell.innerText); // Convertir en entier
-        currentWagons -= 6; // Diminuer le nombre de wagons (par exemple)
-        wagonsCell.innerText = currentWagons; // Mettre à jour le contenu de la cellule Wagons
+        pointsCell.innerText = currentPoints;
 
     }
 }
