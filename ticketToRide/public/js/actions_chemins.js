@@ -2,7 +2,7 @@ function getColorForUser(username) {
     // Logique pour attribuer une couleur en fonction du nom de l'utilisateur
     // Vous pouvez utiliser une fonction de hachage ou une logique personnalisée pour cela
     // Voici un exemple simple qui utilise une fonction de hachage
-    const colors = ['#0800ff', '#ff0000', '#00ff22', '#fffb00', '#00fffb', '#303030']; // Liste de couleurs possibles dans l'ordre bleu rouge vert jaune cyan noir
+    const colors = ['#0800ff', '#ff0000', '#00ff22', '#fffb00', '#00fffb', '#ff8400']; // Liste de couleurs possibles dans l'ordre bleu rouge vert jaune cyan orange
     const hash = username.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
     const colorIndex = hash % colors.length;
     return colors[colorIndex];

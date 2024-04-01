@@ -300,7 +300,7 @@
 
 
     <div class="side-panel right-panel">
-        <table id=table-stats>
+        <table id=table-stats class="table-self">
             <tr class="top-row">
                 <th colspan="2">Vous : {{ auth()->user()->name }}</th>
             </tr>
@@ -311,6 +311,19 @@
             <tr>
                 <td>0</td>
                 <td>33</td>
+            </tr>
+        </table>
+        <table id=table-stats-adversaire class="table-opponent">
+            <tr class="top-row">
+                <th colspan="2">Adversaire</th>
+            </tr>
+            <tr>
+                <td>Points</td>
+                <td>Wagons</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>30</td>
             </tr>
         </table>
 

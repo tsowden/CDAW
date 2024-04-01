@@ -1,24 +1,32 @@
-#table-stats {
+#table-stats,
+#table-stats-adversaire {
     border-collapse: collapse;
     width: 100%;
     font-family: "Times New Roman";
     color: white;
 }
 
-th,
-td {
+#table-stats th,
+#table-stats td,
+#table-stats-adversaire th,
+#table-stats-adversaire td {
     border: 1px solid black;
     padding: 8px;
     text-align: center;
 }
 
-th {
+#table-stats th {
     background-color: rgb(11, 105, 0);
+}
+
+#table-stats-adversaire th {
+    background-color: rgb(105, 0, 0);
 }
 
 .top-row {
     background-color: lightblue;
 }
+
 
 .line-text {
     position: absolute;
@@ -226,7 +234,7 @@ th {
     order: 2;
     /* Largeur fixe de la bande à droite */
     background-color: grey;
-    background-image: url("images/fond_parchemin.png");
+    background-image: url("public/images/fond_charbon.jpg");
 
 }
 
@@ -531,6 +539,7 @@ body {
 }
 
 #message-container {
+
     width: 95%;
     align-items: flex-start;
     max-width: 1200px;
