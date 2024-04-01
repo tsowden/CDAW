@@ -234,7 +234,8 @@
     order: 2;
     /* Largeur fixe de la bande à droite */
     background-color: grey;
-    background-image: url("public/images/fond_charbon.jpg");
+    background-image: url("../images/fond_charbon.jpg");
+    background-size: cover;
 
 }
 
@@ -570,7 +571,7 @@ body {
 }
 
 #message-container div:nth-child(2n) {
-    background-color: #472905;
+    background-color: #4f4f4f;
     color: white;
     /* Couleur de fond alternative pour les messages */
 }
