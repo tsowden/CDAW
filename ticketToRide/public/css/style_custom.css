@@ -531,7 +531,8 @@ body {
 }
 
 #message-container {
-    width: 90%;
+    width: 95%;
+    align-items: flex-start;
     max-width: 1200px;
     margin-top: 20px;
     /* Espacement par rapport au haut de la page */
@@ -578,10 +579,8 @@ body {
     display: flex;
     flex-direction: column;
     /* Aligner les éléments en colonne */
-    border-top-left-radius: 5px;
-    /* Bords arrondis en haut à gauche */
-    border-top-right-radius: 5px;
-    /* Bords arrondis en haut à droite */
+    border-radius: 5px;
+
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     /* Ombre pour un effet de profondeur */
     margin-top: auto;
