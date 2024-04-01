@@ -310,7 +310,7 @@
             </tr>
             <tr>
                 <td id="points-cell">0</td>
-                <td id="wagons-cell">33</td>
+                <td id="wagons-cell">30</td>
             </tr>
         </table>
         <table id=table-stats-adversaire class="table-opponent">
@@ -322,8 +322,8 @@
                 <td>Wagons</td>
             </tr>
             <tr>
-                <td>4</td>
-                <td>30</td>
+                <td id="points-cell">0</td>
+                <td id="wagons-cell">30</td>
             </tr>
         </table>
 

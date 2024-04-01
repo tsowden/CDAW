@@ -9,8 +9,8 @@ function getColorForUser(username) {
 }
 
 const tableHeader = document.querySelector('#table-stats th');
-const username = document.getElementById('utilisateur').getAttribute('data-nom');
-const userColor = getColorForUser(username);
+const userName = document.getElementById('utilisateur').getAttribute('data-nom');
+const userColor = getColorForUser(userName);
 tableHeader.style.backgroundColor = userColor;
 
 function onClickButton(buttonId, username) {
@@ -21,17 +21,28 @@ function onClickButton(buttonId, username) {
     let chiffreId = "chiffre-" + buttonId.split("-")[1] + "-" + buttonId.split("-")[2];
     let chiffreElement = document.getElementById(chiffreId);
     let longueurChemin = parseInt(chiffreElement.innerText);
-    let pointsCell = document.getElementById('points-cell');
+    // let pointsCell = document.getElementById('points-cell');
+    let pointsCell, wagonsCell;
+    if (username === userName) {
+        pointsCell = document.getElementById('points-cell');
+        wagonsCell = document.getElementById('wagons-cell');
+    } else {
+        const tableAdversaire = document.getElementById('table-stats-adversaire');
+        pointsCell = tableAdversaire.querySelector('#points-cell');
+        wagonsCell = tableAdversaire.querySelector('#wagons-cell');
+    }
+
+
+
     let currentPoints = parseInt(pointsCell.innerText);
     ajoutePoints(longueurChemin, pointsCell, currentPoints);
-    retireWagons(longueurChemin);
+    retireWagons(longueurChemin, wagonsCell);
 }
-function retireWagons(longueurChemin) {
-    let wagonsCell = document.getElementById('wagons-cell');
+function retireWagons(longueurChemin, wagonsCell) {
+    // let wagonsCell = document.getElementById('wagons-cell');
     let currentWagons = parseInt(wagonsCell.innerText); // Convertir en entier
     currentWagons -= longueurChemin; // Diminuer le nombre de wagons de la longueur du chemin
     wagonsCell.innerText = currentWagons;
-
 }
 
 function ajoutePoints(longueurChemin, pointsCell, currentPoints) {
