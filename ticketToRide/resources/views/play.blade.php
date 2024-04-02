@@ -323,11 +323,35 @@
     </div>
     <div class="card-draw">
     <div class="card-row">
-        <img src="{{ asset('images/dos_dc.png') }}" alt="Dos de carte destination" class="card-draw">
+        <img src="{{ asset('images/dos_dc.png') }}" alt="Dos de carte destination"class="wagon-card">
     </div>
     <div class="card-row">
-        <img src="{{ asset('images/dos_wc.png') }}" alt="Dos de carte wagon" class="card-draw">
+    <div class="random-draw-container">
+    <img src="{{ asset('images/dos_wc.png') }}" alt="Dos de carte wagon" class="wagon-card">
+        @if(isset($randomCardId))
+            <form action="{{ route('game.pick-card', ['cardId' => $randomCardId]) }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-primary pioche">Piocher aléatoire</button>
+            </form>
+        @endif
+
+
+
+</div>
+
     </div>
+    
+    @foreach($visibleCards as $card)
+    <div class="card-container">
+        <img src="{{ asset('images/'.$card->wc_image) }}" alt="Carte Wagon" class="wagon-card">
+        <form action="{{ route('game.pick-card', $card->wc_id) }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-primary pioche">Prendre la carte</button>
+        </form>
+    </div>
+@endforeach
+
+
 </div>
 
 </div>

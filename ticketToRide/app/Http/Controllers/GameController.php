@@ -35,9 +35,45 @@ class GameController extends Controller
         }
     }
     
+    public function pickRandomCard(Request $request, $gameId)
+    {
+        $user = auth()->user();
+        if (!$user) {
+            // L'utilisateur doit être connecté pour piocher une carte
+            return redirect()->route('login')->with('error_message', 'Vous devez être connecté pour effectuer cette action.');
+        }
+
+        // Vérifier si l'utilisateur participe à la partie spécifiée par $gameId
+        $isParticipant = \App\Models\Participation::where('game_id', $gameId)
+                                                ->where('player_id', $user->id)
+                                                ->exists();
+        if (!$isParticipant) {
+            // L'utilisateur doit faire partie de la partie pour piocher une carte
+            return back()->with('error_message', 'Vous n\'êtes pas un participant de cette partie.');
+        }
+
+        // Sélectionner une carte aléatoire de la pioche pour ce jeu
+        $card = \App\Models\WagonCard::where('game_id', $gameId)
+                                    ->whereNull('player_id_wc_hand') // La carte doit être dans la pioche
+                                    ->inRandomOrder() // Sélectionner aléatoirement
+                                    ->first(); // Prendre la première carte trouvée
+
+        if (!$card) {
+            // Aucune carte n'est disponible pour la pioche
+            return back()->with('error_message', 'Aucune carte disponible à piocher.');
+        }
+
+        // Attribuer la carte piochée aléatoirement à l'utilisateur
+        $card->player_id_wc_hand = $user->id;
+        $card->save();
+
+        // Rediriger l'utilisateur avec un message de succès
+        return back()->with('success_message', 'Une carte a été piochée aléatoirement et ajoutée à votre main.');
+    }
+
     
-
-
+    
+    
     public function play($gameId)
     {
         $user = auth()->user();
@@ -81,15 +117,52 @@ class GameController extends Controller
         $cardsCountByColor = $cardsCountByColor->merge($realCounts);
     
         $game = Game::with('participations.user')->findOrFail($gameId);
-    
+
+        $randomCardId = WagonCard::where('game_id', $gameId)
+                         ->whereNull('player_id_wc_hand')
+                         ->inRandomOrder()
+                         ->first()
+                         ->wc_id ?? null;
+
+        $visibleCards = WagonCard::where('game_id', $gameId)
+        ->whereNull('player_id_wc_hand')
+        ->inRandomOrder()
+        ->take(5)
+        ->get();
+
         return view('play', [
-            'game' => $game, 
-            'cardsCountByColor' => $cardsCountByColor, 
-            'colors' => $colors
+        'game' => $game, 
+        'cardsCountByColor' => $cardsCountByColor, 
+        'colors' => $colors,
+        'randomCardId' => $randomCardId,
+        'visibleCards' => $visibleCards 
         ]);
+
     }
     
+    public function pickCard(Request $request, $cardId)
+    {
+        $user = auth()->user();
+        if (!$user) {
+            return redirect()->route('login')->with('error_message', 'Vous devez être connecté pour effectuer cette action.');
+        }
     
+        // Assurez-vous que la carte appartient au jeu actuel et est dans la pioche
+        $card = WagonCard::where('wc_id', $cardId)
+                         ->whereNull('player_id_wc_hand')
+                         ->firstOrFail();
+    
+        // Ajouter la carte à la main du joueur
+        $card->player_id_wc_hand = $user->id;
+        $card->save();
+    
+        // Vous pourriez vouloir tirer une nouvelle carte pour la remplacer ici
+        // et envoyer cette info à la vue ou via un événement au client
+    
+        return back()->with('success_message', 'Carte ajoutée à votre main.');
+    }
+    
+
     
 
     public function create_game(Request $request)

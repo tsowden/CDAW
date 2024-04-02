@@ -42,6 +42,8 @@ Route::delete('/lobby/{gameId}/leave', [LobbyController::class, 'leave'])->name(
 Route::get('/play/{gameId}', 'App\Http\Controllers\GameController@play')->name('game.play');
 Route::get('/game/{gameId}/start', [GameController::class, 'startGame'])->name('game.start');
 
+Route::post('/game/pick-card/{cardId}', [GameController::class, 'pickCard'])->name('game.pick-card');
+
 
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 Route::get('/dashboard', function () {

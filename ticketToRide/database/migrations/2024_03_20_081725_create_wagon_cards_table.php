@@ -17,7 +17,6 @@ class CreateWagonCardsTable extends Migration
             $table->id('wc_id');
             $table->string('wc_color');
             $table->string('wc_image');
-            $table->int('wc_quantity');
             $table->foreignId('game_id')->nullable()->references('game_id')->on('games')->onDelete('cascade');
             $table->foreignId('player_id_wc_hand')->nullable()->references('id')->on('users')->onDelete('set null');
             $table->timestamps();
