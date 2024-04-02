@@ -115,3 +115,4 @@ buttons.forEach(button => {
     // ici puisque handleButtonClick dans le server va broadacter à tout le monde user qui dans script.js déclenche onClickButton
 });
 
+

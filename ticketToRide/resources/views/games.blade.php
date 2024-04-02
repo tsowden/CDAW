@@ -10,12 +10,14 @@
 @section('content')
 
 @if(session('success_message'))
-        <div class="alert alert-success">
-            {{ session('success_message') }}
-        </div>
-    @endif
-    
+<div class="alert alert-success">
+    {{ session('success_message') }}
+</div>
+@endif
+
 <section class="scoreboard">
+    <script defer src="{{ asset('js/live_lobby.js') }}"></script>
+    <div id="utilisateur" data-nom="{{ auth()->user()->name }}" style="display: none;"></div>
     <h2 class="text-center mb-3">Liste des parties créées</h2>
 
     <div class="table-responsive">
@@ -41,10 +43,10 @@
                     <td>
                         <form action="{{ route('games.join', $game->game_id) }}" method="POST">
                             @csrf
-                            <button type="submit" class="btn btn-primary">Rejoindre</button>
+                            <button class="join-button" type="submit" class="btn btn-primary">Rejoindre</button>
                         </form>
                     </td>
                 </tr>
                 @endforeach
             <tbody>
-@endsection
+                @endsection

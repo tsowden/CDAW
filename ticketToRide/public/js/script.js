@@ -42,6 +42,10 @@ socket.onmessage = event => {
             const routeName = data.buttonId.split("-").slice(1).join("-"); //utilise pour afficher le nom du trajet sans "milieu"
             appendMessage(`${data.userName} a pris la route ${routeName}`);
             break;
+        case 'join-click':
+            ajouterParticipant(username);
+            console.log(coucou);
+            break;
         default:
             console.log("Unknown message type");
     }
