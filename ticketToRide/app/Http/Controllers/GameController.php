@@ -36,7 +36,6 @@ class GameController extends Controller
 
         // Liste des participants à renvoyer dans play pour que l'on sache quand on arrive qui est dans la partie avec nous
         $participants = $game->participations()->with('user')->get()->pluck('user.name');
-        echo ($participants);
 
         return view('play', ['game' => $game, 'participants' => $participants]);
     }

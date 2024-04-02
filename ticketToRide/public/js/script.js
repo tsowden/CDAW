@@ -8,6 +8,15 @@ const name = document.getElementById('utilisateur').getAttribute('data-nom');
 console.log(name); // Le nom de l'utilisateur connecté
 // appendMessage('Vous avez rejoint le groupe'); ceci fait doublons
 let users = {}; // faire que users soit initilisé grace à la db
+const participantsDivs = document.querySelectorAll('.participant');
+const participants = [];
+participantsDivs.forEach(div => {
+    const participantName = div.getAttribute('data-nom');
+    participants.push(participantName);
+});
+
+console.log(participants);
+
 // Événement de connexion WebSocket
 socket.onopen = () => {
     // Envoyer le nom de l'utilisateur au serveur lors de la connexion
@@ -23,13 +32,18 @@ socket.onmessage = event => {
             break;
         case 'user-connected':
             appendMessage(`${data.name} a rejoint la partie`);
-            users[data.name] = data.name;
-            console.log(users);
+            if (!participants.includes(data.name)) { // Ajouter l'utilisateur à la liste des participants s'il n'est pas déjà présent
+                participants.push(data.name);
+            }
+            console.log(participants);
             break;
         case 'user-disconnected':
             appendMessage(`${data.name} a quitté la partie`);
-            delete users[data.name]; // Supprimer l'utilisateur du tableau
-            console.log(users);
+            const index = participants.indexOf(data.name);
+            if (index !== -1) {
+                participants.splice(index, 1); // Retirer l'utilisateur de la liste des participants s'il est bien dedans
+            }
+            console.log(participants);
             break;
         case 'user-click':
             // Répondre au clic utilisateur, par exemple, changer la couleur du trajet

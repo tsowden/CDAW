@@ -12,14 +12,6 @@ const tableHeader = document.querySelector('#table-stats th');
 const tableHeaderAdversaire = document.querySelector('#table-stats-adversaire th');
 const userName = document.getElementById('utilisateur').getAttribute('data-nom');
 
-const participantsDivs = document.querySelectorAll('.participant');
-const participants = [];
-participantsDivs.forEach(div => {
-    const participantName = div.getAttribute('data-nom');
-    participants.push(participantName);
-});
-
-console.log(participants); // Vous avez maintenant la liste des noms des participants dans le tableau participants
 
 const userColor = getColorForUser(userName);
 tableHeader.style.backgroundColor = userColor;
