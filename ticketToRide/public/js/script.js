@@ -7,15 +7,6 @@ const messageInput = document.getElementById('message-input');
 const name = document.getElementById('utilisateur').getAttribute('data-nom');
 console.log(name); // Le nom de l'utilisateur connecté
 // appendMessage('Vous avez rejoint le groupe'); ceci fait doublons
-let users = {}; // faire que users soit initilisé grace à la db
-const participantsDivs = document.querySelectorAll('.participant');
-const participants = [];
-participantsDivs.forEach(div => {
-    const participantName = div.getAttribute('data-nom');
-    participants.push(participantName);
-});
-
-console.log(participants);
 
 // Événement de connexion WebSocket
 socket.onopen = () => {

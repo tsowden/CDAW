@@ -1,12 +1,21 @@
+const participantsDivs = document.querySelectorAll('.participant');
+const participants = [];
+participantsDivs.forEach(div => {
+    const participantName = div.getAttribute('data-nom');
+    participants.push(participantName);
+});
+
+console.log(participants);
+
 function getColorForUser(username) {
-    // Logique pour attribuer une couleur en fonction du nom de l'utilisateur
-    // Vous pouvez utiliser une fonction de hachage ou une logique personnalisée pour cela
-    // Voici un exemple simple qui utilise une fonction de hachage
-    const colors = ['#0800ff', '#ff0000', '#00ff22', '#fffb00', '#00fffb', '#ff8400']; // Liste de couleurs possibles dans l'ordre bleu rouge vert jaune cyan orange
-    const hash = username.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-    const colorIndex = hash % colors.length;
-    return colors[colorIndex];
+    // Trouver l'index de l'utilisateur dans le tableau des participants
+    const index = participants.indexOf(username);
+    // Utiliser cet index pour sélectionner une couleur dans une liste prédéfinie
+    const colors = ['#0800ff', '#ff0000', '#00ff22', '#fffb00', '#00fffb', '#ff8400']; // Liste de couleurs possibles
+    // Retourner la couleur correspondant à l'index de l'utilisateur
+    return colors[index % colors.length];
 }
+
 
 const tableHeader = document.querySelector('.table-opponent-auth th');
 const tableHeaderAdversaire = document.querySelector('.table-opponent th');
