@@ -11,7 +11,7 @@ function getColorForUser(username) {
     // Trouver l'index de l'utilisateur dans le tableau des participants
     const index = participants.indexOf(username);
     // Utiliser cet index pour sélectionner une couleur dans une liste prédéfinie
-    const colors = ['#0800ff', '#ff0000', '#00ff22', '#fffb00', '#00fffb', '#ff8400']; // Liste de couleurs possibles
+    const colors = ['#0800ff', '#ff0000', '#00ff22', '#fffb00', '#00fffb', '#ff8400']; // Liste de couleurs possibles dans l'ordre bleu rouge vert jaune cyan orange
     // Retourner la couleur correspondant à l'index de l'utilisateur
     return colors[index % colors.length];
 }
@@ -54,23 +54,6 @@ function onClickButton(buttonId, username) {
     let pointsCell = tableCible.querySelector('#points-cell');
     let wagonsCell = tableCible.querySelector('#wagons-cell');
     tableCible.querySelector('th').style.backgroundColor = color;
-
-
-
-    // let pointsCell, wagonsCell;
-    // if (username === userName) { //attention cette logique ne fonctionne que en 1v1. En réalité il faudrait un hachage qui les répartit dans un des tableaux en fonctionde leur nom
-    //     pointsCell = document.getElementById('points-cell');
-    //     wagonsCell = document.getElementById('wagons-cell');
-    // } else {
-    //     const tableAdversaire = document.getElementById('table-stats-adversaire');
-    //     tableHeaderAdversaire.style.backgroundColor = color; // la couleur du tableau de l'adversaire ne changera que l'orsqu'il jouera un coup mais je pense que c'est nécéssaire car il est nécessaire qu'il nous envoie via websocket ses infos
-    //     const thAdversaire = tableAdversaire.querySelector('th');
-    //     thAdversaire.textContent = username;
-    //     pointsCell = tableAdversaire.querySelector('#points-cell');
-    //     wagonsCell = tableAdversaire.querySelector('#wagons-cell');
-    // }
-
-
 
     let currentPoints = parseInt(pointsCell.innerText);
     ajoutePoints(longueurChemin, pointsCell, currentPoints);
