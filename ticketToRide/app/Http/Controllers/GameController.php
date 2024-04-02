@@ -53,7 +53,14 @@ class GameController extends Controller
         if (!$participationExists) {
             return redirect()->route('home')->with('error_message', 'Vous n\'avez pas accès à cette partie !');
         }
-    
+
+        $game = Game::findOrFail($gameId);
+        
+        // Ajout de la vérification de l'état de la partie
+        if ($game->game_state !== 'En cours') {
+        return redirect()->route('lobby.show', ['gameId' => $gameId])->with('warning_message', 'La partie n\'a pas encore commencé. Veuillez attendre dans le lobby.');
+    }
+
         // Définissez ici la liste des couleurs pour les cartes wagon
         $colors = ['black', 'blue', 'cyan', 'green', 'orange', 'red', 'violet', 'yellow', 'locomotive'];
     
