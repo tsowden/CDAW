@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Participation;
+use App\Models\WagonCard;
 
 class GameController extends Controller
 {
@@ -13,6 +14,29 @@ class GameController extends Controller
     {
         return view('play');
     }
+
+    protected function createDeckForGame($gameId)
+    {
+        $colors = [
+            'black' => 12, 'blue' => 12, 'cyan' => 12, 'green' => 12,
+            'orange' => 12, 'red' => 12, 'violet' => 12, 'yellow' => 12,
+            'locomotive' => 14
+        ];
+    
+        foreach ($colors as $color => $quantity) {
+            for ($i = 0; $i < $quantity; $i++) {
+                \App\Models\WagonCard::create([
+                    'wc_color' => $color,
+                    'wc_image' => "wc_{$color}.png",
+                    'game_id' => $gameId,
+
+                ]);
+            }
+        }
+    }
+    
+    
+
 
     public function play($gameId)
     {
@@ -25,16 +49,47 @@ class GameController extends Controller
         $participationExists = Participation::where('game_id', $gameId)
                                             ->where('player_id', $user->id)
                                             ->exists();
-    
+        
         if (!$participationExists) {
-            // Si l'utilisateur n'est pas un participant de la partie, redirigez avec un message d'erreur
             return redirect()->route('home')->with('error_message', 'Vous n\'avez pas accès à cette partie !');
         }
-    
-        // Si l'utilisateur est un participant, continuez à charger la page du jeu
-        $game = Game::with('participations.user')->findOrFail($gameId);
-        return view('play', ['game' => $game]);
+
+        $game = Game::findOrFail($gameId);
+        
+        // Ajout de la vérification de l'état de la partie
+        if ($game->game_state !== 'En cours') {
+        return redirect()->route('lobby.show', ['gameId' => $gameId])->with('warning_message', 'La partie n\'a pas encore commencé. Veuillez attendre dans le lobby.');
     }
+
+        // Définissez ici la liste des couleurs pour les cartes wagon
+        $colors = ['black', 'blue', 'cyan', 'green', 'orange', 'red', 'violet', 'yellow', 'locomotive'];
+    
+        // Initiez une collection pour tenir les comptes de cartes par couleur initialisés à 0
+        $cardsCountByColor = collect($colors)->flip()->mapWithKeys(function ($item, $color) {
+            return [$color => ['count' => 0]];
+        });
+    
+        // Mise à jour des comptes de cartes réels pour l'utilisateur dans cette partie
+        $realCounts = WagonCard::where('game_id', $gameId)
+                               ->where('player_id_wc_hand', $user->id)
+                               ->selectRaw('wc_color, COUNT(*) as count')
+                               ->groupBy('wc_color')
+                               ->get()
+                               ->keyBy('wc_color');
+    
+        // Fusion des données réelles avec la structure initialisée
+        $cardsCountByColor = $cardsCountByColor->merge($realCounts);
+    
+        $game = Game::with('participations.user')->findOrFail($gameId);
+    
+        return view('play', [
+            'game' => $game, 
+            'cardsCountByColor' => $cardsCountByColor, 
+            'colors' => $colors
+        ]);
+    }
+    
+    
     
 
     public function create_game(Request $request)
@@ -66,7 +121,28 @@ class GameController extends Controller
         return redirect()->route('lobby.show', $game->game_id)->with('success_message', 'La partie a été créée avec succès!');
     }
 
+    // une fois la partie créé avec store, on veut lancer la partie avec la méthode startGame
+    public function startGame($gameId)
+    {
+        $game = Game::findOrFail($gameId);
+    
+        // Vérifier si l'utilisateur actuel est le créateur de la partie
+        if (auth()->id() !== $game->player_id_creator) {
+            return redirect()->route('lobby.show', $gameId)->with('error_message', 'Seul le créateur de la partie peut la lancer.');
+        }
+    
+        // Changer l'état de la partie à "En cours"
+        $game->game_state = 'En cours';
+        $game->save();
+    
+        
+        // Appel méthode createDeckForGame qui ajoute les cartes wagons à la partie
+        $this->createDeckForGame($game->game_id);
 
+    
+        return redirect()->route('game.play', $gameId)->with('success_message', 'La partie a commencé !');
+    }
+    
     // permet de d'afficher toutes les partie dans la vue games
     public function games()
     {

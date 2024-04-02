@@ -40,6 +40,7 @@ Route::get('/lobby/{gameId}', [LobbyController::class, 'show'])->name('lobby.sho
 Route::delete('/lobby/{gameId}/leave', [LobbyController::class, 'leave'])->name('lobby.leave');
 
 Route::get('/play/{gameId}', 'App\Http\Controllers\GameController@play')->name('game.play');
+Route::get('/game/{gameId}/start', [GameController::class, 'startGame'])->name('game.start');
 
 
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');

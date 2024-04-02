@@ -31,9 +31,12 @@
         </ul>
     </div>
 
+    @if(auth()->id() == $game->player_id_creator)
     <div class="launch-button">
-    <a href="{{ route('game.play', $game->game_id) }}" class="btn btn-primary">Lancer la partie !</a>
-</div>
+        <a href="{{ route('game.start', ['gameId' => $game->game_id]) }}" class="btn btn-primary">Lancer la partie</a>
+    </div>
+    @endif
+
 
     <div class="quit-button">
         <form action="{{ route('lobby.leave', $game->game_id) }}" method="POST">
