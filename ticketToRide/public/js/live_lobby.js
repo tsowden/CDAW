@@ -15,10 +15,9 @@ socket.onmessage = event => {
 
 const buttonJoin = document.getElementById("join-button");
 document.addEventListener("DOMContentLoaded", function () {
-    // Utilisation d'un délégué d'événements pour gérer les clics sur les boutons avec la classe 'join-button'
+    // Utilisation d'un délégué d'événements pour gérer les clics sur les boutons avec la classe 'join-button' car sinon le bouton n'est pas encore rendu quand la page est créée et donc erreur console navigateur
     document.addEventListener("click", function (event) {
         if (event.target && event.target.classList.contains("join-button")) {
-            event.preventDefault(); // Empêcher le comportement par défaut du bouton submit
             handleJoinClick(event.target.id);
         }
     });

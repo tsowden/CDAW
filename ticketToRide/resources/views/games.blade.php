@@ -43,7 +43,7 @@
                     <td>
                         <form action="{{ route('games.join', $game->game_id) }}" method="POST">
                             @csrf
-                            <button class="join-button" type="submit" class="btn btn-primary">Rejoindre</button>
+                            <button class="join-button btn btn-primary" type="submit">Rejoindre</button>
                         </form>
                     </td>
                 </tr>
