@@ -8,8 +8,9 @@ function getColorForUser(username) {
     return colors[colorIndex];
 }
 
-const tableHeader = document.querySelector('#table-stats th');
-const tableHeaderAdversaire = document.querySelector('#table-stats-adversaire th');
+const tableHeader = document.querySelector('.table-opponent-auth th');
+const tableHeaderAdversaire = document.querySelector('.table-opponent th');
+
 const userName = document.getElementById('utilisateur').getAttribute('data-nom');
 
 
