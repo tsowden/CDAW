@@ -4,6 +4,7 @@
 
 <div class="content-wrapper">
     <script defer src="{{ asset('js/live_lobby.js') }}"></script>
+    <script defer src="{{ asset('js/quit_lobby.js') }}"></script>
     <div id="utilisateur" data-nom="{{ auth()->user()->name }}" style="display: none;"></div>
     <h1 class="creation-title">Quai n°{{ $game->game_id }}</h1>
 
@@ -41,7 +42,7 @@
         <form action="{{ route('lobby.leave', $game->game_id) }}" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-warning">Quitter le lobby</button>
+            <button id="leave-button" type="submit" class="btn btn-warning">Quitter le lobby</button>
         </form>
     </div>
 

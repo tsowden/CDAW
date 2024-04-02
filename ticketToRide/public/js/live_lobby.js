@@ -5,7 +5,7 @@ socket.onmessage = event => {
     switch (data.type) {
         case 'join-click':
             ajouterParticipant(data.userName);
-            console.log(coucou);
+            console.log("coucou");
             break;
         default:
             console.log("Unknown message type");
