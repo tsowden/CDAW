@@ -314,8 +314,8 @@
                         <td>Wagons</td>
                     </tr>
                     <tr>
-                        <td id="points-cell-<?= $index + 1 ?>">0</td>
-                        <td id="wagons-cell-<?= $index + 1 ?>">30</td>
+                        <td id="points-cell">0</td>
+                        <td id="wagons-cell">30</td>
                     </tr>
                 </table>
             <?php endforeach; ?>

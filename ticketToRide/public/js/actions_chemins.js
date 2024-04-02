@@ -26,18 +26,40 @@ function onClickButton(buttonId, username) {
     let chiffreElement = document.getElementById(chiffreId);
     let longueurChemin = parseInt(chiffreElement.innerText);
     // let pointsCell = document.getElementById('points-cell');
-    let pointsCell, wagonsCell;
-    if (username === userName) { //attention cette logique ne fonctionne que en 1v1. En réalité il faudrait un hachage qui les répartit dans un des tableaux en fonctionde leur nom
-        pointsCell = document.getElementById('points-cell');
-        wagonsCell = document.getElementById('wagons-cell');
-    } else {
-        const tableAdversaire = document.getElementById('table-stats-adversaire');
-        tableHeaderAdversaire.style.backgroundColor = color; // la couleur du tableau de l'adversaire ne changera que l'orsqu'il jouera un coup mais je pense que c'est nécéssaire car il est nécessaire qu'il nous envoie via websocket ses infos
-        const thAdversaire = tableAdversaire.querySelector('th');
-        thAdversaire.textContent = username;
-        pointsCell = tableAdversaire.querySelector('#points-cell');
-        wagonsCell = tableAdversaire.querySelector('#wagons-cell');
+    let tableCible;
+    if (username === userName) {
+        tableCible = document.querySelector('.table-opponent-auth');
     }
+    else {
+        // Recherche de la table qui contient le bon nom d'utilisateur
+        const tablesAdversaires = document.querySelectorAll('.table-opponent');
+        tablesAdversaires.forEach(table => {
+            const ths = table.querySelectorAll('th');
+            ths.forEach(th => {
+                if (th.textContent.trim() === username.trim()) {
+                    tableCible = table;
+                }
+            });
+        });
+    }
+    let pointsCell = tableCible.querySelector('#points-cell');
+    let wagonsCell = tableCible.querySelector('#wagons-cell');
+    tableCible.querySelector('th').style.backgroundColor = color;
+
+
+
+    // let pointsCell, wagonsCell;
+    // if (username === userName) { //attention cette logique ne fonctionne que en 1v1. En réalité il faudrait un hachage qui les répartit dans un des tableaux en fonctionde leur nom
+    //     pointsCell = document.getElementById('points-cell');
+    //     wagonsCell = document.getElementById('wagons-cell');
+    // } else {
+    //     const tableAdversaire = document.getElementById('table-stats-adversaire');
+    //     tableHeaderAdversaire.style.backgroundColor = color; // la couleur du tableau de l'adversaire ne changera que l'orsqu'il jouera un coup mais je pense que c'est nécéssaire car il est nécessaire qu'il nous envoie via websocket ses infos
+    //     const thAdversaire = tableAdversaire.querySelector('th');
+    //     thAdversaire.textContent = username;
+    //     pointsCell = tableAdversaire.querySelector('#points-cell');
+    //     wagonsCell = tableAdversaire.querySelector('#wagons-cell');
+    // }
 
 
 
