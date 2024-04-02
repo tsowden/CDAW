@@ -6,7 +6,9 @@
 <div class="play-container">
     <script defer src="{{ asset('js/actions_chemins.js') }}"></script>
     <div class="map-container">
-
+        @foreach($participants as $participant)
+        <div class="participant" data-nom="{{ $participant}}" style="display: none;"></div>
+        @endforeach
 
         <div id="map-container">
             <img src="{{ asset('assets/img/map240324.png') }}" alt="Carte des Aventuriers du Rail" id="map-image">

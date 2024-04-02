@@ -7,7 +7,7 @@ const messageInput = document.getElementById('message-input');
 const name = document.getElementById('utilisateur').getAttribute('data-nom');
 console.log(name); // Le nom de l'utilisateur connecté
 // appendMessage('Vous avez rejoint le groupe'); ceci fait doublons
-
+let users = {}; // faire que users soit initilisé grace à la db
 // Événement de connexion WebSocket
 socket.onopen = () => {
     // Envoyer le nom de l'utilisateur au serveur lors de la connexion
@@ -23,9 +23,13 @@ socket.onmessage = event => {
             break;
         case 'user-connected':
             appendMessage(`${data.name} a rejoint la partie`);
+            users[data.name] = data.name;
+            console.log(users);
             break;
         case 'user-disconnected':
             appendMessage(`${data.name} a quitté la partie`);
+            delete users[data.name]; // Supprimer l'utilisateur du tableau
+            console.log(users);
             break;
         case 'user-click':
             // Répondre au clic utilisateur, par exemple, changer la couleur du trajet
