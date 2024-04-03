@@ -52,9 +52,6 @@ class GameController extends Controller
             ->where('player_id', $user->id)
             ->exists();
 
-            ->where('player_id', $user->id)
-            ->exists();
-
         if (!$participationExists) {
             return redirect()->route('home')->with('error_message', 'Vous n\'avez pas accès à cette partie !');
         }
