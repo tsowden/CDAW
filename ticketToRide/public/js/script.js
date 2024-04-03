@@ -23,9 +23,18 @@ socket.onmessage = event => {
             break;
         case 'user-connected':
             appendMessage(`${data.name} a rejoint la partie`);
+            if (!participants.includes(data.name)) { // Ajouter l'utilisateur à la liste des participants s'il n'est pas déjà présent
+                participants.push(data.name);
+            }
+            console.log(participants);
             break;
         case 'user-disconnected':
             appendMessage(`${data.name} a quitté la partie`);
+            const index = participants.indexOf(data.name);
+            if (index !== -1) {
+                participants.splice(index, 1); // Retirer l'utilisateur de la liste des participants s'il est bien dedans
+            }
+            console.log(participants);
             break;
         case 'user-click':
             // Répondre au clic utilisateur, par exemple, changer la couleur du trajet

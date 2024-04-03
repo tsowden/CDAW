@@ -6,7 +6,9 @@
 <div class="play-container">
     <script defer src="{{ asset('js/actions_chemins.js') }}"></script>
     <div class="map-container">
-
+        @foreach($participants as $participant)
+        <div class="participant" data-nom="{{ $participant}}" style="display: none;"></div>
+        @endforeach
 
         <div id="map-container">
             <img src="{{ asset('assets/img/map240324.png') }}" alt="Carte des Aventuriers du Rail" id="map-image">
@@ -280,7 +282,30 @@
 
 
     <div class="side-panel right-panel">
-        <table id=table-stats class="table-self">
+        <div id="tableau-container">
+            <?php foreach ($participants as $index => $participant) : ?>
+                <?php $tableClass = ($participant === auth()->user()->name) ? 'table-opponent-auth' : 'table-opponent'; ?>
+                <table id="table-stats-joueur<?= $index + 1 ?>" class="<?= $tableClass ?>">
+                    <tr class="top-row">
+                        <th colspan="2"><?= htmlspecialchars($participant) ?></th>
+                    </tr>
+                    <tr>
+                        <td>Points</td>
+                        <td>Wagons</td>
+                    </tr>
+                    <tr>
+                        <td id="points-cell">0</td>
+                        <td id="wagons-cell">30</td>
+                    </tr>
+                </table>
+            <?php endforeach; ?>
+        </div>
+
+
+
+
+
+        <!-- <table id=table-stats-joueur1 class="table-self">
             <tr class="top-row">
                 <th colspan="2">Vous : {{ auth()->user()->name }}</th>
             </tr>
@@ -290,22 +315,22 @@
             </tr>
             <tr>
                 <td id="points-cell">0</td>
-                <td id="wagons-cell">33</td>
+                <td id="wagons-cell">30</td>
             </tr>
         </table>
-        <table id=table-stats-adversaire class="table-opponent">
+        <table id=table-stats-joueur2 class="table-opponent">
             <tr class="top-row">
-                <th colspan="2">Adversaire</th>
+                <th colspan="2">Joueur 2</th>
             </tr>
             <tr>
                 <td>Points</td>
                 <td>Wagons</td>
             </tr>
             <tr>
-                <td>4</td>
-                <td>30</td>
+                <td id="points-cell">0</td>
+                <td id="wagons-cell">30</td>
             </tr>
-        </table>
+        </table> -->
 
 
         <!-- Bande à droite pour afficher le nom des autres joueurs et le chat -->
@@ -355,15 +380,5 @@
 </div>
 
 </div>
-
-<!-- <script>
-    const segment = document.querySelector('.map-segment');
-
-    // Ajouter un gestionnaire d'événements de clic
-    segment.addEventListener('click', function() {
-        // Actions à effectuer lors du clic sur le segment
-        console.log('Segment cliqué !');
-    });
-</script> -->
 
 @endsection

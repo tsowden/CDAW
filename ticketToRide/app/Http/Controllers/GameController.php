@@ -46,8 +46,12 @@ class GameController extends Controller
             return redirect()->route('login')->with('error_message', 'Vous devez être connecté pour accéder à cette page.');
         }
 
+
         // Vérifiez si l'utilisateur fait partie de la partie
         $participationExists = Participation::where('game_id', $gameId)
+            ->where('player_id', $user->id)
+            ->exists();
+
             ->where('player_id', $user->id)
             ->exists();
 
@@ -83,6 +87,10 @@ class GameController extends Controller
 
         $game = Game::with('participations.user')->findOrFail($gameId);
 
+        // Liste des participants à renvoyer dans play pour que l'on sache quand on arrive qui est dans la partie avec nous
+        $participants = $game->participations()->with('user')->get()->pluck('user.name');
+
+
         $randomCardId = WagonCard::where('game_id', $gameId)
             ->whereNull('player_id_wc_hand')
             ->inRandomOrder()
@@ -96,7 +104,7 @@ class GameController extends Controller
             ->get();
 
         return view('play', [
-            'game' => $game,
+            'game' => $game, 'participants' => $participants,
             'cardsCountByColor' => $cardsCountByColor,
             'colors' => $colors,
             'randomCardId' => $randomCardId,

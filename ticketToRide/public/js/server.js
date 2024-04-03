@@ -43,6 +43,22 @@ wss.on('connection', ws => {
                     userName: data.userName
                 });
                 break;
+            case 'join-button-clicked':
+                console.log(`Join clicked by ${data.userName}`);
+                broadcast({
+                    type: 'join-click',
+                    buttonId: data.buttonId,
+                    userName: data.userName
+                });
+                break;
+            case 'leave-button-clicked':
+                console.log(`Leave clicked by ${data.userName}`);
+                broadcast({
+                    type: 'leave-click',
+                    buttonId: data.buttonId,
+                    userName: data.userName
+                });
+                break;
             default:
                 console.log("Unknown message type");
         }
