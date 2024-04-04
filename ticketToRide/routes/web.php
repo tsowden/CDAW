@@ -43,7 +43,10 @@ Route::get('/current-game-id', [GameController::class, 'getCurrentGameId'])->nam
 Route::get('/play/{gameId}', 'App\Http\Controllers\GameController@play')->name('game.play');
 Route::get('/game/{gameId}/start', [GameController::class, 'startGame'])->name('game.start');
 
-Route::post('/game/pick-card/{cardId}', [GameController::class, 'pickCard'])->name('game.pickCard');
+Route::get('/game/current-game-id', [GameController::class, 'getCurrentGameId']);
+
+Route::post('/game/pick-card/{cardId}/{gameId}', [GameController::class, 'pickCard']);
+
 Route::post('/games/{gameId}/use-wagon-cards', [GameController::class, 'useWagonCards'])->name('game.use-wagon-cards');
 
 Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');

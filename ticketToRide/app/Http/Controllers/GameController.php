@@ -131,14 +131,16 @@ class GameController extends Controller
     }
 
 
-    public function pickCard(Request $request, $cardId)
+    public function pickCard(Request $request, $cardId, $gameId) // Ajoutez $gameId comme paramètre
     {
         $user = auth()->user();
         if (!$user) {
             return response()->json(['error' => 'Non autorisé'], 401);
         }
     
+        // Vérifier que la carte appartient à la partie en cours
         $card = WagonCard::where('wc_id', $cardId)
+                         ->where('game_id', $gameId) // S'assurer que la carte appartient à la partie en cours
                          ->whereNull('player_id_wc_hand')
                          ->first();
     
