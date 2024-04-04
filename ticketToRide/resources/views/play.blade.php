@@ -4,9 +4,12 @@
 
 
 <div class="play-container">
-    
+
     <script defer src="{{ asset('js/actions_chemins.js') }}"></script>
     <script src="{{ asset('js/gameActions.js') }}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
 
 
@@ -107,156 +110,156 @@
             <button onclick="onPathClick('violet', 2)" class="line-button" id="milieu-Foulestaque-Apex" style="top: calc((150px + 185px) / 2); left: calc((85px + 218px) / 2); background-color: var(--color-chemin-rose);"></button>
             <div class="line-text" id="chiffre-Foulestaque-Apex" style="top: calc((150px + 185px) / 2); left: calc((85px + 218px) / 2);">2</div>
 
-            <button onclick="onPathClick('locomotive', 4)" class="line-button" id="milieu-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2); background-color: var(--color-chemin-gris);"></button>
+            <button onclick="onPathClick('gris', 4)" class="line-button" id="milieu-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2); background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2);">4</div>
 
             <button onclick="onPathClick('black', 3)" class="line-button" id="milieu-Rust-Scala" style="top: calc((611px + 622px) / 2); left: calc((177px + 370px) / 2); background-color: var(--color-chemin-noir);"></button>
             <div class="line-text" id="chiffre-Rust-Scala" style="top: calc((611px + 622px) / 2); left: calc((177px + 370px) / 2);">3</div>
 
-            <button class="line-button" id="milieu-Kotlin-Python" style="top: calc((510px + 345px) / 2); left: calc((30px + 125px) / 2); background-color: var(--color-chemin-rouge);"></button>
+            <button onclick="onPathClick('red', 4)" class="line-button" id="milieu-Kotlin-Python" style="top: calc((510px + 345px) / 2); left: calc((30px + 125px) / 2); background-color: var(--color-chemin-rouge);"></button>
             <div class="line-text" id="chiffre-Kotlin-Python" style="top: calc((510px + 345px) / 2); left: calc((30px + 125px) / 2);">4</div>
 
-            <button class="line-button" id="milieu-Kotlin-Crystal" style="top: calc((510px + 551px) / 2); left: calc((30px + 175px) / 2); background-color: var(--color-chemin-vert);"></button>
-            <div class="line-text" id="chiffre-Kotlin-Crystal" style="top: calc((510px + 551px) / 2); left: calc((30px + 175px) / 2);">2</div>
+            <button onclick="onPathClick('green', 2)" class="line-button" id="milieu-Kotlin-Crystal" style="top: calc((510px + 551px) / 2); left: calc((30px + 175px) / 2); background-color: var(--color-chemin-vert);"></button>
+            <div onclick="onPathClick('violet', 2)" class="line-text" id="chiffre-Kotlin-Crystal" style="top: calc((510px + 551px) / 2); left: calc((30px + 175px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Crystal-Scala" style="top: calc((551px + 622px) / 2); left: calc((175px + 370px) / 2); background-color: var(--color-chemin-bleu);"></button>
+            <button onclick="onPathClick('blue', 2)" class="line-button" id="milieu-Crystal-Scala" style="top: calc((551px + 622px) / 2); left: calc((175px + 370px) / 2); background-color: var(--color-chemin-bleu);"></button>
             <div class="line-text" id="chiffre-Crystal-Scala" style="top: calc((551px + 622px) / 2); left: calc((175px + 370px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Python-Swift" style="top: calc((345px + 437px) / 2); left: calc((125px + 318px) / 2);  background-color: var(--color-chemin-jaune);"></button>
+            <button onclick="onPathClick('yellow', 4)" class="line-button" id="milieu-Python-Swift" style="top: calc((345px + 437px) / 2); left: calc((125px + 318px) / 2);  background-color: var(--color-chemin-jaune);"></button>
             <div class="line-text" id="chiffre-Python-Swift" style="top: calc((345px + 437px) / 2); left: calc((125px + 318px) / 2);">4</div>
 
 
-            <button class="line-button" id="milieu-Swift-Toniz" style="top: calc((439px + 500px) / 2); left: calc((320px + 515px) / 2); background-color: var(--color-chemin-orange);"></button>
+            <button onclick="onPathClick('orange', 2)" class="line-button" id="milieu-Swift-Toniz" style="top: calc((439px + 500px) / 2); left: calc((320px + 515px) / 2); background-color: var(--color-chemin-orange);"></button>
             <div class="line-text" id="chiffre-Swift-Toniz" style="top: calc((439px + 500px) / 2); left: calc((320px + 515px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Swift-Falcon" style="top: calc((439px + 421px) / 2); left: calc((320px + 519px) / 2); background-color: var(--color-chemin-rose);"></button>
+            <button onclick="onPathClick('violet', 2)" class="line-button" id="milieu-Swift-Falcon" style="top: calc((439px + 421px) / 2); left: calc((320px + 519px) / 2); background-color: var(--color-chemin-rose);"></button>
             <div class="line-text" id="chiffre-Swift-Falcon" style="top: calc((439px + 421px) / 2); left: calc((320px + 519px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Falcon-Ariana" style="top: calc((421px + 357px) / 2); left: calc((519px + 655px) / 2); background-color: var(--color-chemin-gris);"></button>
+            <button onclick="onPathClick('gris', 1)" class="line-button" id="milieu-Falcon-Ariana" style="top: calc((421px + 357px) / 2); left: calc((519px + 655px) / 2); background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Falcon-Ariana" style="top: calc((421px + 357px) / 2); left: calc((519px + 655px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Ariana-Elixir" style="top: calc((357px + 330px) / 2); left: calc((655px + 822px) / 2); background-color: var(--color-chemin-noir);"></button>
+            <button onclick="onPathClick('black', 2)" class="line-button" id="milieu-Ariana-Elixir" style="top: calc((357px + 330px) / 2); left: calc((655px + 822px) / 2); background-color: var(--color-chemin-noir);"></button>
             <div class="line-text" id="chiffre-Ariana-Elixir" style="top: calc((357px + 330px) / 2); left: calc((655px + 822px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Scala-Perl" style="top: calc((622px + 590px) / 2); left: calc((370px + 510px) / 2); background-color: var(--color-chemin-rouge);"></button>
+            <button onclick="onPathClick('red', 2)" class="line-button" id="milieu-Scala-Perl" style="top: calc((622px + 590px) / 2); left: calc((370px + 510px) / 2); background-color: var(--color-chemin-rouge);"></button>
             <div class="line-text" id="chiffre-Scala-Perl" style="top: calc((622px + 590px) / 2); left: calc((370px + 510px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Toniz-Perl" style="top: calc((500px + 590px) / 2); left: calc((515px + 510px) / 2); background-color: var(--color-chemin-jaune);"></button>
+            <button onclick="onPathClick('yellow', 1)" class="line-button" id="milieu-Toniz-Perl" style="top: calc((500px + 590px) / 2); left: calc((515px + 510px) / 2); background-color: var(--color-chemin-jaune);"></button>
             <div class="line-text" id="chiffre-Toniz-Perl" style="top: calc((500px + 590px) / 2); left: calc((515px + 510px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Perl-Lua" style="top: calc((590px + 625px) / 2); left: calc((510px + 587px) / 2); background-color: var(--color-chemin-orange);"></button>
+            <button onclick="onPathClick('orange', 1)" class="line-button" id="milieu-Perl-Lua" style="top: calc((590px + 625px) / 2); left: calc((510px + 587px) / 2); background-color: var(--color-chemin-orange);"></button>
             <div class="line-text" id="chiffre-Perl-Lua" style="top: calc((590px + 625px) / 2); left: calc((510px + 587px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Falcon-Prolog" style="top: calc((421px + 275px) / 2); left: calc((519px + 552px) / 2); background-color: var(--color-chemin-orange);"></button>
+            <button onclick="onPathClick('orange', 2)" class="line-button" id="milieu-Falcon-Prolog" style="top: calc((421px + 275px) / 2); left: calc((519px + 552px) / 2); background-color: var(--color-chemin-orange);"></button>
             <div class="line-text" id="chiffre-Falcon-Prolog" style="top: calc((421px + 275px) / 2); left: calc((519px + 552px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Python-Apex" style="top: calc((345px + 185px) / 2); left: calc((125px + 218px) / 2);background-color: var(--color-chemin-gris);"></button>
+            <button onclick="onPathClick('gris', 3)" class="line-button" id="milieu-Python-Apex" style="top: calc((345px + 185px) / 2); left: calc((125px + 218px) / 2);background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Python-Apex" style="top: calc((345px + 185px) / 2); left: calc((125px + 218px) / 2);">3</div>
 
-            <button class="line-button" id="milieu-Python-Ruby" style="top: calc((345px + 275px) / 2); left: calc((125px + 62px) / 2); background-color: var(--color-chemin-noir);"></button>
+            <button onclick="onPathClick('black', 1)" class="line-button" id="milieu-Python-Ruby" style="top: calc((345px + 275px) / 2); left: calc((125px + 62px) / 2); background-color: var(--color-chemin-noir);"></button>
             <div class="line-text" id="chiffre-Python-Ruby" style="top: calc((345px + 275px) / 2); left: calc((125px + 62px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Foulestaque-Ruby" style="top: calc((150px + 275px) / 2); left: calc((85px + 62px) / 2); background-color: var(--color-chemin-rose);"></button>
+            <button onclick="onPathClick('violet', 2)" class="line-button" id="milieu-Foulestaque-Ruby" style="top: calc((150px + 275px) / 2); left: calc((85px + 62px) / 2); background-color: var(--color-chemin-rose);"></button>
             <div class="line-text" id="chiffre-Foulestaque-Ruby" style="top: calc((150px + 275px) / 2); left: calc((85px + 62px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Foulestaque-Java" style="top: calc((150px + 50px) / 2); left: calc((85px + 240px) / 2); background-color: var(--color-chemin-bleu);"></button>
+            <button onclick="onPathClick('blue', 3)" class="line-button" id="milieu-Foulestaque-Java" style="top: calc((150px + 50px) / 2); left: calc((85px + 240px) / 2); background-color: var(--color-chemin-bleu);"></button>
             <div class="line-text" id="chiffre-Foulestaque-Java" style="top: calc((150px + 50px) / 2); left: calc((85px + 240px) / 2);">3</div>
 
-            <button class="line-button" id="milieu-Kotlin-Ruby" style="top: calc((510px + 275px) / 2); left: calc((30px + 62px) / 2); background-color: var(--color-chemin-noir);"></button>
+            <button onclick="onPathClick('black', 5)" class="line-button" id="milieu-Kotlin-Ruby" style="top: calc((510px + 275px) / 2); left: calc((30px + 62px) / 2); background-color: var(--color-chemin-noir);"></button>
             <div class="line-text" id="chiffre-Kotlin-Ruby" style="top: calc((510px + 275px) / 2); left: calc((30px + 62px) / 2);">5</div>
 
-            <button class="line-button" id="milieu-Java-Pascal" style="top: calc((50px + 207px) / 2); left: calc((240px + 382px) / 2); background-color: var(--color-chemin-rouge);"></button>
+            <button onclick="onPathClick('red', 4)" class="line-button" id="milieu-Java-Pascal" style="top: calc((50px + 207px) / 2); left: calc((240px + 382px) / 2); background-color: var(--color-chemin-rouge);"></button>
             <div class="line-text" id="chiffre-Java-Pascal" style="top: calc((50px + 207px) / 2); left: calc((240px + 382px) / 2);">4</div>
 
-            <button class="line-button" id="milieu-Apex-Pascal" style="top: calc((185px + 207px) / 2); left: calc((218px + 382px) / 2);background-color: var(--color-chemin-gris);"></button>
+            <button onclick="onPathClick('gris', 2)" class="line-button" id="milieu-Apex-Pascal" style="top: calc((185px + 207px) / 2); left: calc((218px + 382px) / 2);background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Apex-Pascal" style="top: calc((185px + 207px) / 2); left: calc((218px + 382px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Pascal-Prolog" style="top: calc((207px + 275px) / 2); left: calc((382px + 552px) / 2 ); background-color: var(--color-chemin-jaune);"></button>
+            <button onclick="onPathClick('yellow', 3)" class="line-button" id="milieu-Pascal-Prolog" style="top: calc((207px + 275px) / 2); left: calc((382px + 552px) / 2 ); background-color: var(--color-chemin-jaune);"></button>
             <div class="line-text" id="chiffre-Pascal-Prolog" style="top: calc((207px + 275px) / 2); left: calc((382px + 552px) / 2 );">3</div>
 
 
-            <button class="line-button" id="milieu-Lua-Lisp" style="top: calc((631px + 578px) / 2); left: calc((595px + 720px) / 2); background-color: var(--color-chemin-orange);"></button>
+            <button onclick="onPathClick('orange', 2)" class="line-button" id="milieu-Lua-Lisp" style="top: calc((631px + 578px) / 2); left: calc((595px + 720px) / 2); background-color: var(--color-chemin-orange);"></button>
             <div class="line-text" id="chiffre-Lua-Lisp" style="top: calc((631px + 578px) / 2); left: calc((595px + 720px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Lisp-Dart" style="top: calc((578px + 350px) / 2); left: calc((720px + 908px) / 2); background-color: var(--color-chemin-noir);"></button>
+            <button onclick="onPathClick('black', 5)" class="line-button" id="milieu-Lisp-Dart" style="top: calc((578px + 350px) / 2); left: calc((720px + 908px) / 2); background-color: var(--color-chemin-noir);"></button>
             <div class="line-text" id="chiffre-Lisp-Dart" style="top: calc((578px + 350px) / 2); left: calc((720px + 908px) / 2);">5</div>
 
-            <button class="line-button" id="milieu-Lisp-Elm" style="top: calc((578px + 580px) / 2); left: calc((715px + 932px) / 2);background-color: var(--color-chemin-gris);"></button>
+            <button onclick="onPathClick('gris', 4)" class="line-button" id="milieu-Lisp-Elm" style="top: calc((578px + 580px) / 2); left: calc((715px + 932px) / 2);background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Lisp-Elm" style="top: calc((578px + 580px) / 2); left: calc((715px + 932px) / 2);">4</div>
 
-            <button class="line-button" id="milieu-Dart-Elixir" style="top: calc((350px + 330px) / 2); left: calc((908px + 822px) / 2);  background-color: var(--color-chemin-cyan);"></button>
+            <button onclick="onPathClick('cyan', 1)" class="line-button" id="milieu-Dart-Elixir" style="top: calc((350px + 330px) / 2); left: calc((908px + 822px) / 2);  background-color: var(--color-chemin-cyan);"></button>
             <div class="line-text" id="chiffre-Dart-Elixir" style="top: calc((350px + 330px) / 2); left: calc((908px + 822px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Dart-Groovy" style="top: calc((350px + 282px) / 2); left: calc((908px + 912px) / 2); background-color: var(--color-chemin-vert);"></button>
+            <button onclick="onPathClick('green', 1)" class="line-button" id="milieu-Dart-Groovy" style="top: calc((350px + 282px) / 2); left: calc((908px + 912px) / 2); background-color: var(--color-chemin-vert);"></button>
             <div class="line-text" id="chiffre-Dart-Groovy" style="top: calc((350px + 282px) / 2); left: calc((908px + 912px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Dart-Elm" style="top: calc((350px + 588px) / 2); left: calc((908px + 920px) / 2); background-color: var(--color-chemin-cyan);"></button>
+            <button onclick="onPathClick('cyan', 4)" class="line-button" id="milieu-Dart-Elm" style="top: calc((350px + 588px) / 2); left: calc((908px + 920px) / 2); background-color: var(--color-chemin-cyan);"></button>
             <div class="line-text" id="chiffre-Dart-Elm" style="top: calc((350px + 588px) / 2); left: calc((908px + 920px) / 2);">4</div>
 
-            <button class="line-button" id="milieu-Groovy-Templake" style="top: calc((282px + 240px) / 2); left: calc((912px + 778px) / 2);  background-color: var(--color-chemin-orange);"></button>
+            <button onclick="onPathClick('orange', 1)" class="line-button" id="milieu-Groovy-Templake" style="top: calc((282px + 240px) / 2); left: calc((912px + 778px) / 2);  background-color: var(--color-chemin-orange);"></button>
             <div class="line-text" id="chiffre-Groovy-Templake" style="top: calc((282px + 240px) / 2); left: calc((912px + 778px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Groovy-Julia" style="top: calc((282px + 230px) / 2); left: calc((912px + 1153px) / 2); background-color: var(--color-chemin-jaune);"></button>
+            <button onclick="onPathClick('yellow', 4)" class="line-button" id="milieu-Groovy-Julia" style="top: calc((282px + 230px) / 2); left: calc((912px + 1153px) / 2); background-color: var(--color-chemin-jaune);"></button>
             <div class="line-text" id="chiffre-Groovy-Julia" style="top: calc((282px + 230px) / 2); left: calc((912px + 1153px) / 2);">4</div>
 
-            <button class="line-button" id="milieu-Templake-Elixir" style="top: calc((240px + 330px) / 2); left: calc((778px + 822px) / 2); background-color: var(--color-chemin-rose);"></button>
+            <button onclick="onPathClick('violet', 1)" class="line-button" id="milieu-Templake-Elixir" style="top: calc((240px + 330px) / 2); left: calc((778px + 822px) / 2); background-color: var(--color-chemin-rose);"></button>
             <div class="line-text" id="chiffre-Templake-Elixir" style="top: calc((240px + 330px) / 2); left: calc((778px + 822px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Templake-Fortran" style="top: calc((210px + 145px) / 2); left: calc((770px + 877px) / 2);background-color: var(--color-chemin-gris);"></button>
+            <button onclick="onPathClick('gris', 2)" class="line-button" id="milieu-Templake-Fortran" style="top: calc((210px + 145px) / 2); left: calc((770px + 877px) / 2);background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Templake-Fortran" style="top: calc((210px + 145px) / 2); left: calc((770px + 877px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Templake-Laraville" style="top: calc((145px + 163px) / 2); left: calc((877px + 620px) / 2); background-color: var(--color-chemin-noir);"></button>
+            <button onclick="onPathClick('black', 2)" class="line-button" id="milieu-Templake-Laraville" style="top: calc((145px + 163px) / 2); left: calc((877px + 620px) / 2); background-color: var(--color-chemin-noir);"></button>
             <div class="line-text" id="chiffre-Templake-Laraville" style="top: calc((145px + 163px) / 2); left: calc((877px + 620px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Fortran-Groovy" style="top: calc((145px + 282px) / 2); left: calc((877px + 912px) / 2); background-color: var(--color-chemin-bleu);"></button>
+            <button onclick="onPathClick('blue', 2)" class="line-button" id="milieu-Fortran-Groovy" style="top: calc((145px + 282px) / 2); left: calc((877px + 912px) / 2); background-color: var(--color-chemin-bleu);"></button>
             <div class="line-text" id="chiffre-Fortran-Groovy" style="top: calc((145px + 282px) / 2); left: calc((877px + 912px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Assembly-Pascal" style="top: calc((41px + 207px) / 2); left: calc((413px + 382px) / 2); background-color: var(--color-chemin-cyan);"></button>
+            <button onclick="onPathClick('cyan', 2)" class="line-button" id="milieu-Assembly-Pascal" style="top: calc((41px + 207px) / 2); left: calc((413px + 382px) / 2); background-color: var(--color-chemin-cyan);"></button>
             <div class="line-text" id="chiffre-Assembly-Pascal" style="top: calc((41px + 207px) / 2); left: calc((413px + 382px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Pascal-Delphi" style="top: calc((207px + 143px) / 2); left: calc((382px + 460px) / 2); background-color: var(--color-chemin-rose);"></button>
+            <button onclick="onPathClick('violet', 1)" class="line-button" id="milieu-Pascal-Delphi" style="top: calc((207px + 143px) / 2); left: calc((382px + 460px) / 2); background-color: var(--color-chemin-rose);"></button>
             <div class="line-text" id="chiffre-Pascal-Delphi" style="top: calc((207px + 143px) / 2); left: calc((382px + 460px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Delphi-Haskell" style="top: calc((133px + 158px) / 2); left: calc((460px + 608px) / 2); background-color: var(--color-chemin-vert);"></button>
+            <button onclick="onPathClick('green', 2)" class="line-button" id="milieu-Delphi-Haskell" style="top: calc((133px + 158px) / 2); left: calc((460px + 608px) / 2); background-color: var(--color-chemin-vert);"></button>
             <div class="line-text" id="chiffre-Delphi-Haskell" style="top: calc((133px + 158px) / 2); left: calc((460px + 608px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Haskell-Laraville" style="top: calc((76px + 158px) / 2); left: calc((745px + 608px) / 2); background-color: var(--color-chemin-vert);"></button>
+            <button onclick="onPathClick('green', 3)" class="line-button" id="milieu-Haskell-Laraville" style="top: calc((76px + 158px) / 2); left: calc((745px + 608px) / 2); background-color: var(--color-chemin-vert);"></button>
             <div class="line-text" id="chiffre-Haskell-Laraville" style="top: calc((76px + 158px) / 2); left: calc((745px + 608px) / 2);">3</div>
 
-            <button class="line-button" id="milieu-Haskell-Prolog" style="top: calc((158px + 283px) / 2); left: calc((608px + 530px) / 2); background-color: var(--color-chemin-noir);"></button>
+            <button onclick="onPathClick('black', 2)" class="line-button" id="milieu-Haskell-Prolog" style="top: calc((158px + 283px) / 2); left: calc((608px + 530px) / 2); background-color: var(--color-chemin-noir);"></button>
             <div class="line-text" id="chiffre-Haskell-Prolog" style="top: calc((158px + 283px) / 2); left: calc((608px + 530px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Prolog-Ariana" style="top: calc((275px + 357px) / 2); left: calc((552px + 655px) / 2); background-color: var(--color-chemin-rouge);"></button>
+            <button onclick="onPathClick('red', 2)" class="line-button" id="milieu-Prolog-Ariana" style="top: calc((275px + 357px) / 2); left: calc((552px + 655px) / 2); background-color: var(--color-chemin-rouge);"></button>
             <div class="line-text" id="chiffre-Prolog-Ariana" style="top: calc((275px + 357px) / 2); left: calc((552px + 655px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Prolog-Laraville" style="top: calc((285px + 76px) / 2); left: calc((542px + 745px) / 2); background-color: var(--color-chemin-bleu);"></button>
+            <button onclick="onPathClick('blue', 4)" class="line-button" id="milieu-Prolog-Laraville" style="top: calc((285px + 76px) / 2); left: calc((542px + 745px) / 2); background-color: var(--color-chemin-bleu);"></button>
             <div class="line-text" id="chiffre-Prolog-Laraville" style="top: calc((285px + 76px) / 2); left: calc((542px + 745px) / 2);">4</div>
 
-            <button class="line-button" id="milieu-Laraville-Fortran" style="top: calc((76px + 135px) / 2); left: calc((745px + 865px) / 2);background-color: var(--color-chemin-gris);"></button>
+            <button onclick="onPathClick('gris', 1)" class="line-button" id="milieu-Laraville-Fortran" style="top: calc((76px + 135px) / 2); left: calc((745px + 865px) / 2);background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Laraville-Fortran" style="top: calc((76px + 135px) / 2); left: calc((745px + 865px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Fortran-Ada" style="top: calc((135px + 69px) / 2); left: calc((865px + 1100px) / 2); background-color: var(--color-chemin-cyan);"></button>
+            <button onclick="onPathClick('cyan', 4)" class="line-button" id="milieu-Fortran-Ada" style="top: calc((135px + 69px) / 2); left: calc((865px + 1100px) / 2); background-color: var(--color-chemin-cyan);"></button>
             <div class="line-text" id="chiffre-Fortran-Ada" style="top: calc((135px + 69px) / 2); left: calc((865px + 1100px) / 2);">4</div>
 
-            <button class="line-button" id="milieu-Ada-Groovy" style="top: calc((69px + 270px) / 2); left: calc((1100px + 912px) / 2); background-color: var(--color-chemin-orange);"></button>
+            <button onclick="onPathClick('orange', 4)" class="line-button" id="milieu-Ada-Groovy" style="top: calc((69px + 270px) / 2); left: calc((1100px + 912px) / 2); background-color: var(--color-chemin-orange);"></button>
             <div class="line-text" id="chiffre-Ada-Groovy" style="top: calc((69px + 270px) / 2); left: calc((1100px + 912px) / 2);">4</div>
 
-            <button class="line-button" id="milieu-Ada-Cobol" style="top: calc((69px + 150px) / 2); left: calc((1100px + 1140px) / 2);background-color: var(--color-chemin-gris);"></button>
+            <button onclick="onPathClick('gris', 1)" class="line-button" id="milieu-Ada-Cobol" style="top: calc((69px + 150px) / 2); left: calc((1100px + 1140px) / 2);background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Ada-Cobol" style="top: calc((69px + 150px) / 2); left: calc((1100px + 1140px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Cobol-Julia" style="top: calc((150px + 227px) / 2); left: calc((1140px + 1153px) / 2); background-color: var(--color-chemin-jaune);"></button>
+            <button onclick="onPathClick('yellow', 1)" class="line-button" id="milieu-Cobol-Julia" style="top: calc((150px + 227px) / 2); left: calc((1140px + 1153px) / 2); background-color: var(--color-chemin-jaune);"></button>
             <div class="line-text" id="chiffre-Cobol-Julia" style="top: calc((150px + 227px) / 2); left: calc((1140px + 1153px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Julia-Erlang" style="top: calc((227px + 545px) / 2); left: calc((1153px + 1105px) / 2); background-color: var(--color-chemin-rose);"></button>
+            <button onclick="onPathClick('violet', 6)" class="line-button" id="milieu-Julia-Erlang" style="top: calc((227px + 545px) / 2); left: calc((1153px + 1105px) / 2); background-color: var(--color-chemin-rose);"></button>
             <div class="line-text" id="chiffre-Julia-Erlang" style="top: calc((227px + 545px) / 2); left: calc((1153px + 1105px) / 2);">6</div>
 
-            <button class="line-button" id="milieu-Erlang-Elm" style="top: calc((545px + 580px) / 2); left: calc((1105px + 932px) / 2); background-color: var(--color-chemin-bleu);"></button>
+            <button onclick="onPathClick('blue', 3)" class="line-button" id="milieu-Erlang-Elm" style="top: calc((545px + 580px) / 2); left: calc((1105px + 932px) / 2); background-color: var(--color-chemin-bleu);"></button>
             <div class="line-text" id="chiffre-Erlang-Elm" style="top: calc((545px + 580px) / 2); left: calc((1105px + 932px) / 2);">3</div>
 
-            <button class="line-button" id="milieu-Assembly-Delphi" style="top: calc((41px + 133px) / 2); left: calc((413px + 460px) / 2); background-color: var(--color-chemin-bleu);"></button>
+            <button onclick="onPathClick('blue', 1)" class="line-button" id="milieu-Assembly-Delphi" style="top: calc((41px + 133px) / 2); left: calc((413px + 460px) / 2); background-color: var(--color-chemin-bleu);"></button>
             <div class="line-text" id="chiffre-Assembly-Delphi" style="top: calc((41px + 133px) / 2); left: calc((413px + 460px) / 2);">&nbsp;1</div>
 
-            <button class="line-button" id="milieu-Falcon-Toniz" style="top: calc((419px + 500px) / 2); left: calc((517px + 500px) / 2); background-color: var(--color-chemin-rouge);"></button>
+            <button onclick="onPathClick('red', 1)" class="line-button" id="milieu-Falcon-Toniz" style="top: calc((419px + 500px) / 2); left: calc((517px + 500px) / 2); background-color: var(--color-chemin-rouge);"></button>
             <div class="line-text" id="chiffre-Falcon-Toniz" style="top: calc((419px + 500px) / 2); left: calc((517px + 500px) / 2);">&nbsp;1</div>
 
 
@@ -264,21 +267,19 @@
 
     </div>
     <div class="side-panel left-panel">
-    <div class="card-column">
-        @foreach ($colors as $color)
+        <div class="card-column">
+            @foreach ($colors as $color)
             @php
-                $quantity = isset($cardsCountByColor[$color]) ? $cardsCountByColor[$color]['count'] : 0;
-                $disabledClass = $quantity == 0 ? 'disabled-card' : '';
+            $quantity = isset($cardsCountByColor[$color]) ? $cardsCountByColor[$color]['count'] : 0;
+            $disabledClass = $quantity == 0 ? 'disabled-card' : '';
             @endphp
             <div class="card-row">
-                <img src="{{ asset('images/wc_' . $color . '.png') }}" 
-                     alt="Carte Wagon {{ ucfirst($color) }}" 
-                     class="wagon-card {{ $color }} {{ $disabledClass }}">
+                <img src="{{ asset('images/wc_' . $color . '.png') }}" alt="Carte Wagon {{ ucfirst($color) }}" class="wagon-card {{ $color }} {{ $disabledClass }}">
                 <span class="card-quantity {{ $color }}">{{ $quantity }}</span>
             </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
-</div>
 
 
 
@@ -338,8 +339,8 @@
         </table> -->
 
 
-         <!-- Bande à droite pour afficher le nom des autres joueurs et le chat -->
-         <div id="message_body">
+        <!-- Bande à droite pour afficher le nom des autres joueurs et le chat -->
+        <div id="message_body">
             <script defer src="{{ asset('js/script.js') }}"></script>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
             <div id="utilisateur" data-nom="{{ auth()->user()->name }}" style="display: none;"></div>
@@ -349,34 +350,34 @@
                 <button type="submit" id="send-button"><i class="bi bi-arrow-up-circle-fill"></i></button>
             </form>
         </div>
-        </div>
+    </div>
 
-        <div class="card-draw">
-            <div class="card-row">
-                <img src="{{ asset('images/dos_dc.png') }}" alt="Dos de carte destination" class="wagon-card">
-            </div>
-            <div class="card-row">
-                <div class="random-draw-container">
-                    <img src="{{ asset('images/dos_wc.png') }}" alt="Dos de carte wagon" class="wagon-card">
-                    @if(isset($randomCardId))
-                    <button type="button" class="btn btn-primary pioche random-draw" data-card-id="{{ $randomCardId }}">Piocher aléatoire</button>
-                    @endif
-                </div>
-            </div>
-            <!-- Visible Cards Container -->
-            <div id="visible-cards-container">
-                @foreach($visibleCards as $card)
-                    <div class="card-container visible-card" data-card-id="{{ $card->wc_id }}" data-color="{{ $card->wc_color }}">
-                        <img src="{{ asset('images/'.$card->wc_image) }}" alt="Carte Wagon {{ ucfirst($card->wc_color) }}" class="wagon-card">
-                        <!-- Pas besoin de bouton ici si le clic sur l'image suffit pour piocher la carte -->
-                    </div>
-                @endforeach
+    <div class="card-draw">
+        <div class="card-row">
+            <img src="{{ asset('images/dos_dc.png') }}" alt="Dos de carte destination" class="wagon-card">
+        </div>
+        <div class="card-row">
+            <div class="random-draw-container">
+                <img src="{{ asset('images/dos_wc.png') }}" alt="Dos de carte wagon" class="wagon-card">
+                @if(isset($randomCardId))
+                <button type="button" class="btn btn-primary pioche random-draw" data-card-id="{{ $randomCardId }}">Piocher aléatoire</button>
+                @endif
             </div>
         </div>
+        <!-- Visible Cards Container -->
+        <div id="visible-cards-container">
+            @foreach($visibleCards as $card)
+            <div class="card-container visible-card" data-card-id="{{ $card->wc_id }}" data-color="{{ $card->wc_color }}">
+                <img src="{{ asset('images/'.$card->wc_image) }}" alt="Carte Wagon {{ ucfirst($card->wc_color) }}" class="wagon-card">
+                <!-- Pas besoin de bouton ici si le clic sur l'image suffit pour piocher la carte -->
+            </div>
+            @endforeach
+        </div>
+    </div>
 
 
 
-<!-- <script>
+    <!-- <script>
     const segment = document.querySelector('.map-segment');
 
     // Ajouter un gestionnaire d'événements de clic
@@ -386,4 +387,4 @@
     });
 </script> -->
 
-@endsection
+    @endsection
