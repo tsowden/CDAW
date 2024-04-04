@@ -1,10 +1,15 @@
 @extends('layout')
 
+@section('head-scripts')
+<link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+<link href="{{ asset('css/style_custom.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <section class="page-section" id="leaderboard">
-    <div class="container scoreboard">
-        <h2>Leaderboard</h2>
-        <table class="table">
+    <div class="container scoreboard table-responsive">
+        <h2 class="text-center mb-3">Leaderboard</h2>
+        <table class="table table-bordered table-dark">
             <thead>
                 <tr>
                     <th>ID</th>
