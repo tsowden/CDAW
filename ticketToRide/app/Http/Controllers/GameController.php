@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Participation;
 use App\Models\WagonCard;
+use Illuminate\Support\Facades\Log;
 
 class GameController extends Controller
 {
@@ -108,6 +109,8 @@ class GameController extends Controller
             'visibleCards' => $visibleCards
         ]);
     }
+
+
     public function pickCard(Request $request, $cardId)
     {
         $user = auth()->user();
@@ -153,6 +156,44 @@ class GameController extends Controller
     }
     
 
+    public function useWagonCards(Request $request, $gameId)
+    {
+        Log::debug("useWagonCards called with gameId: $gameId");
+        $user = auth()->user();
+        if (!$user) {
+            return response()->json(['error' => 'Non autorisé'], 401);
+        }
+
+        $color = $request->input('color');
+        $amount = $request->input('amount');
+
+        // Récupérer les cartes correspondant à la couleur et au joueur, puis en déduire la quantité nécessaire
+        $cards = WagonCard::where('game_id', $gameId)
+                        ->where('player_id_wc_hand', $user->id)
+                        ->where('wc_color', $color)
+                        ->limit($amount)
+                        ->get();
+
+        if ($cards->count() < $amount) {
+            return response()->json(['error' => 'Pas assez de cartes'], 400);
+        }
+
+        foreach ($cards as $card) {
+            // Ici vous pourriez mettre à jour ou supprimer les cartes selon votre logique de jeu
+            $card->delete(); // Exemple : Suppression des cartes utilisées
+        }
+
+        // Calculer la nouvelle quantité de cartes de cette couleur pour le joueur
+        $newTotal = WagonCard::where('game_id', $gameId)
+                            ->where('player_id_wc_hand', $user->id)
+                            ->where('wc_color', $color)
+                            ->count();
+
+        return response()->json([
+            'success' => true,
+            'newTotal' => $newTotal
+        ]);
+    }
 
 
     public function create_game(Request $request)

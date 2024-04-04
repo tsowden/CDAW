@@ -100,10 +100,10 @@
             <div class="line" id="trajet-Erlang-Elm" style="position: absolute; left: 920px; top: 588px; width: 202px; height: 8px; transform: rotate(-10deg); background-color: #523814;"></div>
 
             <!-- Bouton au milieu des segments -->
-            <button class="line-button" id="milieu-Foulestaque-Apex" style="top: calc((150px + 185px) / 2); left: calc((85px + 218px) / 2); background-color: var(--color-chemin-rose);"></button>
+            <button onclick="onPathClick('violet', 2)" class="line-button" id="milieu-Foulestaque-Apex" style="top: calc((150px + 185px) / 2); left: calc((85px + 218px) / 2); background-color: var(--color-chemin-rose);"></button>
             <div class="line-text" id="chiffre-Foulestaque-Apex" style="top: calc((150px + 185px) / 2); left: calc((85px + 218px) / 2);">2</div>
 
-            <button class="line-button" id="milieu-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2); background-color: var(--color-chemin-gris);"></button>
+            <button onclick="onPathClick('locomotive', 4)" class="line-button" id="milieu-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2); background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2);">4</div>
 
             <button class="line-button" id="milieu-Rust-Scala" style="top: calc((611px + 622px) / 2); left: calc((177px + 370px) / 2); background-color: var(--color-chemin-noir);"></button>

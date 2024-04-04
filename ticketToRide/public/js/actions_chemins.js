@@ -116,3 +116,27 @@ buttons.forEach(button => {
 });
 
 
+function onPathClick(color, amount) {
+    const gameId = 7;
+    
+    $.ajax({
+        url: `/games/${gameId}/use-wagon-cards`,
+        type: 'POST',
+        data: {
+            color: color,
+            amount: amount,
+            _token: $('meta[name="csrf-token"]').attr('content') // Ajoutez un meta tag pour le CSRF token
+        },
+        success: function(response) {
+            if (response.success) {
+                // Mettez à jour l'affichage de la quantité de cartes pour la couleur concernée
+                $(`.card-quantity.${color}`).text(response.newTotal);
+            } else {
+                alert("Erreur : " + response.error);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("Erreur AJAX : " + status + " - " + error);
+        }
+    });
+}
