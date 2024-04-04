@@ -119,22 +119,22 @@ function getCurrentGameId(callback) {
     $.ajax({
         url: '/current-game-id',
         type: 'GET',
-        success: function(response) {
-            if(response.gameId) {
+        success: function (response) {
+            if (response.gameId) {
                 console.log("Current Game ID: ", response.gameId);
                 if (typeof callback === "function") {
                     callback(response.gameId);
                 }
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error("Erreur lors de la récupération de l'ID de la partie actuelle: ", status, error);
         }
     });
 }
 
 function onPathClick(color, amount) {
-    getCurrentGameId(function(gameId) {
+    getCurrentGameId(function (gameId) {
         // Utilisez gameId ici
         $.ajax({
             url: `/games/${gameId}/use-wagon-cards`,
@@ -144,7 +144,7 @@ function onPathClick(color, amount) {
                 amount: amount,
                 _token: $('meta[name="csrf-token"]').attr('content') // Assurez-vous que le token CSRF est inclus si nécessaire
             },
-            success: function(response) {
+            success: function (response) {
                 if (response.success) {
                     // Mettez à jour l'affichage de la quantité de cartes pour la couleur concernée
                     $(`.card-quantity.${color}`).text(response.newTotal);
@@ -152,8 +152,44 @@ function onPathClick(color, amount) {
                     alert("Erreur : " + response.error);
                 }
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.error("Erreur AJAX : " + status + " - " + error);
+                if (color === 'gris') {
+                    // Afficher une boîte de dialogue avec des options pour l'utilisateur
+                    const inputOptions = {
+                        'red': "Rouge",
+                        'green': "Vert",
+                        'blue': "Bleu",
+                        'yellow': "Jaune",
+                        'cyan': "Cyan",
+                        'violet': "Rose",
+                        'orange': "Orange",
+                        'black': "Noir",
+                    };
+                    Swal.fire({
+                        title: "Chemin gris : choisissez une couleur",
+                        input: "select",
+                        inputOptions: inputOptions,
+                        inputValidator: (value) => {
+                            if (!value) {
+                                return "Vous devez choisir une couleur !";
+                            }
+                        }
+                    }).then((result) => {
+                        if (result.value) {
+                            const selectedColor = result.value;
+                            onPathClick(selectedColor, amount);
+                            Swal.fire({ html: `Vous avez sélectionné : ${inputOptions[selectedColor]}` });
+                        }
+                    });
+                } else {
+                    // Autre traitement d'erreur pour les autres couleurs
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Pas assez de cartes',
+                        text: "Vous n'avez pas assez de cartes de cette couleur pour jouer sur ce chemin.",
+                    });
+                }
             }
         });
     });
