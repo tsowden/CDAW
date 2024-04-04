@@ -350,7 +350,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #2a6496;
+  color: #ffc74f;
   text-decoration: underline;
 }
 
@@ -10326,12 +10326,12 @@ body {
 }
 
 .links-2 {
-  float:right;
+  float: right;
   margin: 4px 10px 0 0;
   position: relative;
   width: 80%;
   text-align: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .heroes-2 {
@@ -10495,7 +10495,7 @@ header {
 .hero-section {
   padding: 0;
   margin: 0;
-  
+
   /* If your image still doesn't cover the full width, you may need to adjust its max-width property */
 }
 
