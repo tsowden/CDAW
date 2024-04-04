@@ -29,35 +29,91 @@ tableHeader.style.backgroundColor = userColor;
 function onClickButton(buttonId, username) {
     let trajetId = "trajet-" + buttonId.split("-")[1] + "-" + buttonId.split("-")[2];
     let color = getColorForUser(username); // Obtenir la couleur en fonction du nom de l'utilisateur
-    document.getElementById(trajetId).style.backgroundColor = color;
-    document.getElementById(trajetId).style.height = "15px";
     let chiffreId = "chiffre-" + buttonId.split("-")[1] + "-" + buttonId.split("-")[2];
     let chiffreElement = document.getElementById(chiffreId);
     let longueurChemin = parseInt(chiffreElement.innerText);
-    // let pointsCell = document.getElementById('points-cell');
-    let tableCible;
-    if (username === userName) {
-        tableCible = document.querySelector('.table-opponent-auth');
+    const bouton = document.getElementById(buttonId);
+    const backgroundColor = bouton.style.backgroundColor;
+    let couleurBouton = 'black';
+    if (backgroundColor === 'var(--color-chemin-noir)') {
+        // Si la couleur du bouton est noire, assignez 'black' à la variable couleurBouton
+        couleurBouton = 'black';
     }
-    else {
-        // Recherche de la table qui contient le bon nom d'utilisateur
-        const tablesAdversaires = document.querySelectorAll('.table-opponent');
-        tablesAdversaires.forEach(table => {
-            const ths = table.querySelectorAll('th');
-            ths.forEach(th => {
-                if (th.textContent.trim() === username.trim()) {
-                    tableCible = table;
-                }
-            });
-        });
+    if (backgroundColor === 'var(--color-chemin-jaune)') {
+        // Si la couleur du bouton est noire, assignez 'black' à la variable couleurBouton
+        couleurBouton = 'yellow';
     }
-    let pointsCell = tableCible.querySelector('#points-cell');
-    let wagonsCell = tableCible.querySelector('#wagons-cell');
-    tableCible.querySelector('th').style.backgroundColor = color;
+    if (backgroundColor === 'var(--color-chemin-rouge)') {
+        // Si la couleur du bouton est noire, assignez 'black' à la variable couleurBouton
+        couleurBouton = 'red';
+    }
+    if (backgroundColor === 'var(--color-chemin-bleu)') {
+        // Si la couleur du bouton est noire, assignez 'black' à la variable couleurBouton
+        couleurBouton = 'blue';
+    }
+    if (backgroundColor === 'var(--color-chemin-rose)') {
+        // Si la couleur du bouton est noire, assignez 'black' à la variable couleurBouton
+        couleurBouton = 'violet';
+    }
+    if (backgroundColor === 'var(--color-chemin-vert)') {
+        // Si la couleur du bouton est noire, assignez 'black' à la variable couleurBouton
+        couleurBouton = 'green';
+    }
+    if (backgroundColor === 'var(--color-chemin-cyan)') {
+        // Si la couleur du bouton est noire, assignez 'black' à la variable couleurBouton
+        couleurBouton = 'cyan';
+    }
+    if (backgroundColor === 'var(--color-chemin-orange)') {
+        // Si la couleur du bouton est noire, assignez 'black' à la variable couleurBouton
+        couleurBouton = 'orange';
+    }
+    if (backgroundColor === 'var(--color-chemin-noir)') {
+        // Si la couleur du bouton est noire, assignez 'black' à la variable couleurBouton
+        couleurBouton = 'black';
+    }
+    if (backgroundColor === 'var(--color-chemin-gris)') {
+        // Si la couleur du bouton est noire, assignez 'black' à la variable couleurBouton
+        couleurBouton = 'gris';
+    }
 
-    let currentPoints = parseInt(pointsCell.innerText);
-    ajoutePoints(longueurChemin, pointsCell, currentPoints);
-    retireWagons(longueurChemin, wagonsCell);
+
+    onPathClick(couleurBouton, longueurChemin)
+        .then(() => {
+            document.getElementById(trajetId).style.backgroundColor = color;
+            document.getElementById(trajetId).style.height = "15px";
+
+            // let pointsCell = document.getElementById('points-cell');
+            let tableCible;
+            if (username === userName) {
+                tableCible = document.querySelector('.table-opponent-auth');
+            }
+            else {
+                // Recherche de la table qui contient le bon nom d'utilisateur
+                const tablesAdversaires = document.querySelectorAll('.table-opponent');
+                tablesAdversaires.forEach(table => {
+                    const ths = table.querySelectorAll('th');
+                    ths.forEach(th => {
+                        if (th.textContent.trim() === username.trim()) {
+                            tableCible = table;
+                        }
+                    });
+                });
+            }
+            let pointsCell = tableCible.querySelector('#points-cell');
+            let wagonsCell = tableCible.querySelector('#wagons-cell');
+            tableCible.querySelector('th').style.backgroundColor = color;
+
+            let currentPoints = parseInt(pointsCell.innerText);
+            ajoutePoints(longueurChemin, pointsCell, currentPoints);
+            retireWagons(longueurChemin, wagonsCell);
+            bouton.disabled = true; // pour que le bouton ne soit cliquable qu'une seule fois
+        })
+        .catch((error) => {
+            // La promesse est rejetée, donc il y a eu une erreur dans la requête AJAX
+            // Vous pouvez traiter l'erreur ici
+            console.error("Le catch dans onClickButton s'est déclenché:", error);
+        });
+
 }
 function retireWagons(longueurChemin, wagonsCell) {
     // let wagonsCell = document.getElementById('wagons-cell');
@@ -109,7 +165,7 @@ let buttons = document.querySelectorAll(".line-button");
 buttons.forEach(button => {
     button.addEventListener("click", function () {
         handleButtonClick(button.id);
-        button.disabled = true; // pour que le bouton ne soit cliquable qu'une seule fois
+
     });
     // onClickButton(button.id); // ceci est la fonction qui fait un changment de couleur mais on a plus besoin de l'appeler
     // ici puisque handleButtonClick dans le server va broadacter à tout le monde user qui dans script.js déclenche onClickButton
@@ -134,63 +190,71 @@ function getCurrentGameId(callback) {
 }
 
 function onPathClick(color, amount) {
-    getCurrentGameId(function (gameId) {
-        // Utilisez gameId ici
-        $.ajax({
-            url: `/games/${gameId}/use-wagon-cards`,
-            type: 'POST',
-            data: {
-                color: color,
-                amount: amount,
-                _token: $('meta[name="csrf-token"]').attr('content') // Assurez-vous que le token CSRF est inclus si nécessaire
-            },
-            success: function (response) {
-                if (response.success) {
-                    // Mettez à jour l'affichage de la quantité de cartes pour la couleur concernée
-                    $(`.card-quantity.${color}`).text(response.newTotal);
-                } else {
-                    alert("Erreur : " + response.error);
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error("Erreur AJAX : " + status + " - " + error);
-                if (color === 'gris') {
-                    // Afficher une boîte de dialogue avec des options pour l'utilisateur
-                    const inputOptions = {
-                        'red': "Rouge",
-                        'green': "Vert",
-                        'blue': "Bleu",
-                        'yellow': "Jaune",
-                        'cyan': "Cyan",
-                        'violet': "Rose",
-                        'orange': "Orange",
-                        'black': "Noir",
-                    };
-                    Swal.fire({
-                        title: "Chemin gris : choisissez une couleur",
-                        input: "select",
-                        inputOptions: inputOptions,
-                        inputValidator: (value) => {
-                            if (!value) {
-                                return "Vous devez choisir une couleur !";
+    return new Promise((resolve, reject) => {
+        getCurrentGameId(function (gameId) {
+            // Utilisez gameId ici
+            $.ajax({
+                url: `/games/${gameId}/use-wagon-cards`,
+                type: 'POST',
+                data: {
+                    color: color,
+                    amount: amount,
+                    _token: $('meta[name="csrf-token"]').attr('content') // Assurez-vous que le token CSRF est inclus si nécessaire
+                },
+                success: function (response) {
+                    if (response.success) {
+                        // Mettez à jour l'affichage de la quantité de cartes pour la couleur concernée
+                        $(`.card-quantity.${color}`).text(response.newTotal);
+                        resolve();
+                    } else {
+                        alert("Erreur : " + response.error);
+                        reject("Erreur : " + response.error);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Erreur AJAX : " + status + " - " + error);
+                    if (color === 'gris') {
+                        // Traitez différemment l'action pour la couleur 'gris'
+                        console.log("Action spéciale pour la couleur 'gris'");
+                        const inputOptions = {
+                            'red': "Rouge",
+                            'green': "Vert",
+                            'blue': "Bleu",
+                            'yellow': "Jaune",
+                            'cyan': "Cyan",
+                            'violet': "Rose",
+                            'orange': "Orange",
+                            'black': "Noir",
+                        };
+                        Swal.fire({
+                            title: "Chemin gris : choisissez une couleur",
+                            input: "select",
+                            inputOptions: inputOptions,
+                            inputValidator: (value) => {
+                                if (!value) {
+                                    return "Vous devez choisir une couleur !";
+                                }
                             }
-                        }
-                    }).then((result) => {
-                        if (result.value) {
-                            const selectedColor = result.value;
-                            onPathClick(selectedColor, amount);
-                            Swal.fire({ html: `Vous avez sélectionné : ${inputOptions[selectedColor]}` });
-                        }
-                    });
-                } else {
-                    // Autre traitement d'erreur pour les autres couleurs
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Pas assez de cartes',
-                        text: "Vous n'avez pas assez de cartes de cette couleur pour jouer sur ce chemin.",
-                    });
+                        }).then((result) => {
+                            if (result.value) {
+                                const selectedColor = result.value;
+                                onPathClick(selectedColor, amount);
+                                Swal.fire({ html: `Vous avez sélectionné : ${inputOptions[selectedColor]}` });
+                            }
+                        });
+                        resolve();
+                    } else {
+
+                        // Autre traitement d'erreur pour les autres couleurs
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Pas assez de cartes',
+                            text: "Vous n'avez pas assez de cartes de cette couleur pour jouer sur ce chemin.",
+                        });
+                        reject("Erreur AJAX : " + status + " - " + error);
+                    }
                 }
-            }
+            });
         });
     });
 }
