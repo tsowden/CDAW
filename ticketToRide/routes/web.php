@@ -39,6 +39,7 @@ Route::post('/games/{gameId}/join', [GameController::class, 'join'])->name('game
 Route::get('/lobby/{gameId}', [LobbyController::class, 'show'])->name('lobby.show');
 Route::delete('/lobby/{gameId}/leave', [LobbyController::class, 'leave'])->name('lobby.leave');
 
+Route::get('/current-game-id', [GameController::class, 'getCurrentGameId'])->name('game.current-id');
 Route::get('/play/{gameId}', 'App\Http\Controllers\GameController@play')->name('game.play');
 Route::get('/game/{gameId}/start', [GameController::class, 'startGame'])->name('game.start');
 

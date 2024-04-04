@@ -27,4 +27,9 @@ class Participation extends Model
     {
         return $this->belongsTo(User::class, 'player_id');
     }
+
+    public function game()
+    {
+        return $this->belongsTo(Game::class, 'game_id');
+    }
 }

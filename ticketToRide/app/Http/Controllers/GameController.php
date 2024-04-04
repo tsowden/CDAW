@@ -36,7 +36,27 @@ class GameController extends Controller
         }
     }
 
-
+    public function getCurrentGameId(Request $request)
+    {
+        $user = auth()->user();
+        if (!$user) {
+            return response()->json(['error' => 'Non autorisé'], 401);
+        }
+    
+        $participation = Participation::where('player_id', $user->id)
+                                      ->whereHas('game', function ($query) {
+                                          $query->where('game_state', '=', 'En cours');
+                                      })
+                                      ->first();
+    
+        if (!$participation) {
+            return response()->json(['error' => 'Aucune partie en cours trouvée pour l\'utilisateur'], 404);
+        }
+    
+        return response()->json(['gameId' => $participation->game_id]);
+    }
+    
+    
 
 
 

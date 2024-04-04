@@ -115,28 +115,47 @@ buttons.forEach(button => {
     // ici puisque handleButtonClick dans le server va broadacter à tout le monde user qui dans script.js déclenche onClickButton
 });
 
-
-function onPathClick(color, amount) {
-    const gameId = 7;
-    
+function getCurrentGameId(callback) {
     $.ajax({
-        url: `/games/${gameId}/use-wagon-cards`,
-        type: 'POST',
-        data: {
-            color: color,
-            amount: amount,
-            _token: $('meta[name="csrf-token"]').attr('content') // Ajoutez un meta tag pour le CSRF token
-        },
+        url: '/current-game-id',
+        type: 'GET',
         success: function(response) {
-            if (response.success) {
-                // Mettez à jour l'affichage de la quantité de cartes pour la couleur concernée
-                $(`.card-quantity.${color}`).text(response.newTotal);
-            } else {
-                alert("Erreur : " + response.error);
+            if(response.gameId) {
+                console.log("Current Game ID: ", response.gameId);
+                if (typeof callback === "function") {
+                    callback(response.gameId);
+                }
             }
         },
         error: function(xhr, status, error) {
-            console.error("Erreur AJAX : " + status + " - " + error);
+            console.error("Erreur lors de la récupération de l'ID de la partie actuelle: ", status, error);
         }
     });
 }
+
+function onPathClick(color, amount) {
+    getCurrentGameId(function(gameId) {
+        // Utilisez gameId ici
+        $.ajax({
+            url: `/games/${gameId}/use-wagon-cards`,
+            type: 'POST',
+            data: {
+                color: color,
+                amount: amount,
+                _token: $('meta[name="csrf-token"]').attr('content') // Assurez-vous que le token CSRF est inclus si nécessaire
+            },
+            success: function(response) {
+                if (response.success) {
+                    // Mettez à jour l'affichage de la quantité de cartes pour la couleur concernée
+                    $(`.card-quantity.${color}`).text(response.newTotal);
+                } else {
+                    alert("Erreur : " + response.error);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Erreur AJAX : " + status + " - " + error);
+            }
+        });
+    });
+}
+

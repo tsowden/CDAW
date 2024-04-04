@@ -4,8 +4,12 @@
 
 
 <div class="play-container">
+    
     <script defer src="{{ asset('js/actions_chemins.js') }}"></script>
     <script src="{{ asset('js/gameActions.js') }}"></script>
+
+
+
     <div class="map-container">
         @foreach($participants as $participant)
         <div class="participant" data-nom="{{ $participant}}" style="display: none;"></div>
@@ -106,7 +110,7 @@
             <button onclick="onPathClick('locomotive', 4)" class="line-button" id="milieu-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2); background-color: var(--color-chemin-gris);"></button>
             <div class="line-text" id="chiffre-Kotlin-Rust" style="top: calc((510px + 611px) / 2); left: calc((30px + 177px) / 2);">4</div>
 
-            <button class="line-button" id="milieu-Rust-Scala" style="top: calc((611px + 622px) / 2); left: calc((177px + 370px) / 2); background-color: var(--color-chemin-noir);"></button>
+            <button onclick="onPathClick('black', 3)" class="line-button" id="milieu-Rust-Scala" style="top: calc((611px + 622px) / 2); left: calc((177px + 370px) / 2); background-color: var(--color-chemin-noir);"></button>
             <div class="line-text" id="chiffre-Rust-Scala" style="top: calc((611px + 622px) / 2); left: calc((177px + 370px) / 2);">3</div>
 
             <button class="line-button" id="milieu-Kotlin-Python" style="top: calc((510px + 345px) / 2); left: calc((30px + 125px) / 2); background-color: var(--color-chemin-rouge);"></button>
