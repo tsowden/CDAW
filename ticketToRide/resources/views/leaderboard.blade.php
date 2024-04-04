@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="page-section" id="leaderboard">
-    <div class="container">
+    <div class="container scoreboard">
         <h2>Leaderboard</h2>
         <table class="table">
             <thead>
