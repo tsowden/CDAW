@@ -226,6 +226,9 @@ function onPathClick(color, amount) {
                             'orange': "Orange",
                             'black': "Noir",
                         };
+
+                        // Créez une nouvelle promesse pour encapsuler l'appel à onPathClick
+
                         Swal.fire({
                             title: "Chemin gris : choisissez une couleur",
                             input: "select",
@@ -238,11 +241,24 @@ function onPathClick(color, amount) {
                         }).then((result) => {
                             if (result.value) {
                                 const selectedColor = result.value;
-                                onPathClick(selectedColor, amount);
+                                // Appel à onPathClick encapsulé dans une promesse
+                                onPathClick(selectedColor, amount)
+                                    .then(() => {
+                                        // Résolution de la promesse externe avec succès
+                                        resolve();
+                                    })
+                                    .catch((error) => {
+                                        // Rejet de la promesse externe avec l'erreur de onPathClick
+                                        reject(error);
+                                    });
+
+                                // Affichage du message de sélection
                                 Swal.fire({ html: `Vous avez sélectionné : ${inputOptions[selectedColor]}` });
                             }
                         });
-                        resolve();
+
+
+
                     } else {
 
                         // Autre traitement d'erreur pour les autres couleurs
