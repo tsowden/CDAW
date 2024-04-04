@@ -16,7 +16,7 @@
             @endif
             @endif
 
-            <a href="{{ url('/contact') }}" class="nav-link contact-2">Leaderboard</a>
+            <a href="{{ url('/leaderboard') }}" class="nav-link contact-2">Leaderboard</a>
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link gallery-2" style="float:right">
                 {{ Auth::user()->name }}: Se déconnecter
             </a>
