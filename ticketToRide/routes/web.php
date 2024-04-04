@@ -7,7 +7,7 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GameController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\LeaderboardController;
 
 use App\Http\Controllers\LobbyController;
 use App\Http\Controllers\AboutController;
@@ -30,7 +30,7 @@ use App\Http\Controllers\ChatController;
 
 Route::get('/', [AccueilController::class, 'index'])->name('home');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+Route::get('/leaderboard', [LeaderboardController::class, 'index'])->name('leaderboard');
 Route::get('/chat', [ChatController::class, 'index'])->name('chat');
 Route::get('/games', [GameController::class, 'games'])->name('games');
 Route::get('/create_game', [GameController::class, 'create_game'])->name('create_game');

@@ -350,7 +350,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #2a6496;
+  color: #ffc74f;
   text-decoration: underline;
 }
 
@@ -10303,7 +10303,7 @@ body {
 .row-5 {
   margin: 0 auto;
   min-height: 45px;
-  padding: 14px 400px 12px;
+  padding: 14px 80px 12px;
   position: relative;
   width: 1920px;
   background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9ImhlYWRlci1iZyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI1MCUiIHkxPSIwJSIgeDI9IjUwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyMjIyMjIiIHN0b3Atb3BhY2l0eT0iMC45NSIgLz4KPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMjIyMjIyIiBzdG9wLW9wYWNpdHk9IjAuNzUiIC8+CjwvbGluZWFyR3JhZGllbnQ+CjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjaGVhZGVyLWJnKSIgLz48L3N2Zz4=);
@@ -10326,12 +10326,12 @@ body {
 }
 
 .links-2 {
-  float:right;
+  float: right;
   margin: 4px 10px 0 0;
   position: relative;
   width: 80%;
   text-align: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .heroes-2 {
@@ -10359,7 +10359,7 @@ body {
 
 .contact-2 {
   float: left;
-  margin: 0 0 0 20px;
+  margin: 0 0 0 50px;
   color: #c4ae78;
   letter-spacing: 0;
   text-align: center;
@@ -10495,7 +10495,7 @@ header {
 .hero-section {
   padding: 0;
   margin: 0;
-  
+
   /* If your image still doesn't cover the full width, you may need to adjust its max-width property */
 }
 
