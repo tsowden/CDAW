@@ -121,10 +121,6 @@
     filter: grayscale(100%) opacity(60%);
 }
 
-.disabled-card {
-    filter: grayscale(100%) opacity(60%);
-}
-
 .wagon-card {
     width: 120px;
     /* Ajustez selon la taille souhaitée */

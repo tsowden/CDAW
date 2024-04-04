@@ -1,22 +1,35 @@
 {
-    "private": true,
-    "scripts": {
-        "dev": "npm run development",
-        "development": "mix",
-        "watch": "mix watch",
-        "watch-poll": "mix watch -- --watch-options-poll=1000",
-        "hot": "mix watch --hot",
-        "prod": "npm run production",
-        "production": "mix --production"
-    },
-    "devDependencies": {
-        "@tailwindcss/forms": "^0.4.0",
-        "alpinejs": "^3.4.2",
-        "autoprefixer": "^10.4.2",
-        "axios": "^0.21",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "postcss": "^8.4.6",
-        "tailwindcss": "^3.0.18"
-    }
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "npm run production",
+    "production": "mix --production"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.4.0",
+    "alpinejs": "^3.4.2",
+    "autoprefixer": "^10.4.2",
+    "axios": "^0.21",
+    "laravel-mix": "^6.0.6",
+    "lodash": "^4.17.19",
+    "nodemon": "^3.1.0",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.18"
+  },
+  "name": "tickettoride",
+  "description": "- **index(Request $request)**: Affiche la vue principale du jeu, servant de point d'entrée pour les sessions de jeu actives.\r - **play($gameId)**: Vérifie l'authentification de l'utilisateur et sa participation à la partie désignée par $gameId, puis charge la vue de jeu avec les informations pertinentes.\r - **create_game(Request $request)**: Présente la vue de création d'une nouvelle partie, généralement sous forme d'un formulaire.\r - **store(Request $request)**: Valide et traite les données du formulaire de création de partie, crée la partie avec les paramètres fournis, et redirige vers le lobby de la partie créée avec un message de succès.\r - **games()**: Affiche toutes les parties en attente de démarrage, en chargeant et affichant les informations sur le créateur et les participants pour chaque partie.\r - **join($gameId)**: Permet à l'utilisateur actuel de rejoindre une partie existante, en s'assurant que la partie n'est pas complète avant d'ajouter l'utilisateur et de le rediriger vers le lobby de la partie.",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^4.7.5"
+  }
 }

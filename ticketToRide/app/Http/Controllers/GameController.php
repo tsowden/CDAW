@@ -103,29 +103,50 @@ class GameController extends Controller
             'visibleCards' => $visibleCards
         ]);
     }
-
     public function pickCard(Request $request, $cardId)
     {
         $user = auth()->user();
         if (!$user) {
-            return redirect()->route('login')->with('error_message', 'Vous devez être connecté pour effectuer cette action.');
+            return response()->json(['error' => 'Non autorisé'], 401);
         }
-
-        // Assurez-vous que la carte appartient au jeu actuel et est dans la pioche
+    
         $card = WagonCard::where('wc_id', $cardId)
-            ->whereNull('player_id_wc_hand')
-            ->firstOrFail();
-
-        // Ajouter la carte à la main du joueur
+                         ->whereNull('player_id_wc_hand')
+                         ->first();
+    
+        if (!$card) {
+            return response()->json(['error' => 'Carte non trouvée ou déjà prise'], 404);
+        }
+    
+        // Attribuer la carte à l'utilisateur
         $card->player_id_wc_hand = $user->id;
         $card->save();
-
-        // Vous pourriez vouloir tirer une nouvelle carte pour la remplacer ici
-        // et envoyer cette info à la vue ou via un événement au client
-
-
+    
+        // Sélectionner et préparer une nouvelle carte aléatoire
+        $newCard = WagonCard::where('game_id', $card->game_id)
+                            ->whereNull('player_id_wc_hand')
+                            ->inRandomOrder()
+                            ->first();
+    
+        // Mettre à jour le total des cartes de cette couleur pour l'utilisateur
+        $newTotal = WagonCard::where('game_id', $card->game_id)
+                             ->where('player_id_wc_hand', $user->id)
+                             ->where('wc_color', $card->wc_color)
+                             ->count();
+    
+        // Répondre avec les informations nécessaires pour la mise à jour du frontend
+        return response()->json([
+            'success' => true,
+            'cardType' => $card->wc_color,
+            'newTotal' => $newTotal,
+            'newCard' => $newCard ? [
+                'wc_id' => $newCard->wc_id,
+                'wc_image' => asset('images/'.$newCard->wc_image),
+                'wc_color' => $newCard->wc_color,
+            ] : null,
+        ]);
     }
-
+    
 
 
 

@@ -5,6 +5,7 @@
 
 <div class="play-container">
     <script defer src="{{ asset('js/actions_chemins.js') }}"></script>
+    <script src="{{ asset('js/gameActions.js') }}"></script>
     <div class="map-container">
 
 
@@ -307,9 +308,8 @@
             </tr>
         </table>
 
-
-        <!-- Bande à droite pour afficher le nom des autres joueurs et le chat -->
-        <div id="message_body">
+         <!-- Bande à droite pour afficher le nom des autres joueurs et le chat -->
+         <div id="message_body">
             <script defer src="{{ asset('js/script.js') }}"></script>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
             <div id="utilisateur" data-nom="{{ auth()->user()->name }}" style="display: none;"></div>
@@ -319,42 +319,32 @@
                 <button type="submit" id="send-button"><i class="bi bi-arrow-up-circle-fill"></i></button>
             </form>
         </div>
+        </div>
 
-    </div>
-    <div class="card-draw">
-    <div class="card-row">
-        <img src="{{ asset('images/dos_dc.png') }}" alt="Dos de carte destination"class="wagon-card">
-    </div>
-    <div class="card-row">
-    <div class="random-draw-container">
-    <img src="{{ asset('images/dos_wc.png') }}" alt="Dos de carte wagon" class="wagon-card">
-        @if(isset($randomCardId))
-            <form action="{{ route('game.pick-card', ['cardId' => $randomCardId]) }}" method="POST">
-                @csrf
-                <button type="submit" class="btn btn-primary pioche">Piocher aléatoire</button>
-            </form>
-        @endif
-
-
-
-</div>
-
-    </div>
-    
-    @foreach($visibleCards as $card)
-    <div class="card-container">
-        <img src="{{ asset('images/'.$card->wc_image) }}" alt="Carte Wagon" class="wagon-card">
-        <form action="{{ route('game.pick-card', $card->wc_id) }}" method="POST">
-            @csrf
-            <button type="submit" class="btn btn-primary pioche">Prendre la carte</button>
-        </form>
-    </div>
-@endforeach
+        <div class="card-draw">
+            <div class="card-row">
+                <img src="{{ asset('images/dos_dc.png') }}" alt="Dos de carte destination" class="wagon-card">
+            </div>
+            <div class="card-row">
+                <div class="random-draw-container">
+                    <img src="{{ asset('images/dos_wc.png') }}" alt="Dos de carte wagon" class="wagon-card">
+                    @if(isset($randomCardId))
+                    <button type="button" class="btn btn-primary pioche random-draw" data-card-id="{{ $randomCardId }}">Piocher aléatoire</button>
+                    @endif
+                </div>
+            </div>
+            <!-- Visible Cards Container -->
+            <div id="visible-cards-container">
+                @foreach($visibleCards as $card)
+                    <div class="card-container visible-card" data-card-id="{{ $card->wc_id }}" data-color="{{ $card->wc_color }}">
+                        <img src="{{ asset('images/'.$card->wc_image) }}" alt="Carte Wagon {{ ucfirst($card->wc_color) }}" class="wagon-card">
+                        <!-- Pas besoin de bouton ici si le clic sur l'image suffit pour piocher la carte -->
+                    </div>
+                @endforeach
+            </div>
+        </div>
 
 
-</div>
-
-</div>
 
 <!-- <script>
     const segment = document.querySelector('.map-segment');
