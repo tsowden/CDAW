@@ -160,7 +160,8 @@ buttons.forEach(button => {
 
         onPathClick(couleurBouton, longueurChemin)
             .then(() => {
-                handleButtonClick(button.id); // pour que le bouton ne soit cliquable qu'une seule fois
+                handleButtonClick(button.id);
+                button.disabled = true; // pour que le bouton ne soit cliquable qu'une seule fois
             })
             .catch((error) => {
                 // La promesse est rejetée, donc il y a eu une erreur dans la requête AJAX
