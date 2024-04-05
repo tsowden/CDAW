@@ -1,6 +1,23 @@
 .nav-link {
     font-size: 22px;
 }
+.selected-card {
+    border: 3px solid #f0e68c; /* Jaune doré pour l'aura */
+    box-shadow: 0 0 10px #f0e68c; /* Optionnel : Ajoute un léger halo autour de la carte */
+}
+#random-dest-cards {
+    display: flex;
+    flex-direction: column; /* Affiche les éléments enfants en colonne */
+}
+
+#move-cards-btn {
+    display: none; /* Cache le bouton par défaut */
+    width: 120px;
+    font-size: 80%;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
 
 .card-container {
     position: relative;

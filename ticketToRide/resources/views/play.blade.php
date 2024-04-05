@@ -264,6 +264,9 @@
 
 
         </div>
+    <!-- Cartes destination en bas : à mettre au propre -->
+    <p> Mes cartes destination : </p></br>
+    <div id="selected-cards-container" class="selected-cards-container"></div>
 
     </div>
     <div class="side-panel left-panel">
@@ -352,10 +355,16 @@
         </div>
     </div>
 
+    <script>
+        var basePath = "{{ asset('images') }}";
+    </script>
+
     <div class="card-draw">
         <div class="card-row">
-            <img src="{{ asset('images/dos_dc.png') }}" alt="Dos de carte destination" class="wagon-card">
+            <img id="dest-cards-trigger" src="{{ asset('images/dos_dc.png') }}" alt="Dos de carte destination" class="wagon-card">
         </div>
+        <div id="random-dest-cards" class="dest-cards-container"></div>
+        <button id="move-cards-btn" class="move-cards-btn">Garder les cartes sélectionnées</button>
         @php $isFirstCard = true; @endphp
         @foreach($visibleCards as $key => $card)
         <div class="card-container visible-card" data-card-id="{{ $card->wc_id }}" data-color="{{ $card->wc_color }}">
