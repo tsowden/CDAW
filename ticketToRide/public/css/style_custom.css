@@ -154,7 +154,9 @@
 }
 
 .disabled-card {
-    filter: grayscale(100%) opacity(60%);
+    width: 120px;
+    /* Ajustez selon la taille souhaitée */
+    height: auto;
 }
 
 .wagon-card {
