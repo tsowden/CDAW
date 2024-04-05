@@ -61,74 +61,69 @@ class GameController extends Controller
 
 
     public function play($gameId)
-    {
-        $user = auth()->user();
-        if (!$user) {
-            return redirect()->route('login')->with('error_message', 'Vous devez être connecté pour accéder à cette page.');
-        }
-
-
-        // Vérifiez si l'utilisateur fait partie de la partie
-        $participationExists = Participation::where('game_id', $gameId)
-            ->where('player_id', $user->id)
-            ->exists();
-
-        if (!$participationExists) {
-            return redirect()->route('home')->with('error_message', 'Vous n\'avez pas accès à cette partie !');
-        }
-
-        $game = Game::findOrFail($gameId);
-
-        // Ajout de la vérification de l'état de la partie
-        if ($game->game_state !== 'En cours') {
-            return redirect()->route('lobby.show', ['gameId' => $gameId])->with('warning_message', 'La partie n\'a pas encore commencé. Veuillez attendre dans le lobby.');
-        }
-
-        // Définissez ici la liste des couleurs pour les cartes wagon
-        $colors = ['black', 'blue', 'cyan', 'green', 'orange', 'red', 'violet', 'yellow', 'locomotive'];
-
-        // Initiez une collection pour tenir les comptes de cartes par couleur initialisés à 0
-        $cardsCountByColor = collect($colors)->flip()->mapWithKeys(function ($item, $color) {
-            return [$color => ['count' => 0]];
-        });
-
-        // Mise à jour des comptes de cartes réels pour l'utilisateur dans cette partie
-        $realCounts = WagonCard::where('game_id', $gameId)
-            ->where('player_id_wc_hand', $user->id)
-            ->selectRaw('wc_color, COUNT(*) as count')
-            ->groupBy('wc_color')
-            ->get()
-            ->keyBy('wc_color');
-
-        // Fusion des données réelles avec la structure initialisée
-        $cardsCountByColor = $cardsCountByColor->merge($realCounts);
-
-        $game = Game::with('participations.user')->findOrFail($gameId);
-
-        // Liste des participants à renvoyer dans play pour que l'on sache quand on arrive qui est dans la partie avec nous
-        $participants = $game->participations()->with('user')->get()->pluck('user.name');
-
-
-        $randomCardId = WagonCard::where('game_id', $gameId)
-            ->whereNull('player_id_wc_hand')
-            ->inRandomOrder()
-            ->first()
-            ->wc_id ?? null;
-
-        $visibleCards = WagonCard::where('game_id', $gameId)
-            ->whereNull('player_id_wc_hand')
-            ->inRandomOrder()
-            ->take(5)
-            ->get();
-
-        return view('play', [
-            'game' => $game, 'participants' => $participants,
-            'cardsCountByColor' => $cardsCountByColor,
-            'colors' => $colors,
-            'randomCardId' => $randomCardId,
-            'visibleCards' => $visibleCards
-        ]);
+{
+    $user = auth()->user();
+    if (!$user) {
+        return redirect()->route('login')->with('error_message', 'Vous devez être connecté pour accéder à cette page.');
     }
+
+    // Vérifiez si l'utilisateur fait partie de la partie
+    $participationExists = Participation::where('game_id', $gameId)
+        ->where('player_id', $user->id)
+        ->exists();
+
+    if (!$participationExists) {
+        return redirect()->route('home')->with('error_message', 'Vous n\'avez pas accès à cette partie !');
+    }
+
+    $game = Game::findOrFail($gameId);
+
+    // Ajout de la vérification de l'état de la partie
+    if ($game->game_state !== 'En cours') {
+        return redirect()->route('lobby.show', ['gameId' => $gameId])->with('warning_message', 'La partie n\'a pas encore commencé. Veuillez attendre dans le lobby.');
+    }
+
+    // Initiez une collection pour tenir les comptes de cartes par couleur initialisés à 0
+    $colors = ['black', 'blue', 'cyan', 'green', 'orange', 'red', 'violet', 'yellow', 'locomotive'];
+    $cardsCountByColor = collect($colors)->flip()->mapWithKeys(function ($item, $color) {
+        return [$color => ['count' => 0]];
+    });
+
+    // Mise à jour des comptes de cartes réels pour l'utilisateur dans cette partie
+    $realCounts = WagonCard::where('game_id', $gameId)
+        ->where('player_id_wc_hand', $user->id)
+        ->selectRaw('wc_color, COUNT(*) as count')
+        ->groupBy('wc_color')
+        ->get()
+        ->keyBy('wc_color');
+
+    // Fusion des données réelles avec la structure initialisée
+    $cardsCountByColor = $cardsCountByColor->merge($realCounts);
+
+    $game = Game::with('participations.user')->findOrFail($gameId);
+
+    // Liste des participants
+    $participants = $game->participations()->with('user')->get()->pluck('user.name');
+
+    $visibleCards = WagonCard::where('game_id', $gameId)
+        ->whereNull('player_id_wc_hand')
+        ->inRandomOrder()
+        ->take(6)
+        ->get();
+
+    // Déterminez ici si le dos_wc.png doit être affiché sur la première carte
+    $coverFirstCard = true; // Ou ajustez cette valeur en fonction de votre logique spécifique
+
+    return view('play', [
+        'game' => $game, 
+        'participants' => $participants,
+        'cardsCountByColor' => $cardsCountByColor,
+        'colors' => $colors,
+        'visibleCards' => $visibleCards,
+        'coverFirstCard' => $coverFirstCard // Passez cette variable à la vue
+    ]);
+}
+
 
 
     public function pickCard(Request $request, $cardId, $gameId) // Ajoutez $gameId comme paramètre

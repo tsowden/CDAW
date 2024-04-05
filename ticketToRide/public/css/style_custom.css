@@ -2,6 +2,20 @@
     font-size: 22px;
 }
 
+.card-container {
+    position: relative;
+    display: inline-block; /* ou flex, selon la disposition de vos cartes */
+    margin-right: 10px; /* Ajustez selon l'espacement désiré entre les cartes */
+}
+.card-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px; /* Assurez-vous que cela correspond à la largeur de .wagon-card */
+    height: auto; /* Pour maintenir le ratio d'aspect */
+    z-index: 2; /* Pour s'assurer que le cache est bien au-dessus de la carte */
+    pointer-events: none; /* Permet de cliquer à travers le cache */
+}
 
 .pioche {
     margin-bottom: 5%;

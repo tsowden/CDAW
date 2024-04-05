@@ -356,23 +356,20 @@
         <div class="card-row">
             <img src="{{ asset('images/dos_dc.png') }}" alt="Dos de carte destination" class="wagon-card">
         </div>
-        <div class="card-row">
-            <div class="random-draw-container">
-                <img src="{{ asset('images/dos_wc.png') }}" alt="Dos de carte wagon" class="wagon-card">
-                @if(isset($randomCardId))
-                <button type="button" class="btn btn-primary pioche random-draw" data-card-id="{{ $randomCardId }}">Piocher aléatoire</button>
-                @endif
-            </div>
+        @php $isFirstCard = true; @endphp
+        @foreach($visibleCards as $key => $card)
+        <div class="card-container visible-card" data-card-id="{{ $card->wc_id }}" data-color="{{ $card->wc_color }}">
+            <img src="{{ asset('images/'.$card->wc_image) }}" alt="Carte Wagon {{ ucfirst($card->wc_color) }}" class="wagon-card">
+            @if($key === 0 && $coverFirstCard)
+                <img src="{{ asset('images/dos_wc.png') }}" alt="Cache" class="card-cover" style="position: absolute; top: 0; left: 0; width: 120px; height: auto; z-index: 1; pointer-events: none;">
+            @endif
         </div>
-        <!-- Visible Cards Container -->
-        <div id="visible-cards-container">
-            @foreach($visibleCards as $card)
-            <div class="card-container visible-card" data-card-id="{{ $card->wc_id }}" data-color="{{ $card->wc_color }}">
-                <img src="{{ asset('images/'.$card->wc_image) }}" alt="Carte Wagon {{ ucfirst($card->wc_color) }}" class="wagon-card">
-                <!-- Pas besoin de bouton ici si le clic sur l'image suffit pour piocher la carte -->
-            </div>
-            @endforeach
-        </div>
+        @endforeach
+
+
+
+
+
     </div>
 
 
